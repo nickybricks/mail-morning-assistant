@@ -1,0 +1,12 @@
+{
+  "provider": "imap",
+  "assistant_name": "Maily",
+  "briefing_grouping": "attention",
+  "lookback_hours": 24,
+  "imap_host": "imap.example.com",
+  "imap_port": 993,
+  "email": "du@deine-domain.de",
+  "keychain_service": "mail-imap",
+  "drafts_folder": null,
+  "voice_samples_path": "voice/samples.md"
+}

@@ -1,0 +1,11 @@
+# Persönliche Daten pro Nutzer — nie versionieren
+config.json
+voice/samples.md
+senders.md
+memory/
+runs/*
+!runs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
