@@ -87,19 +87,49 @@ Im Onboarding (Schritt 6) wird beides abgefragt; Default = täglich morgens, 24 
 
 ### A) claude.ai-Routine (Cloud — läuft, auch wenn der Rechner aus ist)
 
-Eine geplante Remote-Routine führt Claude Code in der Cloud aus. Sie zieht ihren
-Kontext aus einem **Git-Repo**; das Postfach-Secret liegt im Cloud-Environment.
+Eine geplante Remote-Routine führt Claude Code in der Cloud aus. **Kein privates
+Repo nötig:** die Routine klont das **öffentliche** Skill-Repo; die nicht-geheime
+Einstellung schreibt der Lauf selbst (per Prompt), und das Postfach-Passwort liegt
+als **Secret** im Environment. Der Nutzer legt **kein Repo an und schreibt keinen
+Code** — er füllt einmal die Routine-Maske in claude.ai aus.
 
-- Skill in ein **Git-Repo** legen (ohne persönliche Daten — `.gitignore` greift;
-  `config.json`/`memory/` müssen für den Lauf aber verfügbar sein, also entweder
-  ein **privates** Repo mit der Instanz oder Environment-seitig bereitgestellt).
-- Routine: Cron (lokale Zeit, z. B. `57 6 * * *`), Modell, erlaubte Tools
-  (`Bash`, `Read`, `Write`), Quelle = das Repo.
-- Secret `MAIL_IMAP_PASSWORD` im Environment hinterlegen (claude.ai-Oberfläche).
-- Prompt (sinngemäß): „Führe den Morgen-Mail-Assistenten aus: lies die INBOX der
-  letzten 24h über IMAP, klassifiziere, schreibe das Briefing und lege es per
-  `adapters/imap/deliver_briefing.py` in `<Name>/Briefings`. Kein Versand an
-  Dritte, nichts löschen."
+> **Verifizierter Vorbehalt:** Die Routine braucht zwingend ein **Environment**
+> mit dem Secret — das wird **einmalig in der claude.ai-Oberfläche** angelegt
+> (lässt sich nicht aus dem Chat heraus erstellen). Das ist der einzige Schritt
+> außerhalb des Chats. Der Assistent liefert dafür ein **copy-paste-fertiges
+> Paket**:
+
+**Copy-paste-Paket (Platzhalter `<…>` ausfüllen):**
+
+- **Quelle (Repo, öffentlich):** `https://github.com/<org>/mail-morning-assistant`
+- **Zeitplan (Cron, lokale Zeit):** z. B. `57 6 * * *`
+- **Modell:** ein Sonnet-Modell
+- **Erlaubte Tools:** `Bash`, `Read`, `Write`
+- **Secret:** `MAIL_IMAP_PASSWORD` = das IMAP-App-Passwort
+- **Prompt:**
+  ```
+  Du läufst in einem Klon des öffentlichen Repos mail-morning-assistant
+  (Arbeitsverzeichnis = Repo-Wurzel). Automatischer Morgenlauf — NUR Briefing,
+  kein Sortieren/Verschieben/Löschen, kein Versand an Dritte.
+
+  1. Schreibe config.json ins Wurzelverzeichnis:
+     {"provider":"imap","assistant_name":"<Name>","imap_host":"<host>",
+      "imap_port":993,"email":"<email>","briefing_grouping":"attention",
+      "lookback_hours":24,"drafts_folder":null}
+     Das Passwort steht in ENV MAIL_IMAP_PASSWORD; fehlt sie -> abbrechen + im Log melden.
+  2. python3 adapters/imap/fetch_mail.py  (Mails der letzten 24h; nur folder=="INBOX" fürs Briefing)
+  3. Lies core/briefing.md. Schreibe das Briefing (Gruppierung attention,
+     ein Satz pro Mail, Newsletter≠Müll, Kosten-Footer) nach briefing.txt.
+  4. python3 adapters/imap/deliver_briefing.py briefing.txt --folder "<Name>/Briefings" --also-inbox
+  5. Log: Anzahl Mails + ob Zustellung ok.
+
+  EISERN: nichts senden außer dem eigenen Briefing (APPEND), nichts löschen,
+  kein Spam/Papierkorb, keine Drafts. Bei Fehler klar melden, nichts raten.
+  ```
+
+Erster Lauf am besten **manuell/deaktiviert testen** (prüfen, ob das Environment
+IMAP nach außen erreichen darf), dann aktivieren. Sortieren/Drafts im Auto-Modus
+erst ergänzen, wenn die Lernlog-Memory auch in der Cloud verfügbar ist.
 
 ### B) Cron auf einem immer-laufenden Rechner/Server
 
