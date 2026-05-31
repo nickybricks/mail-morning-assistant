@@ -131,6 +131,42 @@ Erster Lauf am besten **manuell/deaktiviert testen** (prüfen, ob das Environmen
 IMAP nach außen erreichen darf), dann aktivieren. Sortieren/Drafts im Auto-Modus
 erst ergänzen, wenn die Lernlog-Memory auch in der Cloud verfügbar ist.
 
+#### Schritt für Schritt in claude.ai (für komplette Einsteiger — idiotensicher)
+
+Der Assistent führt den Nutzer **Feld für Feld** durch und nimmt nichts als
+bekannt an. Wortlaut etwa so:
+
+1. **Hinkommen:** „Öffne **claude.ai/code** (etwas versteckt: oben/Menü →
+   *Code*). Dort links **Routines** → **Neue Routine**."
+2. **Name*** → Vorschlag: `<Name> – Morgen-Mail-Briefing`.
+3. **Anweisungen** → „Das ist der Auftrag (Prompt). Füge **genau diesen Text**
+   ein:" → der **individuell erzeugte Prompt** (siehe oben; mit Name/Host/E-Mail
+   des Nutzers schon eingesetzt).
+4. **Modell** (kleines Dropdown unten rechts im Anweisungen-Feld) → **Sonnet**
+   wählen. „Reicht locker und ist günstig für einen täglichen Lauf."
+5. **Quelle** (das `+`/Repo-Feld) → die **öffentliche Repo-URL** einfügen:
+   `https://github.com/<org>/mail-morning-assistant`. „Kein Login nötig, ist
+   öffentlich."
+6. **Zeitplan** → Reiter **Täglich** + Uhrzeit (Vorschlag früh morgens, z. B.
+   06:57). „Für stündlich/Werktage die anderen Reiter — dann sag mir die Frequenz,
+   ich passe `lookback_hours` an."
+7. **Konnektoren** → **alle entfernen.** „Dieser Assistent braucht keine — er
+   arbeitet über IMAP. Connectors hätten sonst vollen Schreibzugriff."
+8. **Berechtigungen/Verhalten** → sicherstellen, dass **Bash** + Datei lesen/
+   schreiben erlaubt sind.
+9. **Cloud-Umgebung anlegen** (Dialog „Neue Cloud-Umgebung"):
+   - **Name** = z. B. `<Name>` — **NICHT** das Passwort (häufiger Fehler!).
+   - **Netzwerkzugriff** = **Vertraut** — sonst kein Zugriff auf den Mailserver.
+   - **Umgebungsvariablen** = eine Zeile, **nur das Passwort, ohne spitze Klammern**:
+     `MAIL_IMAP_PASSWORD=<das App-Passwort>`. Hinweis: Umgebung **privat** halten.
+   - **Setup-Skript** leer lassen.
+10. **Erstellen.** Empfehlung: erst **einen Testlauf** (manuell), prüfen ob das
+    Briefing in `<Name>/Briefings` ankommt; dann aktiviert lassen.
+
+> Diese Maske ändert sich gelegentlich. Wenn ein Feldname nicht passt, das
+> nächstgelegene sinngemäß nehmen und den Nutzer fragen — nie raten bei Secret/
+> Netzwerk.
+
 ### B) Cron auf einem immer-laufenden Rechner/Server
 
 Wenn ein eigener Server/NAS o. Ä. dauerhaft läuft, reicht klassischer Cron, der
