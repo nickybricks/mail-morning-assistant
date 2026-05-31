@@ -83,9 +83,34 @@ Cron-Ausdruck (lokale Zeit). Beispiele:
 
 Im Onboarding (Schritt 6) wird beides abgefragt; Default = täglich morgens, 24 h.
 
-## Scheduler — zwei Wege (Nutzer wählt, was er hat)
+## ⚠️ Getestet 2026-05-31: claude.ai-Cloud ist HTTPS-only → kein IMAP
 
-### A) claude.ai-Routine (Cloud — läuft, auch wenn der Rechner aus ist)
+In einem echten Cloud-Lauf gemessen (`adapters/imap/netcheck.py`): Das claude.ai-
+Cloud-Environment lässt **nur HTTPS (443)** nach außen — **IMAP (Port 993) ist
+gesperrt** (`Errno 97`/Timeout), **auch** bei Netzwerkzugriff „Vertraut". Das ist
+eine **Plattform-Grenze, nicht über Einstellungen lösbar.**
+
+**Konsequenz:** Eine **claude.ai-Routine kann KEIN IMAP** → der unten beschriebene
+Weg A funktioniert für IMAP **nicht**. Für „läuft, wenn der Rechner aus ist"
+braucht es einen Weg, der **über HTTPS** auf die Mails kommt:
+
+| Anbieter | Cloud-Weg (HTTPS, Rechner darf aus sein) |
+|---|---|
+| **Gmail / Workspace** | **Google Apps Script** (läuft auf Googles Servern, scheduled Trigger, voller Mailzugriff inkl. Ablegen/Labeln) — das ist der saubere Weg. Alternativ Gmail-REST-API per OAuth. |
+| **Microsoft 365** | MS Graph API (HTTPS) |
+| **Reines IMAP** (all-inkl, GMX, …) | claude.ai-Cloud geht **nicht**; nur **eigener Server/Cron** (Weg B) oder ein Rechner, der läuft. |
+
+Der **lokale** Betrieb (interaktiv + lokaler Zeitplan, Rechner an) ist davon
+**nicht** betroffen — IMAP funktioniert dort normal.
+
+## Scheduler — Wege (Nutzer wählt, was passt)
+
+### A) claude.ai-Routine — NUR für HTTPS-basierte Zugänge (NICHT IMAP)
+
+> **Achtung:** Wegen der HTTPS-only-Grenze (oben) ist dieser Weg **nicht** für
+> IMAP nutzbar. Tauglich nur, wenn der Mailzugriff über eine **HTTPS-API**
+> erfolgt (z. B. ein künftiger Gmail-API-/Graph-Adapter). Für Gmail heute lieber
+> Apps Script (siehe Tabelle).
 
 Eine geplante Remote-Routine führt Claude Code in der Cloud aus. **Kein privates
 Repo nötig:** die Routine klont das **öffentliche** Skill-Repo; die nicht-geheime
@@ -178,9 +203,22 @@ Klassifikation/Brief-Texte würde ein separater Modell-Aufruf erzeugen):
 57 6 * * *  cd /pfad/zum/skill && MAIL_IMAP_PASSWORD=… python3 adapters/imap/fetch_mail.py > /tmp/mail.json && … 
 ```
 (Hier ist eigene Glue-Logik nötig, die fetch → Klassifikation/Brief → deliver
-verbindet. Für die meisten Nutzer ist Weg A einfacher.)
+verbindet.)
 
-## Empfehlung
+### C) Gmail Apps Script (empfohlen für Gmail, wenn der Rechner aus sein soll)
 
-Für „läuft morgens automatisch, auch wenn der Rechner aus ist" ist **Weg A**
-(claude.ai-Routine) der einfachste. Weg B ist für Selbst-Hoster mit eigenem Server.
+Für **Gmail/Workspace** der sauberste „läuft auch bei ausgeschaltetem Rechner"-Weg:
+ein Google **Apps Script** mit Zeit-Trigger läuft auf Googles Servern, hat vollen
+Mailzugriff (lesen, labeln, eine Briefing-Mail anlegen) und unterliegt **keiner**
+Port-Sperre. Kein IMAP, kein claude.ai-Environment nötig. (Setup-Hilfe: separates
+Apps-Script-Rezept / die „gmail-morning-assistant"-Vorlage.)
+
+## Empfehlung (nach dem HTTPS-only-Test)
+
+- **Rechner läuft sowieso / nur lokal gewünscht:** lokaler Zeitplan, IMAP-Adapter,
+  voll funktionsfähig.
+- **Rechner darf aus sein + Gmail:** **Apps Script** (Weg C).
+- **Rechner darf aus sein + reines IMAP-Postfach:** eigener Server/Cron (Weg B).
+- **claude.ai-Routine (Weg A):** erst sinnvoll, wenn ein **HTTPS-API-Adapter**
+  existiert (Gmail-API/Graph) — mit dem heutigen IMAP-Adapter **nicht** nutzbar
+  (HTTPS-only-Grenze, getestet).
