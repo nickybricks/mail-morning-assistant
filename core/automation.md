@@ -10,6 +10,23 @@ Der Assistent läuft in **zwei Modi**:
 
 Dieser Text beschreibt den automatischen Modus **scheduler- und anbieter-agnostisch**.
 
+## Woher kommen die Dateien? (Lokal vs. Cloud)
+
+Wichtig — das entscheidet, ob ein Repo nötig ist:
+
+- **Lokal (Normalfall):** Skill + Einrichtung liegen im **lokalen Ordner** des
+  Nutzers. Interaktive Läufe und auf dem **eigenen, eingeschalteten Rechner**
+  geplante Läufe (z. B. Claude-Code-`/schedule`, lokaler Cron) lesen direkt von
+  dort. **Kein Repo nötig.** Nachteil: läuft nur, wenn der Rechner an ist.
+- **Cloud (Rechner darf aus sein):** Der Lauf passiert auf einem **fremden
+  Server** (claude.ai-Routine), der den lokalen Ordner nicht sieht. Darum müssen
+  Skill **und** Einrichtung für den Server erreichbar sein — typisch über ein
+  **(privates) Git-Repo**, plus das Postfach-Passwort als Secret. Das Repo ist
+  also **nur** die Brücke für den Cloud-Fall, kein Teil der normalen Nutzung.
+
+Faustregel: „Soll es laufen, wenn mein Rechner aus ist?" → Cloud (Repo). Sonst →
+lokal (kein Repo).
+
 ## Voraussetzungen (für jeden Nutzer gleich)
 
 1. **Unbeaufsichtigte Zustellung → IMAP.** Im Auto-Modus muss der Lauf selbst
