@@ -6,6 +6,9 @@ memory/
 runs/*
 !runs/.gitkeep
 
+# Session-Handoff (enthält Konto-Details) — lokal, nicht veröffentlichen
+HANDOFF.md
+
 # Python
 __pycache__/
 *.pyc
