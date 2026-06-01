@@ -104,10 +104,10 @@ Regeln:
 
 Das Briefing wird als **Mail an den Nutzer selbst** zugestellt und in den Ordner/
 das Label `<assistant_name>/Briefings` einsortiert — über den Adapter, **kein
-Versand an Dritte** (IMAP: `deliver_briefing.py` per `APPEND`; Gmail wird dafür
-über den IMAP-Zugang bedient, da der MCP nicht senden kann — siehe
-`adapters/gmail/adapter.md`). Wenn der Nutzer es morgens im Posteingang sehen
-will, zusätzlich in die INBOX legen (`--also-inbox`). Optional Kopie nach
+Versand an Dritte**: IMAP per `deliver_briefing.py` (`APPEND`); Gmail im Cloud-/
+Auto-Lauf per `adapters/gmail-rest/deliver_briefing.py` (`messages.insert`), da der
+MCP nicht senden kann. Wenn der Nutzer es morgens im Posteingang sehen will,
+zusätzlich in die INBOX legen (`--also-inbox`). Optional Kopie nach
 `runs/JJJJ-MM-TT.md` fürs Archiv.
 
 Im **interaktiven** Lauf wird das Briefing zusätzlich direkt im Chat gezeigt.

@@ -96,8 +96,8 @@ braucht es einen Weg, der **über HTTPS** auf die Mails kommt:
 
 | Anbieter | Cloud-Weg (HTTPS, Rechner darf aus sein) |
 |---|---|
-| **Gmail / Workspace** | **Google Apps Script** (läuft auf Googles Servern, scheduled Trigger, voller Mailzugriff inkl. Ablegen/Labeln) — das ist der saubere Weg. Alternativ Gmail-REST-API per OAuth. |
-| **Microsoft 365** | MS Graph API (HTTPS) |
+| **Gmail / Workspace** | **`adapters/gmail-rest/`** (Gmail-REST-API per OAuth, nur HTTPS) — funktioniert in der claude.ai-Routine (Weg A). Alternativ Google Apps Script (läuft auf Googles Servern). |
+| **Microsoft 365** | MS Graph API (HTTPS) — Adapter noch Stub |
 | **Reines IMAP** (all-inkl, GMX, …) | claude.ai-Cloud geht **nicht**; nur **eigener Server/Cron** (Weg B) oder ein Rechner, der läuft. |
 
 Der **lokale** Betrieb (interaktiv + lokaler Zeitplan, Rechner an) ist davon
@@ -105,32 +105,33 @@ Der **lokale** Betrieb (interaktiv + lokaler Zeitplan, Rechner an) ist davon
 
 ## Scheduler — Wege (Nutzer wählt, was passt)
 
-### A) claude.ai-Routine — NUR für HTTPS-basierte Zugänge (NICHT IMAP)
+### A) claude.ai-Routine — für HTTPS-Zugänge (Gmail via `gmail-rest`; NICHT IMAP)
 
-> **Achtung:** Wegen der HTTPS-only-Grenze (oben) ist dieser Weg **nicht** für
-> IMAP nutzbar. Tauglich nur, wenn der Mailzugriff über eine **HTTPS-API**
-> erfolgt (z. B. ein künftiger Gmail-API-/Graph-Adapter). Für Gmail heute lieber
-> Apps Script (siehe Tabelle).
+> **Stand:** Tauglich, wenn der Mailzugriff über eine **HTTPS-API** läuft. Für
+> **Gmail/Workspace existiert das jetzt** (`adapters/gmail-rest/`, getestet). Für
+> reines IMAP weiterhin **nicht** (993 gesperrt) — dort Weg B.
 
 Eine geplante Remote-Routine führt Claude Code in der Cloud aus. **Kein privates
 Repo nötig:** die Routine klont das **öffentliche** Skill-Repo; die nicht-geheime
-Einstellung schreibt der Lauf selbst (per Prompt), und das Postfach-Passwort liegt
-als **Secret** im Environment. Der Nutzer legt **kein Repo an und schreibt keinen
-Code** — er füllt einmal die Routine-Maske in claude.ai aus.
+Einstellung schreibt der Lauf selbst (per Prompt), und die OAuth-Secrets liegen
+im **Environment**. Der Nutzer legt **kein Repo an und schreibt keinen Code** — er
+füllt einmal die Routine-Maske in claude.ai aus.
 
 > **Verifizierter Vorbehalt:** Die Routine braucht zwingend ein **Environment**
-> mit dem Secret — das wird **einmalig in der claude.ai-Oberfläche** angelegt
+> mit den Secrets — das wird **einmalig in der claude.ai-Oberfläche** angelegt
 > (lässt sich nicht aus dem Chat heraus erstellen). Das ist der einzige Schritt
 > außerhalb des Chats. Der Assistent liefert dafür ein **copy-paste-fertiges
 > Paket**:
 
-**Copy-paste-Paket (Platzhalter `<…>` ausfüllen):**
+**Copy-paste-Paket Gmail (Platzhalter `<…>` ausfüllen):**
 
 - **Quelle (Repo, öffentlich):** `https://github.com/<org>/mail-morning-assistant`
 - **Zeitplan (Cron, lokale Zeit):** z. B. `57 6 * * *`
 - **Modell:** ein Sonnet-Modell
 - **Erlaubte Tools:** `Bash`, `Read`, `Write`
-- **Secret:** `MAIL_IMAP_PASSWORD` = das IMAP-App-Passwort
+- **Secrets:** `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, `GMAIL_REFRESH_TOKEN`
+  (aus `oauth_bootstrap.py`; OAuth-Consent auf „In production" publishen, sonst
+  läuft der Refresh-Token nach 7 Tagen ab).
 - **Prompt:**
   ```
   Du läufst in einem Klon des öffentlichen Repos mail-morning-assistant
@@ -138,23 +139,24 @@ Code** — er füllt einmal die Routine-Maske in claude.ai aus.
   kein Sortieren/Verschieben/Löschen, kein Versand an Dritte.
 
   1. Schreibe config.json ins Wurzelverzeichnis:
-     {"provider":"imap","assistant_name":"<Name>","imap_host":"<host>",
-      "imap_port":993,"email":"<email>","briefing_grouping":"attention",
-      "lookback_hours":24,"drafts_folder":null}
-     Das Passwort steht in ENV MAIL_IMAP_PASSWORD; fehlt sie -> abbrechen + im Log melden.
-  2. python3 adapters/imap/fetch_mail.py  (Mails der letzten 24h; nur folder=="INBOX" fürs Briefing)
+     {"provider":"gmail-rest","assistant_name":"<Name>","email":"<email>",
+      "briefing_grouping":"attention","lookback_hours":24}
+     Die OAuth-Secrets stehen in ENV GMAIL_CLIENT_ID/GMAIL_CLIENT_SECRET/
+     GMAIL_REFRESH_TOKEN; fehlt eine -> abbrechen + im Log melden.
+  2. python3 adapters/gmail-rest/fetch_mail.py  (Mails der letzten 24h; folder=="INBOX" fürs Briefing, is_spam nur als Hinweis)
   3. Lies core/briefing.md. Schreibe das Briefing (Gruppierung attention,
      ein Satz pro Mail, Newsletter≠Müll, Kosten-Footer) nach briefing.txt.
-  4. python3 adapters/imap/deliver_briefing.py briefing.txt --folder "<Name>/Briefings" --also-inbox
+  4. python3 adapters/gmail-rest/deliver_briefing.py briefing.txt --folder "<Name>/Briefings" --also-inbox
   5. Log: Anzahl Mails + ob Zustellung ok.
 
-  EISERN: nichts senden außer dem eigenen Briefing (APPEND), nichts löschen,
-  kein Spam/Papierkorb, keine Drafts. Bei Fehler klar melden, nichts raten.
+  EISERN: nichts senden außer dem eigenen Briefing (messages.insert legt nur ab),
+  nichts löschen, kein Spam/Papierkorb, keine Drafts. Bei Fehler klar melden,
+  nichts raten.
   ```
 
-Erster Lauf am besten **manuell/deaktiviert testen** (prüfen, ob das Environment
-IMAP nach außen erreichen darf), dann aktivieren. Sortieren/Drafts im Auto-Modus
-erst ergänzen, wenn die Lernlog-Memory auch in der Cloud verfügbar ist.
+Erster Lauf am besten **manuell testen** (prüfen, ob das Briefing in
+`<Name>/Briefings` ankommt), dann aktivieren. Sortieren/Drafts im Auto-Modus erst
+ergänzen, wenn die Lernlog-Memory auch in der Cloud verfügbar ist.
 
 #### Schritt für Schritt in claude.ai (für komplette Einsteiger — idiotensicher)
 
@@ -180,11 +182,13 @@ bekannt an. Wortlaut etwa so:
 8. **Berechtigungen/Verhalten** → sicherstellen, dass **Bash** + Datei lesen/
    schreiben erlaubt sind.
 9. **Cloud-Umgebung anlegen** (Dialog „Neue Cloud-Umgebung"):
-   - **Name** = z. B. `<Name>` — **NICHT** das Passwort (häufiger Fehler!).
-   - **Netzwerkzugriff** = **Vertraut** — sonst kein Zugriff auf den Mailserver.
-   - **Umgebungsvariablen** = eine Zeile, **nur das Passwort, ohne spitze Klammern**:
-     `MAIL_IMAP_PASSWORD=<das App-Passwort>`. Hinweis: Umgebung **privat** halten.
-   - **Setup-Skript** leer lassen.
+   - **Name** = z. B. `<Name>` — **NICHT** ein Secret (häufiger Fehler!).
+   - **Netzwerkzugriff** = **Vertraut** — für die HTTPS-Calls zu Google.
+   - **Umgebungsvariablen** = die drei OAuth-Secrets, je eine Zeile, **ohne spitze
+     Klammern**:
+     `GMAIL_CLIENT_ID=…`, `GMAIL_CLIENT_SECRET=…`, `GMAIL_REFRESH_TOKEN=…`.
+     Hinweis: Umgebung **privat** halten.
+   - **Setup-Skript** leer lassen (Adapter ist stdlib-only, kein pip nötig).
 10. **Erstellen.** Empfehlung: erst **einen Testlauf** (manuell), prüfen ob das
     Briefing in `<Name>/Briefings` ankommt; dann aktiviert lassen.
 
@@ -217,8 +221,9 @@ Apps-Script-Rezept / die „gmail-morning-assistant"-Vorlage.)
 
 - **Rechner läuft sowieso / nur lokal gewünscht:** lokaler Zeitplan, IMAP-Adapter,
   voll funktionsfähig.
-- **Rechner darf aus sein + Gmail:** **Apps Script** (Weg C).
+- **Rechner darf aus sein + Gmail:** **claude.ai-Routine mit `gmail-rest`** (Weg A,
+  getestet) oder **Apps Script** (Weg C). Weg A hält alles im Skill-Ökosystem
+  (gleiches Repo, gleiches Briefing-Format); Apps Script ist unabhängig von claude.ai.
 - **Rechner darf aus sein + reines IMAP-Postfach:** eigener Server/Cron (Weg B).
-- **claude.ai-Routine (Weg A):** erst sinnvoll, wenn ein **HTTPS-API-Adapter**
-  existiert (Gmail-API/Graph) — mit dem heutigen IMAP-Adapter **nicht** nutzbar
-  (HTTPS-only-Grenze, getestet).
+- **claude.ai-Routine (Weg A):** für Gmail via `adapters/gmail-rest/` nutzbar; mit
+  dem IMAP-Adapter **nicht** (HTTPS-only-Grenze, getestet).

@@ -78,9 +78,10 @@ Cloud-Lauf entfällt die Vorschau — dann gilt der einmal abgestimmte Standard.
 
 **6. Briefing zustellen.** Das Briefing als **Mail an den Nutzer selbst** in den
 Ordner `<assistant_name>/Briefings` ablegen — über den Adapter, **kein Versand an
-Dritte** (IMAP: `APPEND` via `adapters/imap/deliver_briefing.py`; Gmail wird dafür
-über den IMAP-Zugang bedient, da der MCP nicht senden kann). Optional zusätzlich
-in die INBOX, wenn der Nutzer es morgens dort sehen will.
+Dritte** (IMAP: `APPEND` via `adapters/imap/deliver_briefing.py`; Gmail im
+Cloud-/Auto-Lauf: `messages.insert` via `adapters/gmail-rest/deliver_briefing.py`,
+da der MCP nicht senden kann). Optional zusätzlich in die INBOX, wenn der Nutzer
+es morgens dort sehen will.
 
 **7. Abschluss.** Knapp melden: Briefing liegt in `<assistant_name>/Briefings`,
 X Entwürfe bereit, Y Mails als `!Now`, Z einsortiert. Hinweis: der Nutzer prüft
@@ -130,11 +131,19 @@ mail-morning-assistant/
 │   ├── drafts.md            ← Entwurfs-Regeln + Stil
 │   └── automation.md        ← automatischer/geplanter Lauf (Cloud/Cron)
 ├── adapters/
-│   ├── gmail/adapter.md     ← Gmail (MCP/OAuth, Labels)
+│   ├── _mime.py             ← gemeinsames RFC822-Parsing (IMAP + gmail-rest)
+│   ├── gmail/adapter.md     ← Gmail interaktiv (MCP/OAuth, Labels)
+│   ├── gmail-rest/          ← Gmail über REST/HTTPS — cloud-tauglich (Routine)
+│   │   ├── adapter.md
+│   │   ├── oauth_bootstrap.py
+│   │   ├── _gmail_common.py
+│   │   ├── fetch_mail.py
+│   │   └── deliver_briefing.py
 │   ├── imap/                ← all-inkl, IONOS/1und1, web.de, GMX, Strato, …
 │   │   ├── adapter.md
 │   │   ├── _imap_common.py
 │   │   ├── fetch_mail.py
+│   │   ├── deliver_briefing.py
 │   │   └── save_drafts.py
 │   ├── microsoft/adapter.md ← Stub (MS Graph / IMAP-Fallback)
 │   └── apple-mail/adapter.md← Stub (AppleScript / IMAP)
