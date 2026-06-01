@@ -58,7 +58,7 @@ lokal, ENV in der Cloud). `email` dient als Schlüsselbund-Account.
 | `Briefings` | Label `<Name>/Briefings` + `INBOX` (eine Mail, zwei Labels) |
 | Mail holen | `messages.list` (Query) + `messages.get` `format=raw` |
 | Briefing ablegen | `messages.insert` (self-addressed, kein Versand nach außen) |
-| einsortieren (später) | `messages.modify` (Label setzen, `INBOX` entfernen) |
+| einsortieren | `messages.modify` (Heim-Label setzen, `INBOX` entfernen) via `apply_actions.py` |
 
 ## Skripte
 
@@ -72,6 +72,11 @@ lokal, ENV in der Cloud). `email` dient als Schlüsselbund-Account.
 - **`deliver_briefing.py`** — Briefing per `messages.insert` in
   `<Name>/Briefings` (+ optional `INBOX`), ungelesen. CLI identisch zur
   IMAP-Variante: `<briefing.txt> [--folder] [--subject] [--also-inbox] [--dry-run]`.
+- **`apply_actions.py`** — Sortieren: liest `actions.json` `[{id,label,now}]` und
+  setzt Heim-Label via `messages.modify`. INBOX-/Archiv-Logik im Skript (eine
+  Stelle): `now` oder `<Name>/Unklar` → bleibt in INBOX, sonst archiviert (INBOX
+  entfernt). Guards: nur Labels mit `<Name>/`-Präfix (kein Auto-Anlegen), das
+  einzige je entfernte Label ist INBOX — nie löschen, nie Spam/Trash. `--dry-run`.
 
 ## Scopes & Sicherheit
 
