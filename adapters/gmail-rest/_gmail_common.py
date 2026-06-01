@@ -102,7 +102,9 @@ def api(method: str, path: str, token: str, params: dict | None = None,
     """Ein Gmail-API-Call gegen .../users/me<path>. Retry bei 429/5xx."""
     url = API_BASE + path
     if params:
-        url += "?" + urllib.parse.urlencode(params)
+        # doseq=True: Listen-Werte (z. B. metadataHeaders=[...]) korrekt als
+        # wiederholte Query-Parameter kodieren statt als String-Repr der Liste.
+        url += "?" + urllib.parse.urlencode(params, doseq=True)
     data = raw_body if raw_body is not None else (json.dumps(body).encode() if body is not None else None)
     headers = {"Authorization": f"Bearer {token}"}
     if data is not None:

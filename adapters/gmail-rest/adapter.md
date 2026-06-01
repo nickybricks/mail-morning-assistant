@@ -59,6 +59,7 @@ lokal, ENV in der Cloud). `email` dient als Schlüsselbund-Account.
 | Mail holen | `messages.list` (Query) + `messages.get` `format=raw` |
 | Briefing ablegen | `messages.insert` (self-addressed, kein Versand nach außen) |
 | einsortieren | `messages.modify` (Heim-Label setzen, `INBOX` entfernen) via `apply_actions.py` |
+| Antwort-Entwurf | `drafts.create` (Threading aus Originalmail) via `create_drafts.py` — nie senden |
 
 ## Skripte
 
@@ -77,6 +78,11 @@ lokal, ENV in der Cloud). `email` dient als Schlüsselbund-Account.
   Stelle): `now` oder `<Name>/Unklar` → bleibt in INBOX, sonst archiviert (INBOX
   entfernt). Guards: nur Labels mit `<Name>/`-Präfix (kein Auto-Anlegen), das
   einzige je entfernte Label ist INBOX — nie löschen, nie Spam/Trash. `--dry-run`.
+- **`create_drafts.py`** — Antwort-Entwürfe: liest `drafts.json` `[{id,body}]`
+  (Modell liefert nur den Antworttext im Stil des Nutzers), baut das Reply-Threading
+  (To = Absender/Reply-To, `Re:`-Betreff, In-Reply-To/References, threadId) und legt
+  via `drafts.create` an. **Sendet nie** (nur Entwurf). Antwort an den Absender, kein
+  Reply-All. `--dry-run`.
 
 ## Scopes & Sicherheit
 
