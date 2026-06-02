@@ -47,22 +47,54 @@ def fetch_raw(token, msg_id):
     return email.message_from_bytes(raw), resp.get("threadId")
 
 
+def last_briefing_epoch(token, name):
+    """Zeitpunkt (epoch sec) des letzten ausgelieferten Briefings, oder None.
+    Dient als Zeitmarke fuer mehrmals-taegliche Laeufe: jeder Lauf briefed nur,
+    was seit dem letzten Briefing kam. Gmail selbst ist die Marke (kein State)."""
+    resp = api("GET", "/messages", token,
+               params={"q": f"label:{name}/Briefings", "maxResults": 1})
+    msgs = resp.get("messages", [])
+    if not msgs:
+        return None
+    m = api("GET", f"/messages/{msgs[0]['id']}", token, params={"format": "minimal"})
+    try:
+        return int(m["internalDate"]) / 1000.0
+    except (KeyError, ValueError, TypeError):
+        return None
+
+
 def main():
     cfg = load_config()
+    name = cfg.get("assistant_name") or "Maily"
     try:
         lookback = float(os.environ.get("MAIL_LOOKBACK_HOURS")
                          or cfg.get("lookback_hours") or LOOKBACK_HOURS)
     except (TypeError, ValueError):
         lookback = LOOKBACK_HOURS
-    since = datetime.now(timezone.utc) - timedelta(hours=lookback)
-    # Gmail newer_than ist tagesgenau -> einen Tag weiter zuruecksuchen, danach
-    # exakt nach Date-Header filtern (wie der IMAP-Adapter).
-    days_wide = int(math.ceil(lookback / 24)) + 1
 
     token = access_token(cfg["email"])
 
+    now = datetime.now(timezone.utc)
+    # Standard: seit dem letzten Briefing (fuer mehrmals-taegliche Laeufe -> keine
+    # Wiederholung, kein Loch). Fallback: lookback_hours, wenn noch kein Briefing
+    # existiert oder MAIL_LOOKBACK_HOURS das Fenster bewusst erzwingt.
+    since = None
+    if not os.environ.get("MAIL_LOOKBACK_HOURS"):
+        last = last_briefing_epoch(token, name)
+        if last is not None:
+            # 10 min Puffer: Mail, die zeitgleich mit dem Briefing kam, nicht verlieren.
+            since = datetime.fromtimestamp(last - 600, tz=timezone.utc)
+    if since is None:
+        since = now - timedelta(hours=lookback)
+
+    # Gmail newer_than ist tagesgenau -> einen Tag weiter zuruecksuchen, danach
+    # exakt nach Date-Header filtern (wie der IMAP-Adapter).
+    window_h = max((now - since).total_seconds() / 3600.0, 1.0)
+    days_wide = int(math.ceil(window_h / 24)) + 1
+
+    # Eigene Briefings nie mit-briefen.
     sources = [
-        (f"newer_than:{days_wide}d in:inbox", "INBOX", False),
+        (f"newer_than:{days_wide}d in:inbox -label:{name}/Briefings", "INBOX", False),
         (f"newer_than:{days_wide}d in:spam", "Spam", True),
     ]
 
