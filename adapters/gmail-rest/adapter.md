@@ -82,7 +82,9 @@ lokal, ENV in der Cloud). `email` dient als Schlüsselbund-Account.
   (Modell liefert nur den Antworttext im Stil des Nutzers), baut das Reply-Threading
   (To = Absender/Reply-To, `Re:`-Betreff, In-Reply-To/References, threadId) und legt
   via `drafts.create` an. **Sendet nie** (nur Entwurf). Antwort an den Absender, kein
-  Reply-All. `--dry-run`.
+  Reply-All. **Idempotent:** liegt im Thread schon ein Entwurf, wird übersprungen —
+  so erzeugt ein erneuter Lauf (gleiche Mail am Folgetag, Duplikat im Postfach) keinen
+  zweiten Entwurf. Gmail selbst ist der Zustand, keine State-Datei nötig. `--dry-run`.
 
 ## Scopes & Sicherheit
 

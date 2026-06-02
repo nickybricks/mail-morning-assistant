@@ -35,6 +35,25 @@ def header_map(msg_meta):
     return {h["name"].lower(): h["value"] for h in msg_meta.get("payload", {}).get("headers", [])}
 
 
+def existing_draft_threads(token):
+    """Thread-IDs, in denen schon ein Entwurf liegt. Gmail selbst ist das
+    'Gedaechtnis': so legt ein erneuter Lauf fuer denselben Thread keinen
+    zweiten Entwurf an (idempotent, ohne State-Datei)."""
+    threads, page = set(), None
+    while True:
+        params = {"maxResults": 500}
+        if page:
+            params["pageToken"] = page
+        resp = api("GET", "/drafts", token, params=params)
+        for d in resp.get("drafts", []):
+            tid = (d.get("message") or {}).get("threadId")
+            if tid:
+                threads.add(tid)
+        page = resp.get("nextPageToken")
+        if not page:
+            return threads
+
+
 def build_reply_raw(cfg, orig_headers, body):
     addr = cfg["email"]
     to = orig_headers.get("reply-to") or orig_headers.get("from") or ""
@@ -71,7 +90,8 @@ def main():
         die("drafts-Datei: erwarte {\"drafts\": [...]} oder eine Liste.")
 
     token = access_token(cfg["email"])
-    result = {"dry_run": args.dry_run, "created": 0, "drafts": [], "errors": []}
+    seen_threads = existing_draft_threads(token)
+    result = {"dry_run": args.dry_run, "created": 0, "drafts": [], "skipped": [], "errors": []}
 
     for d in drafts:
         mid = d.get("id")
@@ -87,8 +107,14 @@ def main():
             result["errors"].append({"id": mid, "error": str(e)})
             continue
         thread_id = meta.get("threadId")
+        # Idempotenz: liegt im Thread schon ein Entwurf -> nicht erneut anlegen.
+        if thread_id in seen_threads:
+            result["skipped"].append({"id": mid, "thread_id": thread_id,
+                                      "reason": "Entwurf existiert bereits in diesem Thread"})
+            continue
         raw, to, subj = build_reply_raw(cfg, header_map(meta), body)
 
+        seen_threads.add(thread_id)  # auch innerhalb dieses Laufs nicht doppeln
         if args.dry_run:
             result["created"] += 1
             result["drafts"].append({"reply_to_msg": mid, "to": to, "subject": subj,
