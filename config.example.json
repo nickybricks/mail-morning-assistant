@@ -8,5 +8,10 @@
   "email": "du@deine-domain.de",
   "keychain_service": "mail-imap",
   "drafts_folder": null,
-  "voice_samples_path": "voice/samples.md"
+  "voice_samples_path": "voice/samples.md",
+  "ai_digest_senders": [],
+  "ai_digest_time": "08:00",
+  "ai_digest_window_hours": 24,
+  "ai_digest_keep_in_inbox": true,
+  "ai_digest_label": "Maily/AI-Digest"
 }

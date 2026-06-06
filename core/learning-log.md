@@ -31,6 +31,9 @@ mitliest — nicht ausführbare Regex.
 
 ## Learning Log
 | Datum | Sender/Pattern | Subject-Signal | Heimat / Lernen | Angewendet |
+
+## Cost Ledger
+| Datum | Modell(e) | Token rein | Token raus | Kosten ($) |
 ```
 
 ## Was wird gelernt
@@ -43,10 +46,27 @@ mitliest — nicht ausführbare Regex.
 - **VIP/Wichtig.** Nutzer markiert Sender als wichtig → VIP-Tabelle.
 - **Neue Ordner.** Nutzer bestätigt neuen Themen-Ordner → Heim-Ordner-Liste.
 
+## Cost Ledger — kumulierte Kosten
+
+Damit das Briefing nicht nur die Kosten *dieses* Laufs, sondern auch die
+auflaufende Summe zeigen kann (siehe `core/briefing.md`), führt der Assistent ein
+**append-only Kosten-Ledger** in der Memory (`## Cost Ledger`-Tabelle).
+
+- **Am Ende jedes Laufs** genau **eine Zeile** anhängen: Datum (JJJJ-MM-TT),
+  genutzte Modelle, Token rein, Token raus, Kosten in `$` (Summe aus Haiku-
+  Klassifikation + Hauptmodell, mit den zur Laufzeit aktuellen Modellpreisen).
+- **Vor dem Schreiben des Footers** die bestehende Tabelle lesen und summieren:
+  *„Diesen Monat"* = Summe der Zeilen des laufenden Kalendermonats, *„Gesamt"* =
+  Summe aller Zeilen. Dann diesen Lauf addieren und beide Werte im Footer zeigen.
+- Ledger ist **rein additiv** — nie rückwirkend Zeilen ändern. Nur korrigieren,
+  wenn ein Lauf nachweislich doppelt eingetragen wurde.
+
 ## Pflege-Disziplin
 
-- Am **Ende jedes Laufs** Memory aktualisieren: neue Lern-Einträge, Kosten-Eintrag.
-- Memory **am Anfang jedes Laufs lesen**, bevor klassifiziert wird.
+- Am **Ende jedes Laufs** Memory aktualisieren: neue Lern-Einträge **und** eine
+  neue Zeile im Cost Ledger.
+- Memory **am Anfang jedes Laufs lesen**, bevor klassifiziert wird (Lernlog
+  *und* Cost Ledger — letzteres für die kumulierten Werte im Footer).
 - Lernlog ist additiv; veraltete/widersprüchliche Einträge korrigieren statt
   doppeln.
 - Memory enthält **keine Passwörter** und keine sensiblen Mailinhalte — nur

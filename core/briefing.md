@@ -36,29 +36,120 @@ davon Y, die auf dich warten."), dann gruppiert nach Aufmerksamkeit:
   Status). Kein Handeln nötig.
 - **📰 Newsletter & Lesestoff** — bewusst abonnierte Newsletter/Inhalte. **Kein
   Müll** — kurzer Teaser, was *diese Ausgabe* bringt, damit du entscheidest, ob
-  du reinschaust.
+  du reinschaust. **Ausnahme:** Sender aus `ai_digest_senders` erscheinen hier
+  **nicht** — sie kommen in eine **eigene, separate AI-Digest-Mail** (siehe
+  unten), nicht ins Haupt-Briefing.
 - **🛒 Werbung** — reine Angebote/Promos. Knapp halten, gern als Sammelzeile
   („3 Shop-Angebote: …").
 
 (Bei `topic`/`custom` ersetzt die nutzereigene Gliederung diese Gruppen; die
-Mail-Zeilen und Invarianten bleiben identisch.)
+Mail-Zeilen und Invarianten bleiben identisch. Die AI-Newsletter bleiben in jedem
+Schema außen vor — sie gehen in die separate AI-Digest-Mail.)
 
 Innerhalb jeder Gruppe **eine Zeile pro Mail**:
 
 ```
 Absender — Betreff — ein kurzer Satz (ca. 10–20 Wörter), worum es im Inhalt
-geht bzw. was erwartet wird (+ ggf. nötige Aktion).
+geht bzw. was erwartet wird (+ ggf. nötige Aktion).  ↳ <Name>/Heim-Ordner
 ```
 
 **Der Satz ist Pflicht** und fasst den *Inhalt* zusammen — nicht den Betreff
 wiederholen. Quelle ist der Body-Anfang/Snippet der Mail.
 
-- 🔴 / 🟡 / ⚪: jede Mail mit vollem Satz.
-- 📰 Newsletter: ein Satz Teaser je Ausgabe („t3n — Schwerpunkt diese Woche: …").
-- 🛒 Werbung: darf zu einer Sammelzeile zusammengefasst werden.
+**Ablage-Ort ist Pflicht** — jede Mail-Zeile endet mit dem Heim-Ordner, in den
+die Mail einsortiert wurde, als `↳ <assistant_name>/Ordner` (z. B.
+`↳ Maily/Finanzen`). So findet der Nutzer die Mail direkt am Label wieder. Liegt
+`!Now` an, dahinter `· !Now` ergänzen. Bleibt eine Mail mangels Sicherheit in der
+Inbox (`Unklar`), `↳ Inbox (Unklar)` schreiben.
+
+- 🔴 / 🟡 / ⚪: jede Mail mit vollem Satz **und** Ablage-Ort.
+- 📰 Newsletter: ein Satz Teaser je Ausgabe („t3n — Schwerpunkt diese Woche: …")
+  + Ablage-Ort.
+- 🛒 Werbung: darf zu einer Sammelzeile zusammengefasst werden; dann den
+  gemeinsamen Ablage-Ort einmal am Ende der Sammelzeile nennen.
 
 Nicht das ganze Postfach nacherzählen, aber auch nicht auf Stichworte verkürzen.
 Bei Entwürfen vermerken: „→ Entwurf liegt bereit."
+
+## 🤖 AI-Digest — eine eigene, separate Briefing-Mail
+
+Der Nutzer liest mehrere AI-Newsletter und will sie **nicht einzeln** durchgehen,
+**und** sie sollen das normale Morgen-Briefing nicht aufblähen. Die in `config.json`
+→ `ai_digest_senders` gelisteten Sender werden deshalb **aus dem Haupt-Briefing
+herausgehalten** und stattdessen zu einer **eigenständigen AI-Digest-Mail**
+verdichtet, die getrennt zugestellt wird.
+
+**Auswahl:** Nur Mails von Sendern aus `ai_digest_senders` (Domain- oder
+Adress-Match). Ist die Liste leer/fehlt sie, entfällt die AI-Digest-Mail komplett
+und diese Newsletter laufen normal unter 📰 im Haupt-Briefing. Gibt es in den
+letzten 24 h keine Ausgabe, wird **keine** leere Digest-Mail erzeugt.
+
+### Festes Schema (gleiches Gerüst, frischer Inhalt)
+
+Die Digest-Mail hat **jeden Tag dieselben Abschnitte in derselben Reihenfolge**
+(damit sie schnell scanbar und vorhersehbar ist) — aber Formulierung, Auswahl und
+Schwerpunkt werden **jeden Tag frisch** geschrieben, nie Copy-Paste. Abschnitte:
+
+```
+🤖 AI-Digest — {Datum}  ·  {N} Ausgaben über Nacht
+
+{Zusammenfassung des Tages: 2–3 Sätze, die das Wichtigste über alle Newsletter
+hinweg einordnen.}
+
+🚀 Releases & Modelle
+ • {ausführlicher Bullet: was ist neu, welche Zahlen/Namen, warum relevant —
+   so dass man es ohne das Original vollständig versteht} ({Quelle})
+
+🛠️ Tools & Produkte
+ • {ausführlicher Bullet} ({Quelle})
+
+📚 Lesestoff & Essays
+ • {ausführlicher Bullet: Kernaussage des Essays/Podcasts} ({Quelle})
+
+⚡ Kurz notiert
+ • {ausführlicher Bullet für die kleineren News} ({Quelle})
+
+↳ Originale bleiben in deiner Inbox
+```
+
+Regeln zum Schema:
+- **Abschnitts-Gerüst ist fix.** Hat ein Abschnitt heute nichts, kurze Zeile
+  „— heute nichts" statt ihn wegzulassen. So sieht die Mail jeden Tag gleich auf.
+- **Bullet Points, aber ausführlich und vollständig.** Jeder Punkt ist ein
+  Bullet (kein durchgehender Fließtext-Block), aber **so ausführlich wie nötig**
+  (gern mehr als 2–3 Sätze) — nicht nur ein Stichwort/Fragment. Der Leser soll die
+  Sache vollständig verstehen, ohne das Original öffnen zu müssen (konkrete Zahlen,
+  Namen, der „warum-relevant"-Punkt). **Nichts Wichtiges weglassen** — lieber ein
+  Bullet mehr als eine Meldung unterschlagen. Trotzdem kein Geschwafel: nur was
+  wirklich drinsteht, keine erfundene Einordnung.
+- **Inhalt frisch:** Inhalte **aller** Ausgaben im Zeitfenster querlesen,
+  Doppelungen über mehrere Newsletter zusammenführen (ein Thema = ein Bullet).
+  Keine festen Floskeln.
+- **Quelle pro Punkt** in Klammern am Ende: „(AlphaSignal)", „(Techpresso, swyx)".
+- **Top-Zusammenfassung** oben: 2–3 Sätze, die den Tag einordnen, bevor die
+  Abschnitte kommen.
+- **Quell-Newsletter bleiben in der Inbox:** Mails von `ai_digest_senders` werden
+  **nicht** archiviert oder in einen Ordner verschoben — sie bleiben im
+  Posteingang, damit der Nutzer das Original bei Bedarf direkt dort findet. Die
+  Digest-Mail ist eine *zusätzliche* generierte Mail, keine Umsortierung.
+
+### Zeitplan & Zustellung
+
+**Eigener Zeitplan:** Die AI-Digest-Mail läuft als **separate tägliche Routine**,
+unabhängig vom Haupt-Briefing. Standard: **täglich 08:00 Europe/Berlin**, Fenster
+**letzte 24 h** (`ai_digest_time` / `ai_digest_window_hours` in `config.json`).
+Sie fasst **alle** Ausgaben der `ai_digest_senders` aus diesem Fenster zusammen.
+
+**Zustellung:** Wie das Haupt-Briefing als **Mail an den Nutzer selbst** (kein
+Versand an Dritte). Sie wird in den **Posteingang (INBOX)** gelegt, damit der
+Nutzer sie morgens sofort sieht, **und** zusätzlich mit dem Label
+`<assistant_name>/AI-Digest` versehen (Archiv-Heimat). Mechanik identisch zum
+Haupt-Briefing (IMAP `APPEND` via `deliver_briefing.py`; Gmail-Cloud per
+`messages.insert`). Im interaktiven Lauf zusätzlich im Chat zeigen.
+
+**Kein eigener Kosten-Footer:** Haupt-Briefing und AI-Digest gehören zu *einem*
+Lauf — die Kosten werden gemeinsam im Footer des Haupt-Briefings ausgewiesen und
+**einmal** ins Cost Ledger geschrieben.
 
 ## Sicherheits-Hinweise im Briefing
 
@@ -85,10 +176,12 @@ Verdächtige Mails werden **nie** automatisch verschoben oder gelöscht.
 ## Kosten-Footer (Pflicht)
 
 Jedes Briefing endet mit einer Kostenzeile — schafft Budget-Transparenz und macht
-eskalierende Token-Verbräuche sichtbar:
+eskalierende Token-Verbräuche sichtbar. Der Footer zeigt **diesen Lauf** *und* die
+**auflaufende Summe** aus dem Kosten-Ledger (siehe `core/learning-log.md`):
 
 ```
-Dieser Lauf hat etwa $X.XXXX gekostet (X.XXX Token rein + XXX raus).
+Dieser Lauf: ca. $X.XXXX (X.XXX Token rein + XXX raus).
+Diesen Monat: $X.XX (N Läufe) · Gesamt: $X.XX (M Läufe seit JJJJ-MM-TT).
 Bei täglichem Lauf ca. $X.XX/Monat.
 ```
 
@@ -99,6 +192,13 @@ Regeln:
   hartcoden**. Modellpreise ändern sich; im Zweifel aktuelle Anthropic-Pricing-
   Angabe verwenden.
 - **Monatsschätzung** = Lauf-Kosten × Lauf-Frequenz pro Monat (täglich → ×30).
+- **Kumulierte Werte** aus dem Kosten-Ledger lesen: vor dem Schreiben des Footers
+  die bisherige Monats- und Gesamtsumme aus `memory/` holen, die Kosten *dieses*
+  Laufs addieren und beide anzeigen. **„Diesen Monat"** summiert nur Läufe des
+  laufenden Kalendermonats; **„Gesamt"** alle Läufe seit dem ersten Eintrag.
+  Direkt im Anschluss den neuen Lauf als Zeile ins Ledger schreiben (Schritt 8 des
+  Tagesablaufs, siehe `core/learning-log.md`) — Anzeigen und Fortschreiben gehören
+  zusammen, damit nichts doppelt oder gar nicht gezählt wird.
 
 ## Ablage des Briefings
 
@@ -110,4 +210,8 @@ MCP nicht senden kann. Wenn der Nutzer es morgens im Posteingang sehen will,
 zusätzlich in die INBOX legen (`--also-inbox`). Optional Kopie nach
 `runs/JJJJ-MM-TT.md` fürs Archiv.
 
-Im **interaktiven** Lauf wird das Briefing zusätzlich direkt im Chat gezeigt.
+Ist `ai_digest_senders` gesetzt und gab es passende Ausgaben, wird **zusätzlich**
+eine getrennte AI-Digest-Mail nach `<assistant_name>/AI-Digest` zugestellt (siehe
+Abschnitt „🤖 AI-Digest"). Beide Mails gehören zum selben Lauf.
+
+Im **interaktiven** Lauf werden beide Briefings zusätzlich direkt im Chat gezeigt.

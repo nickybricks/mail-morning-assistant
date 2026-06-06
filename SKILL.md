@@ -65,7 +65,10 @@ ggf. den Status `!Now` (Aktion nötig). Unsichere Fälle → `Unklar`-Fallback, 
 Inbox lassen. Den Lernlog (`memory/`) einbeziehen.
 
 **3. Briefing schreiben.** Nach `core/briefing.md`: kurz, scanbar, pro Mail eine
-Zeile, gruppiert nach Bucket, mit Kosten-Footer am Ende.
+Zeile (mit Ablage-Ort `↳ <Name>/Ordner`), gruppiert nach Bucket, mit kumuliertem
+Kosten-Footer am Ende. Sind `ai_digest_senders` gesetzt und gab es passende
+Ausgaben, **zusätzlich** eine separate AI-Digest-Mail mit festem Schema schreiben
+(diese Sender gehören NICHT ins Haupt-Briefing — siehe `core/briefing.md`).
 
 **4. Entwürfe vorbereiten** — nur für Mails, die wirklich eine Antwort brauchen.
 Nach `core/drafts.md`, im Stil aus `voice/samples.md`. Nie senden.
@@ -81,7 +84,8 @@ Ordner `<assistant_name>/Briefings` ablegen — über den Adapter, **kein Versan
 Dritte** (IMAP: `APPEND` via `adapters/imap/deliver_briefing.py`; Gmail im
 Cloud-/Auto-Lauf: `messages.insert` via `adapters/gmail-rest/deliver_briefing.py`,
 da der MCP nicht senden kann). Optional zusätzlich in die INBOX, wenn der Nutzer
-es morgens dort sehen will.
+es morgens dort sehen will. Die separate AI-Digest-Mail (falls erzeugt) genauso
+zustellen, aber in den Ordner `<assistant_name>/AI-Digest`.
 
 **7. Abschluss.** Knapp melden: Briefing liegt in `<assistant_name>/Briefings`,
 X Entwürfe bereit, Y Mails als `!Now`, Z einsortiert. Hinweis: der Nutzer prüft

@@ -196,6 +196,58 @@ bekannt an. Wortlaut etwa so:
 > nächstgelegene sinngemäß nehmen und den Nutzer fragen — nie raten bei Secret/
 > Netzwerk.
 
+### A2) AI-Digest als eigene Routine (Gmail via `gmail-rest`)
+
+Der AI-Digest ist eine **zweite, eigenständige Routine** neben dem Haupt-Briefing
+(siehe `core/briefing.md`, Abschnitt „🤖 AI-Digest"). Gleiches Repo, gleiche
+OAuth-Secrets (dasselbe Environment wie Weg A wiederverwenden), nur **anderer
+Zeitplan und anderer Prompt**.
+
+**Copy-paste-Paket AI-Digest:**
+
+- **Quelle (Repo, öffentlich):** `https://github.com/<org>/mail-morning-assistant`
+- **Zeitplan (Cron, lokale Zeit):** `0 8 * * *` (täglich 08:00)
+- **Modell:** ein Sonnet-Modell
+- **Erlaubte Tools:** `Bash`, `Read`, `Write`
+- **Environment/Secrets:** dasselbe wie Weg A (`GMAIL_CLIENT_ID`,
+  `GMAIL_CLIENT_SECRET`, `GMAIL_REFRESH_TOKEN`).
+- **Prompt:**
+  ```
+  Du läufst in einem Klon des öffentlichen Repos mail-morning-assistant
+  (Arbeitsverzeichnis = Repo-Wurzel). Aufgabe: die separate AI-Digest-Mail bauen
+  und zustellen. KEIN Sortieren/Verschieben/Löschen, kein Versand an Dritte.
+
+  1. Schreibe config.json ins Wurzelverzeichnis:
+     {"provider":"gmail-rest","assistant_name":"<Name>","email":"<email>",
+      "ai_digest_senders":["alphasignal.ai","swyx+ainews@substack.com",
+        "techpresso@dupple.com","lennysnewsletter.com","t3n.de","synthszr.com"],
+      "ai_digest_window_hours":24,"ai_digest_label":"<Name>/AI-Digest"}
+     OAuth-Secrets stehen in ENV GMAIL_CLIENT_ID/_SECRET/_REFRESH_TOKEN;
+     fehlt eine -> abbrechen + im Log melden.
+  2. python3 adapters/gmail-rest/fetch_digest.py > digest_in.json
+     (holt nur die ai_digest_senders der letzten 24h, gekürzt).
+     Sind 0 Ausgaben enthalten ("count":0) -> KEINE Mail erzeugen, sauber beenden.
+  3. Lies core/briefing.md, Abschnitt "🤖 AI-Digest". Schreibe daraus die
+     Digest-Mail nach digest.txt: oben 2-3 Sätze Tages-Zusammenfassung, dann die
+     festen Abschnitte (🚀 Releases & Modelle / 🛠️ Tools & Produkte /
+     📚 Lesestoff & Essays / ⚡ Kurz notiert). Bullet Points, aber ausführlich
+     (1-3+ Sätze, nichts Wichtiges weglassen), Quelle je Punkt in Klammern,
+     Themen über mehrere Newsletter zusammenführen (nichts doppelt). Leerer
+     Abschnitt -> "— heute nichts". Nur was in den Newslettern steht, nichts
+     erfinden.
+  4. python3 adapters/gmail-rest/deliver_briefing.py digest.txt \
+       --folder "<Name>/AI-Digest" --subject "🤖 AI-Digest — $(date +%d.%m.%Y)" \
+       --also-inbox
+  5. Log: Anzahl Ausgaben + ob Zustellung ok.
+
+  EISERN: nichts senden außer dieser Mail (messages.insert legt nur ab), nichts
+  löschen, kein Spam/Papierkorb, keine Drafts, Quell-Newsletter NICHT verschieben/
+  archivieren (bleiben in der Inbox). Bei Fehler klar melden, nichts raten.
+  ```
+
+Erster Lauf am besten **manuell testen** (prüfen, ob die Digest-Mail in
+`<Name>/AI-Digest` + INBOX ankommt), dann aktiviert lassen.
+
 ### B) Cron auf einem immer-laufenden Rechner/Server
 
 Wenn ein eigener Server/NAS o. Ä. dauerhaft läuft, reicht klassischer Cron, der

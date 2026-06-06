@@ -73,6 +73,12 @@ lokal, ENV in der Cloud). `email` dient als Schlüsselbund-Account.
 - **`deliver_briefing.py`** — Briefing per `messages.insert` in
   `<Name>/Briefings` (+ optional `INBOX`), ungelesen. CLI identisch zur
   IMAP-Variante: `<briefing.txt> [--folder] [--subject] [--also-inbox] [--dry-run]`.
+  Wird auch für die AI-Digest-Mail genutzt: `--folder "<Name>/AI-Digest" --also-inbox`.
+- **`fetch_digest.py`** — holt **nur** die AI-Newsletter aus `ai_digest_senders`
+  (config) der letzten `ai_digest_window_hours` und gibt sie **gekürzt** als JSON
+  aus (eigene Body-Extraktion ohne den 4000-Cap von `_mime`, nimmt den reicheren
+  von Plain/HTML, putzt unsichtbare Spacer). Grundlage der separaten AI-Digest-Mail
+  (siehe `core/briefing.md`). Hält den täglichen Cloud-Lauf klein/günstig.
 - **`apply_actions.py`** — Sortieren: liest `actions.json` `[{id,label,now}]` und
   setzt Heim-Label via `messages.modify`. INBOX-/Archiv-Logik im Skript (eine
   Stelle): `now` oder `<Name>/Unklar` → bleibt in INBOX, sonst archiviert (INBOX
