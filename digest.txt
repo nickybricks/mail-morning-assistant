@@ -1,0 +1,63 @@
+🤖 AI-Digest — 17.06.2026  ·  3 Ausgaben über Nacht
+
+Heute dominieren zwei Themen: ein Wettlauf um offene Frontier-Modelle und ein Wettlauf um Infrastruktur-Kontrolle. Z.ai's GLM-5.2 und MiniMax M3 sind gleichzeitig als Open-Weights erschienen und greifen erstmals ernsthaft die Spitze der Coding-Benchmarks an. Parallel dazu signalisieren Sarvam's $234-Mio.-Runde, Nvidia's $20-Mrd.-Anleihe und SpaceX' $60-Mrd.-Cursor-Kauf: der eigentliche Moat ist nicht das Modell selbst, sondern die Infrastruktur drum herum.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 Releases & Modelle
+
+ • Z.ai veröffentlicht GLM-5.2 als MIT-lizenzierten Open-Weight-Frontier. Das Modell hat 744 Mrd. Parameter gesamt (40 Mrd. aktiv pro Token, MoE-Architektur), ein 1-Mio.-Token-Kontextfenster und zwei Reasoning-Modi (high / max). Auf dem Code Arena Frontend-Leaderboard belegt es Platz 2 weltweit (nur Fable 5 vorne), auf FrontierSWE Platz 3 (hinter Fable 5 und Opus 4.8), und auf Terminal-Bench 2.1 springt es von 62,0 auf 81,0 – als erstes Open-Weight-Modell über 80 %. Im Agent Arena ist es das klare #1-Open-Model (Platz 10 gesamt). Technisches Highlight: IndexShare, eine Erweiterung von DeepSeek Sparse Attention, senkt Inferenzkosten bei langen Kontexten deutlich. Preis-API: $1,40/$4,40 pro Mio. Input-/Output-Token – identisch mit GLM-5.1. Day-0-Support in Transformers, vLLM, SGLang, Ollama, OpenRouter, Cloudflare Workers AI u. a. (AINews)
+
+ • MiniMax M3 erscheint als erstes Open-Weight-Modell, das Frontier-Coding, 1-Mio.-Token-Kontext und natives Multimodal (Bilder + Video) in einem Paket vereint. Ein neues Sparse-Attention-Design senkt die Compute-Kosten bei 1M-Kontext auf ~1/20 der Vorgängergeneration. Coding-Score: 59,0 % SWE-Bench Pro (GPT-5.5: 58,6 %). Features: Codebase in einem Zug laden ohne Chunking, direkte Bild-/Video-Eingabe, Computer-Use-ähnliche Desktop-Steuerung, an/abschaltbarer Thinking-Mode. Weights auf HuggingFace zum Selbst-Hosten; API ab $0,30/Mio. Input-Token. (AlphaSignal)
+
+ • Kimi K2.7 (Moonshot AI) belegt Platz 2 auf einem neuen Mathe-Benchmark und schlägt damit GPT-5 und Grok 4.3. (AlphaSignal)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️ Tools & Produkte
+
+ • SpaceX kauft Cursor (Anysphere) für $60 Mrd. in Aktien: Das KI-Coding-Tool hat über 1 Mio. zahlende Kunden, $2 Mrd.+ Jahresumsatz (Prognose $6 Mrd. Ende 2026) – SpaceX zahlt damit das 20- bis 30-fache des laufenden Umsatzes. Der Deal wurde via SEC Form 8-K gemeldet und soll Q3 2026 schließen (regulatorisch noch offen). Elon Musks Unternehmen steigt damit tief in Developer-Tooling ein. (Techpresso)
+
+ • Sarvam AI schließt $234-Mio.-Series-B bei $1,5-Mrd.-Bewertung ab: Ziel ist "Sovereign AI" – Länder und Unternehmen sollen KI selbst besitzen, nicht von ausländischen Anbietern mieten. Die Mittel fließen in ein neues agentic/coding-fokussiertes Frontier-Modell, mehr Compute-Infrastruktur und indischsprachige Modelle für Sprache, Texte und Dokumente. Aktuelle Traction: 10 Mio. API-Calls/Tag, 35 Mio. digitalisierte Seiten, Deployments in Versicherung, Grundbuch und Landwirtschaft. Lead-Investor HCLTech investiert $150 Mio. (AlphaSignal)
+
+ • Andrew Ng veröffentlicht einen kostenlosen Desktop-KI-Agenten (14.478 GitHub-Stars), der Dateien liest und E-Mails lokal verschickt – keine Cloud-Abhängigkeit, alles läuft auf dem eigenen Rechner. (AlphaSignal)
+
+ • Nvidia begibt Anleihen über $20 Mrd. in sieben Tranchen (Laufzeiten 2–30 Jahre, längste Tranche ~0,9 Prozentpunkte über US-Treasuries) – erste Anleihe seit 2021. Verwendung: allgemeine Unternehmenzwecke inkl. Refinanzierung, um den KI-Ausbau zu finanzieren. Bookrunner: JPMorgan Chase, Morgan Stanley, Goldman Sachs. (Techpresso)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 Lesestoff & Essays
+
+ • Studie: Claude Code besteht zu 98 % aus klassischer Software – nur 2 % des Codes ist KI-spezifisch oder KI-generiert. Die Erkenntnis relativiert den Hype um "AI-Tools" und wirft die Frage auf, was bei solchen Produkten eigentlich KI ist vs. was sie leisten. (AlphaSignal)
+
+ • Nex AGI enttarnt Rio 3.5: Die brasilianische Stadtverwaltung Rio de Janeiro veröffentlichte ein Modell namens "Rio 3.5" als eigene KI. Nex AGI wies nach, dass es ein simpler Weight-Merge ist (60 % Nex N2 Pro + 40 % Qwen 3.5) – ohne eigenes Training, ohne Nennung der Quelle. Beweismittel: Entfernt man den System-Prompt, stellt sich das Modell selbst als "Nex N2 Pro" vor. Das echte Nex N2 Pro (Apache 2.0, frei) erreicht 75,3 auf Terminal-Bench 2.1 (Top-3 weltweit) und ist via OpenRouter kostenlos nutzbar. Ein anschauliches Beispiel für die anhaltenden Open-Source-Attributionsprobleme im KI-Ökosystem. (AlphaSignal)
+
+ • Paper: Kleine Reasoning-Modelle können Giganten schlagen – VibeThinker-3B (nur 3B Parameter) erreicht 94,3 auf AIME26 und matched damit Modelle wie Gemini 3 Pro, die um Größenordnungen größer sind. (Techpresso)
+
+ • Paper: KI-Gewohnheiten verzerren die Zeitwahrnehmung – wer KI regelmäßig nutzt, überschätzt zunehmend, wie viel Zeit er spart, was einen selbstverstärkenden Überabhängigkeitszyklus erzeugt. (Techpresso)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ Kurz notiert
+
+ • OpenAIs Verluste explodierten 2025 auf $38,53 Mrd. (2024: $5,09 Mrd.): $13,07 Mrd. Umsatz vs. $34 Mrd. Kosten, darunter $19,18 Mrd. für F&E. Zusätzlich $41,55 Mrd. Buchverlust aus der Non-Profit-zu-For-Profit-Umwandlung. Gesamtverlust vor Minority-Interessen: $60,35 Mrd. (Techpresso)
+
+ • Facebook startet "AI Mode": Suchanfragen in Umgangssprache werden von Meta AI beantwortet, indem öffentliche Posts aus Gruppen und Reels zusammengefasst werden – statt klassischer Ergebnislisten. Risiko: keine redaktionelle Kontrolle, veraltete oder fehlerhafte Infos möglich. (Techpresso)
+
+ • Chrome 150/151 beendet Support für Manifest-V2-Erweiterungen: Populäre Ad-Blocker auf Basis der alten API werden brechen; die Manifest-V3-Alternativen sind weniger effektiv. Alternative: Firefox mit gleichzeitigem MV2/MV3-Support. (Techpresso)
+
+ • ChatGPTs Marktanteil fällt erstmals unter 50 %. (Techpresso)
+
+ • DeepSeek sammelt $7 Mrd. ein – signalisiert eine neue Front im KI-Wettrüsten. (Techpresso)
+
+ • Threads erreicht 500 Mio. Monatsnutzer (Oktober: 150 Mio. täglich aktiv); Wachstum u. a. +80 % in Südkorea, +130 % in Japan. (Techpresso)
+
+ • Anthropic sieht sich einer Klage wegen angeblich irreführender Claude-AI-Preisgestaltung gegenüber. (Techpresso)
+
+ • Qwen3-35B auf 6B Parameter geprunt – passt in 3,4 GB; zeigt, wie aggressiv Modellkompression inzwischen funktioniert. (AlphaSignal)
+
+ • Entwickler brennt einen kompletten Transformer in einen Custom-Chip: 56.000 Tokens/Sekunde. (AlphaSignal)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+↳ Originale bleiben in deiner Inbox
