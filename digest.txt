@@ -1,0 +1,161 @@
+🤖 AI-Digest — 19.06.2026  ·  4 Ausgaben über Nacht
+
+Heute dominiert GLM-5.2 das Gespräch: Zhipu AIs neues Open-Weight-Modell wird
+von mehreren unabhängigen Praktikern als erstes open-source Modell auf echtem
+Frontier-Niveau eingestuft — eine seltene Einigkeit in der Community. Parallel
+dazu setzt OpenAI mit dem Abwerben von Transformer-Miterfinder Noam Shazeer und
+dem Start eines 300.000-Berater-Partnernetzwerks ein deutliches Zeichen im
+Talent- und Ökosystem-Wettbewerb. Der Tag unterstreicht: Der Gravitationspunkt
+verschiebt sich von reinen Modellverbesserungen hin zu Infrastruktur,
+Partner-Netzwerken und vollständig integrierten Harnesses.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 Releases & Modelle
+
+ • GLM-5.2 (Zhipu AI / Z.ai) — Dieser Open-Weight-Release wird von mehreren
+   unabhängigen Stimmen als erster echter Schritt auf Frontier-Niveau unter
+   open-source Modellen eingestuft. Jeremy Howard beschreibt es als „mindestens
+   so gut wie Opus 4.8 und GPT 5.5" für seine Anwendungsfälle; Artificial
+   Analysis' neues Agentic-Benchmark AA-Briefcase platziert es zwischen GPT-5.5
+   und Opus 4.8 (Claude Fable 5 führt mit 1587 Elo, Opus 4.8 bei 1356,
+   GLM-5.2 bei 1266). Die Architektur baut auf MLA und DSA auf und ergänzt
+   IndexShare, das Sparse-Attention-Top-k-Indizes über Schichten hinweg
+   wiederverwendet — besonders effizient bei 1M-Token-Kontexten. Im Coding
+   steigen die internen Task-Scores von 21/70 auf 48/70 gegenüber GLM-5.1.
+   Verfügbar kostenlos über Hugging Face Inference Providers (zeitlich begrenzt)
+   und GGUF via llama.cpp/Unsloth für lokales Betreiben. Einziges erkennbares
+   Manko: kein Vision-Support. (AINews, AlphaSignal)
+
+ • Poolside Laguna M.1 — Veröffentlicht unter Apache-2.0-Lizenz mit 256K-Kontext.
+   Sparse MoE mit 225B Parametern gesamt / 23B aktiv, 256 Experten, top-k=16,
+   für long-horizon agentic Coding mit verschachteltem Reasoning und Tool-Use
+   optimiert. Ein 3-Bit-MLX-Build läuft auf Apple-Silicon (M3 Max 128 GB) mit
+   ca. 26 Tokens/s bei ~100 GB Spitzenverbrauch. (AINews)
+
+ • xAI Image-to-Video — xAI hat ein neues Video-Generierungsmodell mit
+   verbesserter Bildschärfe und besserer Physik-Simulation veröffentlicht.
+   (AlphaSignal)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️ Tools & Produkte
+
+ • Claude Design (Anthropic) — Großes Update: Statt das Design jedes Mal neu
+   erfinden zu lassen, importiert man nun einmalig sein eigenes Design-System
+   (via GitHub-Repo, Design-Datei oder Upload). Claude baut UI-Komponenten mit
+   den eigenen Elementen und prüft das Ergebnis automatisch gegen das System,
+   bevor man es sieht. Neu: direkte Canvas-Bearbeitung (ziehen, skalieren,
+   ausrichten), /design-sync in Claude Code, Export nach PDF/PowerPoint/
+   Canva/Vercel. Shared Usage-Limits mit Claude Code, verfügbar unter
+   claude.ai/design im Paid-Plan. (AlphaSignal, Techpresso)
+
+ • OpenAI Codex Record & Replay — Workflow einmal demonstrieren, Codex wandelt
+   ihn in eine inspizierbare, wiederverwendbare Skill-Sequenz um. War der am
+   stärksten engagierte High-Signal-Developer-Tool-Post im Beobachtungszeitraum.
+   (AINews)
+
+ • Cursor /automate — Neue Funktion, die aus einer natürlichsprachlichen
+   Aufgabenstellung automatisch Trigger, Anweisungen und Tools konfiguriert —
+   inklusive Slack-Emoji-Trigger, GitHub-Trigger und Computer-Use für
+   Cloud-Agents. (AINews)
+
+ • Claude Code Artifacts — Agents können laufende Arbeit in teilbare Live-Pages
+   umwandeln; laut internen Berichten hat das bereits Architecture-Reviews und
+   Prototypen-Sharing verändert. (AINews)
+
+ • Devin Security Review (Cognition) — Automatisches Security-Review in Devin
+   Review eingebaut; Devin for Security verkettet lower-severity Findings
+   mithilfe von agentic Reasoning zu bestätigten kritischen Exploits und
+   adressiert damit den klassischen „Finding vs. Fixing"-Split in AppSec. (AINews)
+
+ • OpenAI Partner Network — $150 Mio. Investment, Ziel: 300.000 zertifizierte
+   Berater bis Ende 2026. Drei Tiers (Select, Advanced, Elite) mit hohen Hürden
+   bezüglich Sales-Performance, technischer Expertise und Deployment-Erfahrung.
+   Spezialisierungen in Codex, Cybersecurity und Agents; Forward Deployed
+   Experts-Pilot verbindet Partner direkt mit OpenAIs eigenen FDE-Teams.
+   OpenAIs Kalkül: Das Bottleneck sind nicht mehr die Modelle, sondern der
+   letzte Kilometer zum Kunden. (Synthszr)
+
+ • OpenCut — Freier Open-Source-Videoeditor als CapCut-Alternative (MIT-Lizenz,
+   55.000 GitHub-Stars). Läuft im Browser, Desktop und Mobile; Dateien bleiben
+   lokal, kein Wasserzeichen, kein Abo. Multi-Track-Timeline-Editor mit
+   Echtzeit-Vorschau; MCP-Server eingebaut, mit dem AI-Agents Schnittaufgaben
+   automatisieren können. Vollständiges Rewrite in Rust mit Plugin-System in
+   Arbeit. (AlphaSignal)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 Lesestoff & Essays
+
+ • „Git/GitHub bricht unter vielen parallelen Code-Agents" — @_xjdr veröffentlicht
+   ein detailliertes Argument, warum klassische git-Workflows (veraltete
+   Worktrees, divergierender Review-State, Environment-Setup-Overhead, schlechte
+   State-Synchronisation) unter dozens bis hundreds gleichzeitiger Coding-Agents
+   versagen. Vorgeschlagener Ersatz-Stack: virtuelle Shallow-Checkouts, jj,
+   Sapling-ähnliche Commit-Stacks, Cloud-Sync, File-Level-ACLs und vertikale
+   Integration von Model bis Remote-Runtime — jetzt produktisiert als Noumena
+   Code (ncode). (AINews)
+
+ • AA-Briefcase von Artificial Analysis — ein realistischerer Agentic-Benchmark
+   rund um multi-week Projekte, tausende fragmentierter Inputs aus Slack, E-Mail
+   und Dokumenten, mit Deliverables wie Finanzmodellen und Board-Decks. Legt
+   sowohl Qualität als auch Wirtschaftlichkeit offen. Der methodische Kernpunkt:
+   Benchmarks sollten Harness + LLM gemeinsam evaluieren, nicht isoliert
+   (Graham Neubig / OpenHands findet je nach Modell-Familie und Kosten-Profil
+   unterschiedliche Gewinner). (AINews)
+
+ • Steuern Content-Feeds AI-Agents? — Studie mit 2.785 Test-Runs zeigt:
+   Einseitige Daten-Feeds können das Verhalten von AI-Agents drastisch verschieben
+   — von 5 % auf bis zu 100 % Übereinstimmung bei eigentlich unsicheren
+   Entscheidungen. Relevant für jeden, der Agents auf externen Datenquellen
+   aufbaut. (Techpresso)
+
+ • Interpreter statt Neuronen — Forscher ersetzten 25 % der Entscheidungs-
+   komponenten in großen Sprachmodellen durch lesbaren Code; Performance-Einbuße
+   nur 16 %. Macht AI-Verhalten erheblich transparenter und inspizierbar. (Techpresso)
+
+ • Python vs. Systemsprachen — Benchmark über 5 gängige Tasks: Python ist 315×
+   langsamer als C; Rust liegt nur 9 % hinter C. (Techpresso)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ Kurz notiert
+
+ • Noam Shazeer verlässt Google für OpenAI — Shazeer ist Miterfinder der
+   Transformer-Architektur, war VP Engineering bei Google und co-lead von Gemini.
+   Google hatte ihn 2024 über einen $2,7-Mrd.-Licensing-Deal mit Character.AI
+   (dessen CEO er war) zurückgeholt. Nach nur 22 Monaten wechselt er zu OpenAI.
+   (Techpresso, Synthszr)
+
+ • Midjourney Medical — Vollständiger Pivot: Midjourney kündigt einen medizinischen
+   Full-Body-Scanner an. 500.000 Ultraschall-Transducer, 17 GB/s Daten-
+   verarbeitung, 60 Sekunden pro Scan, keine Strahlung, kein Magnetfeld, wenige
+   Dollar statt Hunderte. Erste Standorte in San Francisco Spas geplant für 2027.
+   FDA-Zulassung für vollständige Diagnostik ausstehend; Start mit
+   Körperzusammensetzungsdaten. (AlphaSignal, Techpresso, Synthszr)
+
+ • Apple-Preiserhöhungen — Tim Cook kündigt im WSJ unvermeidliche Preissteigerungen
+   an: Speicher- und Speicherchip-Kosten haben sich durch AI-Nachfrage in einem
+   Jahr vervierfacht. Apple muss hinter AI-Unternehmen „in der Schlange warten".
+   Cook nennt es eine „hundertjährige Flut". (Techpresso)
+
+ • AI-Governance beim G7 — Dario Amodei (Anthropic) und Demis Hassabis
+   (Google DeepMind) warben beim G7-Gipfel in Frankreich für eine US-geführte
+   Koalition für globale AI-Standards: Structured Access zu Frontier-Modellen,
+   Chip-Handel ohne China, gemeinsame Arbeit an Cyber-/Bioterrorismus-Risiken.
+   Sam Altman fordert ein internationales Forum für global akzeptierte
+   Test-Standards. (Techpresso)
+
+ • MIT trainiert RNNs parallel ohne Backpropagation Through Time — neue Methode
+   ermöglicht effizienteres Training von Recurrent Neural Networks ohne den
+   klassischen sequenziellen Engpass. (AlphaSignal)
+
+ • Cohere North Mini Code: 4-Bit-Quantisierung, Ollama-Support, kostenloser
+   OpenRouter-Zugang. (AINews)
+
+ • LocalAI liefert ByteDance Depth Model als schnelles, CPU-only C++-Tool. (AlphaSignal)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+↳ Originale bleiben in deiner Inbox
