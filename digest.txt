@@ -1,0 +1,49 @@
+🤖 AI-Digest — 20.06.2026  ·  2 Ausgaben über Nacht
+
+Zwei große Datenpunkte dominieren heute: Anthropics Studie über 400.000 Claude-Code-Sessions zeigt, dass KI-gestütztes Arbeiten rasant wertvoller wird und Programmierkenntnisse immer weniger Voraussetzung sind — Domänen-Expertise reicht. Gleichzeitig läuft das Rennen um bezahlbare lokale Modelle weiter: Unsloth bringt ein 744-Milliarden-Parameter-Modell auf Consumer-Hardware. Auf der Infrastruktur-Seite verdichtet sich das Bild, wie Tech-Konzerne und Regulatoren um die KI-Chips-Lieferkette und Marktmacht streiten.
+
+────────────────────────────────────────
+
+🚀 Releases & Modelle
+
+ • Unsloth quantisiert GLM-5.2 auf 238 GB (2-Bit) — von 1,51 TB auf Mac-tauglich: Z.ai's neues Open-Source-Modell GLM-5.2 hat 744 Milliarden Parameter, MIT-Lizenz und ein 1-Million-Token-Kontextfenster (ideal für ganze Codebasen). Das Vollgewicht von 1,51 TB ist unerreichbar für fast alle, aber Unsloth's 2-Bit-Quantisierung schrumpft es auf 238 GB bei ~82 % erhaltener Genauigkeit — lauffähig auf einem 256-GB-Mac (M3/M4 Ultra) oder mit 24-GB-GPU plus 256-GB-RAM mit Memory-Offloading. Unterstützte Tools: llama.cpp, LM Studio, Unsloth Studio. Bedeutet: private, offline-fähige Coding-Agents und Long-Context-Tasks ohne Cloud-API, ohne Nutzungsgebühren, ohne Datenweitergabe. (AlphaSignal)
+
+ • OpenAI trainiert GPT-5.5 Instant mit 600 Ärzten und halbiert Gesundheits-Halluzinationen: OpenAI hat GPT-5.5 Instant gemeinsam mit 600 Medizinern trainiert, um medizinische Halluzinierungen um 71 % zu reduzieren und das Modell auf das Niveau von Frontier-Health-Modellen zu heben. Das Muster ist laut AlphaSignal signifikant: Fachleute werden nicht nur als Nutzer, sondern als Trainingssignal eingesetzt — AI absorbiert Spezialwissen und verteilt es neu. (AlphaSignal)
+
+────────────────────────────────────────
+
+🛠️ Tools & Produkte
+
+ • AgentDeck verwandelt einen Stream Deck+ in ein physisches Claude-Code-Steuerpult: Das Open-Source-Plugin klinkt sich in das Event-System von Claude Code ein und zeigt Session-Status (läuft, wartet auf Input, idle, fehlerhaft) live auf den physischen Tasten. Berechtigungsanfragen können mit einem Knopfdruck genehmigt oder abgelehnt werden — kein Tastaturwechsel nötig. Pro Taste sind Token-Verbrauch und Session-Kosten einsehbar; mehrere parallele Sessions lassen sich gleichzeitig verwalten. Repo: github.com/asheshgoplani/agent-deck, aktuell nur Stream Deck+. (AlphaSignal)
+
+ • Datalab veröffentlicht Lift — Open-Source-Modell für strukturierte Extraktion: Lift zieht nutzerdefinierte Felder aus Dokumenten jeder Art (Rechnungen, wissenschaftliche Paper, 10-K-Berichte) heraus und gibt sie im eigenen Schema zurück. Median-Laufzeit: 9,5 Sekunden, 8× schneller als Azure. Lokal oder via Datalab-API nutzbar. (AlphaSignal)
+
+ • Matt Pocock veröffentlicht AI-Coding-Skills-Toolkit mit 63 % geringeren Token-Kosten: Das Toolkit richtet sich an Entwickler, die Coding-Agents effizienter nutzen wollen — konkreter Inhalt nicht vollständig beschrieben, aber der gemeldete Token-Einsparungseffekt von 63 % ist die zentrale Kennzahl. (AlphaSignal)
+
+ • Google kopiert Nvidias Finanzierungsstrategie für den Verkauf eigener KI-Chips (TPUs): Google gibt Finanzbürgschaften an Rechenzentrum-Betreiber, damit diese günstiger Kapital aufnehmen und Google-TPUs mieten können — exakt die Taktik, mit der Nvidia seinen Markterfolg aufgebaut hat. Konkrete Projekte: 3,2-Mrd.-Dollar-Garantie für Lake Mariner (TeraWulf/FluidStack, mietet TPUs an Anthropic), 7-Mrd.-Rechenzentrum „River Bend" bei Baton Rouge, 1,4-Mrd.-Computing-Lease in Colorado City/Texas. (Techpresso)
+
+────────────────────────────────────────
+
+📚 Lesestoff & Essays
+
+ • Anthropics Studie über 400.000 Claude-Code-Sessions: Domain-Expertise schlägt Programmierskills — Aufgabenwert +27 % in sechs Monaten: Anthropic hat Daten von 235.000 Nutzern ausgewertet. Kernbefunde: Jeder Berufsstand (Juristen, Finanzfachleute, Manager) erreicht Coding-Aufgaben innerhalb von 7 Prozentpunkten des Erfolgsrates von Software-Ingenieuren. Der monetäre Wert einer durchschnittlichen Session ist von Oktober bis April um 27 % gestiegen (gemessen an freiberuflichen Marktpreisen) — Nutzer tackeln schwerere, teurere Aufgaben. Die Aufgabenteilung: ~70 % Planungsentscheidungen beim Menschen, ~80 % Ausführung bei Claude. Anfänger schaffen 15 % verifizierten Erfolg, Fortgeschrittene und Experten 28–33 %, mit kaum Lücke zwischen beiden. Anwendungsfall-Mix verschiebt sich: Bugfixes sanken von 33 % auf 19 %, Software-Betrieb stieg von 14 % auf 21 %. Fazit: Claude Code wird zum Werkzeug für jeden mit Domänenwissen, nicht nur für Programmierer. (AlphaSignal)
+
+ • Microsoft öffnet kostenlosen 12-Wochen-KI-Kurs für Einsteiger (48.000+ Stars): Der Kurs umfasst 24 Lektionen und richtet sich explizit an Anfänger ohne Vorkenntnisse. Mit über 48.000 GitHub-Stars das meistbeachtete Bildungsangebot dieser Woche. (AlphaSignal)
+
+────────────────────────────────────────
+
+⚡ Kurz notiert
+
+ • US-Regierung verdächtigt ASML: verbotene EUV-Maschine könnte nach China gelangt sein — Commerce-Secretary Howard Lutnick hat ASML-Führungskräften mitgeteilt, eine der gesperrten EUV-Lithografie-Maschinen (einzige Geräte für modernste Chip-Muster) könnte nach China exportiert worden sein. Die US-Regierung will Belege haben, zeigt sie aber nicht; ASML bestreitet es. Ein Verstoß würde ~20 % des 2026er-Umsatzes aus China riskieren. (Techpresso)
+
+ • US-Energiebehörde FERC erteilt KI-Rechenzentren bevorzugte Netzanbindung: FERC hat sechs Netzregionen (inkl. PJM, 200 Mio. Menschen, 30 Bundesstaaten) angewiesen, zu zeigen, wie sie KI-Datenzentren schneller ans Stromnetz anschließen, ohne Kosten auf Verbraucher abzuwälzen. Antwortfrist: 60 Tage. (Techpresso)
+
+ • EU will AWS und Azure zu Gatekeepern erklären: Die Europäische Kommission plant erste Befunde, wonach AWS und Azure als Gatekeeper unter dem Digital Markets Act gelten — mit Interoperabilitätspflichten, Anti-Lock-in-Regeln und Bußgeldern bis 10 % des globalen Jahresumsatzes. Endentscheid voraussichtlich Ende 2026. Anlass u. a. ein 15-stündiger AWS-Ausfall, der Apple, McDonald's und Epic Games traf. (Techpresso)
+
+ • UC Berkeley: Alltagsvideos von Menschen als Trainingsdata für Roboter-Hände — Die Berkeley-Methode destilliert menschliche Handbewegungen aus normalen Videos in Roboter-Trainingsdaten, ohne spezialisierte Aufnahmen zu benötigen. (AlphaSignal)
+
+ • Neuer iOS-Exploit „usbliter8" trifft iPhone XS bis 11 — unpatchbar: Security-Firma Paradigm Shift hat einen BootROM-Exploit für Apples A12- und A13-Chips veröffentlicht, der durch Senden ungewöhnlich kleiner USB-Pakete einen Hardware-Pointer rückwärts durch den Speicher bewegt. A12-Geräte sind leicht übernehmbar; bei A13 schützen Pointer Authentication Codes, können aber umgangen werden. Kein Software-Patch möglich. (Techpresso)
+
+ • Virtuelle 100-Agenten-Gesellschaft verbessert soziales Rollenspiel von LLMs um 15,6 %: Eine Simulation, in der 100 autonome Agenten zehn simulierte Jahre lang interagieren, liefert reichhaltigere Sozialdaten als bisherige Trainingsquellen und hebt die Performance bei Rollenspiel-Benchmarks signifikant an. (Techpresso)
+
+↳ Originale bleiben in deiner Inbox
