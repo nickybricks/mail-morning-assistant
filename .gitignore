@@ -1,5 +1,11 @@
 # Persönliche Daten pro Nutzer — nie versionieren
 config.json
+
+# Lauf-Artefakte (enthalten E-Mail-Inhalte) — nie versionieren
+fetch.json
+actions.json
+drafts.json
+briefing.txt
 voice/samples.md
 senders.md
 memory/
