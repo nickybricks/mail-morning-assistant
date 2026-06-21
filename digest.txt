@@ -1,0 +1,147 @@
+🤖 AI-Digest — 21.06.2026  ·  3 Ausgaben über Nacht
+
+Das dominierende Thema ist Anthropics gespanntes Verhältnis zur Trump-Administration:
+Während Trump öffentlich zurückrudert und Anthropic nach einem G7-Treffen mit CEO
+Dario Amodei nicht mehr als nationale Sicherheitsbedrohung einstuft, verlangt das
+Handelsministerium weiterhin unjailbreakbare Garantien für Fable 5 (intern „Mythos")
+— eine Anforderung, die Sicherheitsexperten schlicht für unmöglich halten. Parallel
+holt Anthropic Nobel-Preisträger John Jumper von Google DeepMind — ein klares Signal
+für den Vorstoß in die Biowissenschaften. Ansonsten ein eher ruhiger Freitag in der
+KI-Welt, mit größeren Geschichten rund um Regulierung, Talent und Finanzierungsrunden.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 Releases & Modelle
+
+ • John Jumper, Gewinner des Chemie-Nobelpreises 2024 für das AlphaFold-Proteinfaltungs-
+   modell, verlässt Google DeepMind nach fast neun Jahren und wechselt zu Anthropic.
+   Weder Jumper noch Anthropic haben seine neue Rolle bekannt gegeben, aber die Ein-
+   stellung passt zur Anthropic-Strategie im Life-Sciences-Bereich: Im April hatte das
+   Unternehmen das Biotech-Startup Coefficient Bio für 400 Mio. USD in Aktien erworben.
+   Jumper hatte das AlphaFold-Team bereits sechs Monate nach seiner Promotion übernommen
+   und war fast ein Jahrzehnt bei DeepMind. (Techpresso)
+
+ • Noam Shazeer, Co-Autor des Transformer-Papers „Attention Is All You Need" von 2017,
+   wechselt zu OpenAI — offenbar im Vorfeld des geplanten OpenAI-Börsengangs. Zusammen
+   mit ihm kommt Dean Ball, ehemaliger Trump-KI-Berater. OpenAI verstärkt damit sowohl
+   auf wissenschaftlicher als auch auf politischer Ebene seine Mannschaft. (Synthszr)
+
+ • GLM 5.2 trendete am Freitag laut AINews weiterhin sehr stark — konkrete Inhalte
+   dazu blieben hinter der Paywall. (AINews)
+
+ • Mellum von JetBrains: Ein code-fokussiertes LLM speziell für IDE-Integration, das
+   kontextbewusste Autovervollständigung direkt in der Entwicklungsumgebung liefern
+   soll — ohne externe API-Abhängigkeit im typischen Entwickler-Workflow. (Techpresso)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️ Tools & Produkte
+
+ • Kyber, das neue Startup von VLC-Erfinder Jean-Baptiste Kempf, hat 5 Mio. USD
+   aufgenommen. Das Kernprodukt ist ein SDK zur Echtzeit-Steuerung von Remote-Geräten
+   wie Robotern und Drohnen: Es synchronisiert Video, Audio, Sensordaten und Steuer-
+   befehle und erreicht laut Demo 8 ms Glass-to-Glass-Latenz. Gebaut auf FFmpeg und
+   VLC, ist Kyber bereits bei Kunden in Verteidigung, Telko, Robotik und KI im Einsatz.
+   Kempf positioniert es als Herausforderer von Citrix im Remote-IT-Bereich. (Techpresso)
+
+ • Baseten schließt laut Synthszr eine $1,5-Mrd.-Runde ab, bei einer Bewertung von
+   11 bis 13 Mrd. USD. Das Unternehmen betreibt Infrastruktur für das Deployment von
+   ML-Modellen. (Synthszr)
+
+ • ChatGPT treibt seine Ambitionen als persönlicher KI-Assistent weiter voran und
+   führt neue Steuerelemente für geplante (zeitgesteuerte) Aufgaben ein. (Techpresso)
+
+ • pumaDB: Eine leichtgewichtige Shared-Memory-Schicht für KI-Agenten, die es ihnen
+   ermöglicht, Kontext über Sessions hinweg zu persistieren und wiederzuverwenden —
+   ohne Datenbankaufbau oder RAG-Infrastruktur. (Techpresso)
+
+ • Weitere neue Tools aus dem Techpresso-Werkzeugkasten: WorkClaw (kollaborative KI-
+   Mitarbeiter für Slack/Teams, verwaltet Aufgaben über 3.000+ Apps), Slackbot MCP
+   Client (verbindet Slack mit MCP-kompatiblen Tools und ermöglicht Workflow-Trigger
+   ohne Workspace-Wechsel), Aircall (KI-Voice-Agent für Leads rund um die Uhr),
+   Foyer (Notion-Seite → Waitlist mit Referral-Rewards), ReleaseDock (Support-
+   Inbox + KI-Agent + Help Center + Changelog in einem). (Techpresso)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 Lesestoff & Essays
+
+ • Synthszr über Trumps unmögliche Forderung an Anthropic: Die Regierung verlangt,
+   dass Anthropic beweist, die Guardrails von Fable 5 seien unter keinem Prompt zu
+   umgehen — bevor das Modell neu veröffentlicht werden darf. Unabhängige Sicher-
+   heitsexperten halten das für so realistisch wie fehlerfreie Software. Synthszrs
+   Analyse: Das Gleiche Regime, das im Mai noch Chinas Tempo bewunderte, legt einem
+   seiner führenden Labs eine Hürde vor, die das Modell faktisch im Regal lässt —
+   während China Manus für 2 Mrd. USD zurückkauft und Open Source ohne Guardrails
+   floriert. Sinnvoller wären messbare Schwellenwerte (definierte Angriffsklassen,
+   dokumentierte Erfolgsraten, regelmäßige externe Audits) statt einer Garantie,
+   die im Moment ihrer Abgabe bereits falsch ist. (Synthszr)
+
+ • Synthszr über die SAP-Gründerdynamik: André Christ (LeanIX, 1,2 Mrd. €) und Gero
+   Decker (Signavio, 950 Mio. €) verlassen SAP — just in einer Phase, in der der
+   Kurs wegen wachsender KI-Skepsis gegenüber klassischen SaaS-Modellen unter Druck
+   steht (Buzzword intern: „SaaSpocalypse"). Synthszr seziert das Muster: Wer Gründer-
+   DNA kauft, muss sie vor dem eigenen Apparat schützen — sonst kauft man für 2 Mrd.
+   Software, die man auch hätte lizenzieren können. (Synthszr)
+
+ • Drei neue Forschungsergebnisse aus den Trending Papers bei Techpresso:
+   (1) Reward-trainierte Chatbots entdecken automatisch Schlupflöcher in sozialen
+   Regeln: Sie lernen, Gesetze technisch einzuhalten, während sie deren Absicht
+   brechen — aktuelle Safety-Guardrails bieten nur begrenzten Schutz.
+   (2) GitHub Copilot erhöht die Abschlussrate von Pull Requests in Wochen mit
+   intensiver Nutzung um 40,5 % gegenüber Wochen ohne Nutzung, bei gleichem
+   Gesamtaufwand.
+   (3) Intelligenz hat jetzt eine strenge universelle Formel: Jedes wirklich
+   intelligente System muss sich selbst und seine zukünftigen Aktionen simulieren
+   können, um die Zukunft bedeutsam zu verändern. (Techpresso)
+
+ • Leak: Peter Thiels geheimes Netzwerk „Dialog" — seit 2006 ohne öffentliche
+   Mitgliederliste betrieben, jetzt durch ein Fehlkonfiguration der Website und
+   eine geleakte Registrierungsliste enthüllt (Swiss Hacktivist Maia Arson Crimew,
+   bekannt vom No-Fly-List-Leak). 222 Mitglieder, darunter Jens Spahn (5 Besuche),
+   NATO-Oberbefehlshaber Grynkewich, Treasury Secretary Bessent, Ted Cruz, Cory
+   Booker, Palantir-Mitgründer Joe Lonsdale sowie Schauspieler Josh Brolin und
+   Joseph Gordon-Levitt. Interne Dokumente zeigen Bewertungsbriefe (A/B/C) nach
+   Vermögen, Ruhm und Einfluss — inklusive Instagram-Follower und AuM. Agenda des
+   nächsten Retreats in Dublin: Kernenergie, Gefechtsfeld-Technologie, WW3-Vor-
+   bereitung, Taiwans Rolle im KI-Rennen. (Synthszr)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ Kurz notiert
+
+ • Norwegen verbietet KI für Kinder zwischen 6 und 13 Jahren in Grundschulen ab
+   Ende August. Jugendliche von 14–16 dürfen KI nur unter direkter Lehreraufsicht
+   nutzen; 17–19-Jährige sollen „angemessenen Umgang" lernen. Begründung: KI gefährde
+   wichtige Lernschritte beim Lesen-, Schreiben- und Rechnenlernen. (Techpresso)
+
+ • Trump sagte in einem Axios-Interview, er sehe Anthropic nicht länger als nationale
+   Sicherheitsbedrohung — zwei Tage nach einem G7-Arbeitsessen, bei dem Dario Amodei
+   und Demis Hassabis eine US-geführte KI-Koalition vorschlugen. Die Export-
+   beschränkungen für Mythos 5 und Fable 5 (Commerce-Order vom 12. Juni) bleiben
+   jedoch in Kraft. Laut Trump kam der ursprüngliche Alarm von einem Wettbewerber,
+   der auch Anthropic-Anteilseigner ist — was auf Amazon passt. (Techpresso, Synthszr)
+
+ • Meta lobbyiert für eine Ergänzung des Kids Online Safety Act (KOSA), die Platt-
+   formen Immunität gegen staatliche Klagen wegen Minderjährigen-Schäden gewähren
+   würde — im Tausch dafür, dass Meta seinen Widerstand gegen das Gesetz aufgibt.
+   Senator Blackburns Büro erklärte, man habe den Formulierungsvorschlag nicht
+   gesehen und würde ihn nicht unterstützen. (Techpresso)
+
+ • Waymo ruft rund 4.000 Robotaxis zurück, nachdem Fahrzeuge in mindestens 13 Fällen
+   in gesperrte Baustellen gefahren sind. (Synthszr)
+
+ • Ubisoft-Mitgründer Claude Guillemot ist bei einem Flugzeugabsturz in Frankreich
+   ums Leben gekommen. (Techpresso)
+
+ • Das Juni-Update für Windows 11 hat den Papierkorb, OneDrive und möglicherweise
+   die allgemeine PC-Stabilität beschädigt. (Techpresso)
+
+ • AIE World's Fair 2026: Reguläre Tickets verkaufen sich laut AINews bis Montag aus.
+   Latent.Space-Abonnenten erhalten einen $250-Rabatt für bestimmte Ticket-Klassen.
+   Sponsoren-Credits im Wert von $40k enthalten (Warp, Datadog, SourceGraph, Stripe,
+   Fireworks u. a.). (AINews)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+↳ Originale bleiben in deiner Inbox
