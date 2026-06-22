@@ -225,17 +225,21 @@ Zeitplan und anderer Prompt**.
      OAuth-Secrets stehen in ENV GMAIL_CLIENT_ID/_SECRET/_REFRESH_TOKEN;
      fehlt eine -> abbrechen + im Log melden.
   2. python3 adapters/gmail-rest/fetch_digest.py > digest_in.json
-     (holt nur die ai_digest_senders der letzten 24h, gekürzt).
+     (holt nur die ai_digest_senders der letzten 24h, gekürzt; body_excerpt
+     enthält Original-Links als [text](url) und Bilder als ![alt](url)).
      Sind 0 Ausgaben enthalten ("count":0) -> KEINE Mail erzeugen, sauber beenden.
   3. Lies core/briefing.md, Abschnitt "🤖 AI-Digest". Schreibe daraus die
-     Digest-Mail nach digest.txt: oben 2-3 Sätze Tages-Zusammenfassung, dann die
-     festen Abschnitte (🚀 Releases & Modelle / 🛠️ Tools & Produkte /
-     📚 Lesestoff & Essays / ⚡ Kurz notiert). Bullet Points, aber ausführlich
-     (1-3+ Sätze, nichts Wichtiges weglassen), Quelle je Punkt in Klammern,
-     Themen über mehrere Newsletter zusammenführen (nichts doppelt). Leerer
-     Abschnitt -> "— heute nichts". Nur was in den Newslettern steht, nichts
+     Digest-Mail als HTML nach digest.html: oben 2-3 Sätze Tages-Zusammenfassung,
+     dann die festen Abschnitte (🚀 Releases & Modelle / 🛠️ Tools & Produkte /
+     📚 Lesestoff & Essays / ⚡ Kurz notiert). Bullet Points (<ul><li>), aber
+     ausführlich (1-3+ Sätze, nichts Wichtiges weglassen), Quelle je Punkt als
+     klickbarer Link <a href="url">…</a> (aus den [text](url) im body_excerpt),
+     aussagekräftige Bilder als <img src="url" style="max-width:100%;height:auto">
+     (keine Logos/Spacer/Tracking). Themen über mehrere Newsletter zusammenführen
+     (nichts doppelt). Leerer Abschnitt -> "— heute nichts". Schlankes HTML mit
+     inline-style, kein externes CSS/JS. Nur was in den Newslettern steht, nichts
      erfinden.
-  4. python3 adapters/gmail-rest/deliver_briefing.py digest.txt \
+  4. python3 adapters/gmail-rest/deliver_briefing.py digest.html --html \
        --folder "<Name>/AI-Digest" --subject "🤖 AI-Digest — $(date +%d.%m.%Y)" \
        --also-inbox
   5. Log: Anzahl Ausgaben + ob Zustellung ok.
