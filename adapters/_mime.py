@@ -10,30 +10,74 @@ MAX_BODY_CHARS = 4000
 
 
 class _Stripper(HTMLParser):
-    def __init__(self):
+    """HTML -> Text. Standardmaessig werden alle Tags verworfen (knapper Klartext
+    fuers Haupt-Briefing). Mit keep_links/keep_images werden Links als
+    [text](url) und Bilder als ![alt](url) eingebettet — gebraucht fuer den
+    AI-Digest, wo der Nutzer Quellen-Links folgen und Bilder sehen koennen soll."""
+
+    def __init__(self, keep_links=False, keep_images=False):
         super().__init__()
         self.parts = []
         self.skip = False
+        self.keep_links = keep_links
+        self.keep_images = keep_images
+        self._links = []  # Stapel offener <a>: [href, [textteile]]
+
+    def _emit(self, s):
+        # In einen offenen <a> schreiben wir in dessen Textpuffer, damit der
+        # Link am </a> als [text](href) ausgegeben werden kann.
+        if self._links:
+            self._links[-1][1].append(s)
+        else:
+            self.parts.append(s)
 
     def handle_starttag(self, tag, attrs):
         if tag in ("script", "style"):
             self.skip = True
+            return
+        a = dict(attrs)
+        if tag == "a" and self.keep_links:
+            self._links.append([a.get("href"), []])
+        elif tag == "img" and self.keep_images:
+            src = (a.get("src") or "").strip()
+            # Tracking-Pixel (1x1) und inline-base64-Bilder rauslassen.
+            if (src and not src.startswith("data:")
+                    and a.get("width") not in ("0", "1")
+                    and a.get("height") not in ("0", "1")):
+                alt = (a.get("alt") or "").strip()
+                self._emit(f" ![{alt}]({src}) ")
 
     def handle_endtag(self, tag):
         if tag in ("script", "style"):
             self.skip = False
+            return
+        if tag == "a" and self.keep_links and self._links:
+            href, textparts = self._links.pop()
+            text = "".join(textparts).strip()
+            if href and not href.startswith(("javascript:", "#")):
+                self._emit(f"[{text}]({href})" if text else f"({href})")
+            else:
+                self._emit(text)
 
     def handle_data(self, data):
         if not self.skip:
-            self.parts.append(data)
+            self._emit(data)
 
 
-def html_to_text(html):
+def html_to_text(html, keep_links=False, keep_images=False):
     if not html:
         return ""
-    p = _Stripper()
+    p = _Stripper(keep_links=keep_links, keep_images=keep_images)
     try:
         p.feed(html)
+        # Offene <a> ohne </a> noch ausspielen, damit kein Link verschluckt wird.
+        while p._links:
+            href, textparts = p._links.pop()
+            text = "".join(textparts).strip()
+            if href and not href.startswith(("javascript:", "#")):
+                p.parts.append(f"[{text}]({href})" if text else f"({href})")
+            else:
+                p.parts.append(text)
         text = "".join(p.parts)
     except Exception:
         text = re.sub(r"<[^>]+>", " ", html)

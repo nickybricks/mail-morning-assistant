@@ -126,6 +126,15 @@ Regeln zum Schema:
   Doppelungen über mehrere Newsletter zusammenführen (ein Thema = ein Bullet).
   Keine festen Floskeln.
 - **Quelle pro Punkt** in Klammern am Ende: „(AlphaSignal)", „(Techpresso, swyx)".
+- **Links mitnehmen, damit man folgen kann.** Der `body_excerpt` enthält die
+  Original-Links als `[text](url)` und Bilder als `![alt](url)`. Die Digest-Mail
+  ist **HTML** (siehe „Zustellung"): Wandle pro Bullet die relevante Quelle/das
+  Original (Release-Seite, Essay, Repo) in einen echten klickbaren Link um —
+  `<a href="url">text</a>` — statt nur den Namen zu nennen. Keine Tracking-/Werbe-
+  Links und keine Link-Wüste: nur die ein, zwei Links, die der Punkt wirklich
+  braucht. Gibt es zu einem Punkt ein **aussagekräftiges** Bild (Chart, Screenshot,
+  Produkt-Shot — **kein** Logo, Spacer, Avatar), bette es als
+  `<img src="url" alt="…" style="max-width:100%;height:auto">` direkt im Bullet ein.
 - **Top-Zusammenfassung** oben: 2–3 Sätze, die den Tag einordnen, bevor die
   Abschnitte kommen.
 - **Quell-Newsletter bleiben in der Inbox:** Mails von `ai_digest_senders` werden
@@ -144,8 +153,22 @@ Sie fasst **alle** Ausgaben der `ai_digest_senders` aus diesem Fenster zusammen.
 Versand an Dritte). Sie wird in den **Posteingang (INBOX)** gelegt, damit der
 Nutzer sie morgens sofort sieht, **und** zusätzlich mit dem Label
 `<assistant_name>/AI-Digest` versehen (Archiv-Heimat). Mechanik identisch zum
-Haupt-Briefing (IMAP `APPEND` via `deliver_briefing.py`; Gmail-Cloud per
-`messages.insert`). Im interaktiven Lauf zusätzlich im Chat zeigen.
+Haupt-Briefing (Gmail-Cloud per `messages.insert` über
+`adapters/gmail-rest/deliver_briefing.py`).
+
+**Als HTML zustellen:** Anders als das Haupt-Briefing ist der AI-Digest eine
+**HTML-Mail** — nur so sind die Quellen-Links klickbar und die Bilder inline
+sichtbar. Den Digest also als **HTML-Datei** komponieren und mit dem Flag `--html`
+zustellen:
+```
+python3 adapters/gmail-rest/deliver_briefing.py <digest.html> --html \
+  --folder "<assistant_name>/AI-Digest" --also-inbox \
+  --subject "🤖 AI-Digest — <Datum>"
+```
+Schlankes, robustes HTML (E-Mail-Clients sind wählerisch): Abschnitte als
+Überschriften, je ein `<ul>`/`<li>` pro Bullet, Quellen als `<a href>`, Bilder als
+`<img … style="max-width:100%;height:auto">`. Inline-`style` statt `<style>`-Block,
+keine externen CSS/JS. Im interaktiven Lauf zusätzlich im Chat zeigen.
 
 **Kein eigener Kosten-Footer:** Haupt-Briefing und AI-Digest gehören zu *einem*
 Lauf — die Kosten werden gemeinsam im Footer des Haupt-Briefings ausgewiesen und

@@ -7,12 +7,15 @@ an Dritte raus und durchlaeuft keinen Spam-Filter.
 Funktioniert ueber HTTPS -> auch im claude.ai-Cloud-Environment (kein IMAP).
 
 Aufruf:  python3 deliver_briefing.py <briefing.txt> [--folder "Maily/Briefings"]
-                                     [--subject "..."] [--also-inbox] [--dry-run]
+                                     [--subject "..."] [--also-inbox] [--html]
+                                     [--dry-run]
 
 - <briefing.txt>: Briefing-Text (UTF-8), inkl. Kosten-Footer.
 - --folder:   Ziel-Label. Default: "<assistant_name>/Briefings".
 - --subject:  Betreff. Default: "<assistant_name>-Briefing — <Datum>".
 - --also-inbox: zusaetzlich INBOX-Label (Briefing bleibt morgens sichtbar).
+- --html:     Datei als HTML behandeln -> Mail als HTML zustellen (Links klickbar,
+              Bilder inline). Gebraucht fuer den AI-Digest. Ohne Flag: reiner Text.
 - --dry-run:  nichts ablegen, nur zeigen, was passieren wuerde.
 """
 import argparse
@@ -28,7 +31,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _gmail_common import load_config, access_token, api, resolve_label  # noqa: E402
 
 
-def build_raw(cfg, subject, body):
+def build_raw(cfg, subject, body, html=False):
     em = EmailMessage()
     addr = cfg["email"]
     em["From"] = addr
@@ -36,7 +39,14 @@ def build_raw(cfg, subject, body):
     em["Subject"] = subject
     em["Date"] = formatdate(localtime=True)
     em["Message-ID"] = make_msgid(domain=addr.split("@")[-1])
-    em.set_content(body)
+    if html:
+        # multipart/alternative: knapper Text-Fallback + die HTML-Version (Links
+        # klickbar, Bilder inline). Clients ohne HTML zeigen den Fallback.
+        em.set_content("Dieser AI-Digest ist als HTML-Mail formatiert. "
+                       "Bitte in einem Client mit HTML-Ansicht oeffnen.")
+        em.add_alternative(body, subtype="html")
+    else:
+        em.set_content(body)
     return base64.urlsafe_b64encode(em.as_bytes()).decode()
 
 
@@ -46,6 +56,7 @@ def main():
     ap.add_argument("--folder")
     ap.add_argument("--subject")
     ap.add_argument("--also-inbox", action="store_true")
+    ap.add_argument("--html", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -67,7 +78,7 @@ def main():
     if args.dry_run:
         result["note"] = "(dry-run) wuerde messages.insert mit diesen Labels ausfuehren"
     else:
-        raw = build_raw(cfg, subject, body)
+        raw = build_raw(cfg, subject, body, html=args.html)
         inserted = api("POST", "/messages", token,
                        params={"internalDateSource": "dateHeader"},
                        body={"raw": raw, "labelIds": label_ids})

@@ -72,8 +72,10 @@ lokal, ENV in der Cloud). `email` dient als Schlüsselbund-Account.
   `Authentication-Results` der `format=raw`-MIME — beim MCP nicht verfügbar).
 - **`deliver_briefing.py`** — Briefing per `messages.insert` in
   `<Name>/Briefings` (+ optional `INBOX`), ungelesen. CLI identisch zur
-  IMAP-Variante: `<briefing.txt> [--folder] [--subject] [--also-inbox] [--dry-run]`.
-  Wird auch für die AI-Digest-Mail genutzt: `--folder "<Name>/AI-Digest" --also-inbox`.
+  IMAP-Variante: `<briefing.txt> [--folder] [--subject] [--also-inbox] [--html]
+  [--dry-run]`. Wird auch für die AI-Digest-Mail genutzt — die als **HTML**
+  zugestellt wird (Links klickbar, Bilder inline): `<digest.html> --html
+  --folder "<Name>/AI-Digest" --also-inbox`.
 - **`fetch_digest.py`** — holt **nur** die AI-Newsletter aus `ai_digest_senders`
   (config) der letzten `ai_digest_window_hours` und gibt sie **gekürzt** als JSON
   aus (eigene Body-Extraktion ohne den 4000-Cap von `_mime`, nimmt den reicheren

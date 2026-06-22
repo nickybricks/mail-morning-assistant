@@ -62,7 +62,7 @@ def extract_full_body(msg):
         else:
             text = payload
     plain = (text or "").strip()
-    from_html = html_to_text(html) if html else ""
+    from_html = html_to_text(html, keep_links=True, keep_images=True) if html else ""
     # Den laengeren/inhaltsreicheren Body nehmen.
     return plain if len(plain) >= len(from_html) else from_html
 
