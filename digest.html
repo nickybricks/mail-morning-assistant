@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🤖 AI-Digest — 23.06.2026</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #222; max-width: 680px; margin: 0 auto; padding: 16px;">
+
+<h1 style="font-size: 20px; color: #111; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">🤖 AI-Digest — 23.06.2026 &nbsp;·&nbsp; 3 Ausgaben über Nacht</h1>
+
+<p style="background: #f5f5f5; padding: 12px 16px; border-left: 4px solid #555; margin: 16px 0;">
+Heute dominiert ein Doppelthema: Japans Sakana AI füllt mit <em>Fugu</em> die Lücke, die Anthropics US-Exportsperre hinterlassen hat — und liefert Benchmark-Werte, die Fable 5 überflügeln, während die EU das Produkt gleichzeitig an der Grenze aufhält. Parallel wird sichtbar, wie weit SpaceX als Neocloud bereits ist: drei GPU-Mietverträge mit Anthropic, Google und jetzt Reflection AI ergeben annualisiert 28 Milliarden Dollar Umsatz. Dazu warnt ein seltenes Fünf-Augen-Statement, dass KI-Systeme in Monaten in der Lage sein könnten, Regierungen zu destabilisieren.
+</p>
+
+<h2 style="font-size: 16px; color: #111; margin-top: 24px; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">🚀 Releases &amp; Modelle</h2>
+<ul style="padding-left: 20px; margin: 8px 0 0 0;">
+  <li style="margin-bottom: 18px;">
+    <strong>Sakana Fugu — Japans Antwort auf den Frontier-Lock-out</strong>
+    (<a href="https://venturebeat.com/orchestration/no-claude-fable-5-no-problem-sakana-achieves-frontier-performance-with-new-fugu-multi-model-auto-synthesis-system" style="color: #0066cc;">VentureBeat</a>,
+    <a href="https://www.synthszr.com/en/posts/japan-launcht-fable-alternative-eu-blockiert-sie" style="color: #0066cc;">Synthszr</a>,
+    <a href="https://open.substack.com/pub/swyx/p/ainews-spacex-is-already-a-28byr" style="color: #0066cc;">AINews</a>)<br>
+    Sakana AI — gegründet von ex-Google-Brain-Forscher David Ha — hat <em>Fugu</em> gelauncht: ein Multi-Agenten-Orchestrierungssystem, das über eine einzige OpenAI-kompatible API verschiedene spezialisierte Modelle dynamisch ausleitet. Das Timing ist kein Zufall: Am 12. Juni sperrte Anthropic nach US-Exportkontrollvorgaben den öffentlichen Zugang zu Claude Mythos 5 und Fable 5. Fugu übertrifft beide auf Benchmarks — 93,2 Punkte auf LiveCodeBench (Fable 5: 89,8) und 95,5 auf GPQA-Diamond. Der Preis ist hoch: Fugu Ultra kostet 5 $/Mio. Input-Token und 30 $/Mio. Output-Token. Ein wichtiger Kritikpunkt: Welche Modelle intern genutzt werden, bleibt proprietär und für den Nutzer unsichtbar — Sakana schützt sich vor Vendor-Lock-in, indem es selbst zum Gatekeeper wird. In der EU ist der Dienst vorerst wegen offener DSGVO-Fragen nicht verfügbar.
+  </li>
+  <li style="margin-bottom: 18px;">
+    <strong>OpenAI Daybreak: Erweiterung auf Patch-Generierung mit GPT-5.5-Cyber</strong>
+    (<a href="https://open.substack.com/pub/swyx/p/ainews-spacex-is-already-a-28byr" style="color: #0066cc;">AINews</a>)<br>
+    OpenAI hat sein Daybreak-Cybersicherheitsprogramm deutlich ausgebaut: Neu sind ein Codex-Security-Plugin, das vollständige GPT-5.5-Cyber-Modell für ausgewählte Verteidiger, ein Cyber Partner Program sowie die Initiative „Patch the Planet" zur Absicherung kritischer Open-Source-Software. Konkrete Zahlen: 30 Mio.+ Commits gescannt, 30.000+ Codebasen abgedeckt, 70.000+ von Reviewern markierte Fixes, 500.000+ automatisch erkannte Fixes. Im Scope: cURL, Go, Python, Sigstore, pyca/cryptography. Der entscheidende Shift ist von reiner Bug-Erkennung hin zu geschlossenem Patch-Generierungs-Loop mit menschlichem Review. OpenAI beansprucht SOTA auf dem CyberGym-Benchmark für GPT-5.5-Cyber — was sofort die politische Frage aufwirft, warum dieses Modell im Gegensatz zu Anthropics Mythos/Fable keinen vergleichbaren Exportbeschränkungen unterliegt.
+  </li>
+</ul>
+
+<h2 style="font-size: 16px; color: #111; margin-top: 24px; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">🛠️ Tools &amp; Produkte</h2>
+<ul style="padding-left: 20px; margin: 8px 0 0 0;">
+  <li style="margin-bottom: 18px;">
+    <strong>Microsoft erwägt, DeepSeek zu hosten</strong> (Techpresso)<br>
+    Microsoft-CEO Satya Nadella hat bestätigt, dass Microsoft überlegt, eine Version des chinesischen Modells DeepSeek auf Azure zu hosten. Das würde dem chinesischen Modellanbieter deutlich mehr Traffic zuführen und den Preisdruck auf OpenAI und Anthropic erhöhen — beide werfen DeepSeek vor, ihre Arbeit kopiert zu haben. Der Schritt passt zu Microsofts aktueller Strategie günstiger Modelloptionen für kostenbewusste Enterprise-Kunden. Nadella argumentierte, der Wert solle nicht nur an wenige Modelle fließen.
+  </li>
+  <li style="margin-bottom: 18px;">
+    <strong>Getty Images +120 %: Lizenzierte Fotos in ChatGPT</strong> (Techpresso)<br>
+    Getty Images und OpenAI haben einen mehrjährigen Deal bekannt gegeben: Wenn ChatGPT eine Anfrage erhält, die nach einem Bild verlangt, kann der Chatbot statt einer synthetisch generierten Grafik ein lizenziertes Getty-Foto zurückliefern. Die Aktie reagierte mit einem Kursplus von ~120 %. Finanzielle Details, Umsatzbeteiligungen und ob Gettys Bilder zukünftige OpenAI-Modelle trainieren dürfen, wurden nicht offengelegt — der Deal betrifft ausdrücklich nur die Anzeige, nicht das Training.
+  </li>
+  <li style="margin-bottom: 18px;">
+    <strong>WhatsApp bekommt neuen Chef: Kunal Shah von Cred</strong> (Techpresso)<br>
+    Meta investiert 900 Mio. Dollar in das indische Fintech-Startup Cred (bewertet auf 4,5 Mrd. Dollar, ~20 % Anteil für Meta) und macht dessen Gründer Kunal Shah zum neuen Leiter von WhatsApp — als Nachfolger von Will Cathcart nach sieben Jahren. Shah soll WhatsApps Werbegeschäft, Abonnements und die Integration von KI-Agenten in die Messaging-App vorantreiben.
+  </li>
+</ul>
+
+<h2 style="font-size: 16px; color: #111; margin-top: 24px; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">📚 Lesestoff &amp; Essays</h2>
+<ul style="padding-left: 20px; margin: 8px 0 0 0;">
+  <li style="margin-bottom: 18px;">
+    <strong>Fünf-Augen-Statement: Frontier-KI könnte in Monaten Regierungen destabilisieren</strong> (Techpresso)<br>
+    Die Geheimdienstbehörden von Australien, USA, Großbritannien, Neuseeland und Kanada haben in einem seltenen gemeinsamen Statement gewarnt, dass Frontier-KI-Modelle leistungsfähig genug sein könnten, Regierungen und Unternehmen zu destabilisieren — und das sei nicht Jahrzehnte entfernt, sondern Monate. Sie fordern eine gesamtgesellschaftliche Antwort und rufen Führungskräfte auf, Cyber-Risiko als Kernelement unternehmerischer Verantwortung zu behandeln. Keine Firmen werden namentlich erwähnt, aber der Fokus liegt erkennbar auf Anthropics Modellen Mythos und Fable 5, die die US-Regierung im Juni für Nicht-US-Bürger gesperrt hat.
+  </li>
+  <li style="margin-bottom: 18px;">
+    <strong>Europa, Fugu und die Frage der KI-Souveränität</strong>
+    (<a href="https://www.synthszr.com/en/posts/japan-launcht-fable-alternative-eu-blockiert-sie" style="color: #0066cc;">Synthszr</a>)<br>
+    Synthszr liefert einen scharfen Kommentar zur europäischen KI-Lage: Drei Tage nach Anthropics Modell-Abschaltung außerhalb der USA launcht Japan mit Fugu die erste echte Alternative — und die EU blockiert sie direkt wegen offener DSGVO-Fragen. Die Kernthese: Europa hat live erlebt, wie schnell ein US-Anbieter den Zugang abdrehen kann. Im selben Moment liefert eine befreundete Nation die erste valide Alternative, und Brüssel lässt sie nicht rein. Das sei strategisch unklug. Fugu sei kein Heiliger (Routing-Logik bleibt eine Black Box, 30 $/Mio. Output-Token für eine reine Koordinationsschicht ist steil), aber das müsse verhandelt werden — und dazu müsse Europa am Tisch sitzen. Sonst bleibe Europa der Markt, der anderen beim Bauen der Infrastruktur zuschaut, von der er morgen abhängig sein wird.
+  </li>
+</ul>
+
+<h2 style="font-size: 16px; color: #111; margin-top: 24px; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0;">⚡ Kurz notiert</h2>
+<ul style="padding-left: 20px; margin: 8px 0 0 0;">
+  <li style="margin-bottom: 14px;">
+    <strong>SpaceX als 28-Milliarden-Dollar-Neocloud</strong>
+    (<a href="https://open.substack.com/pub/swyx/p/ainews-spacex-is-already-a-28byr" style="color: #0066cc;">AINews</a>):
+    SpaceX hat einen dritten GPU-Mietvertrag abgeschlossen — mit Reflection AI: 6,3 Mrd. Dollar Gesamtvolumen, 150 Mio. Dollar/Monat ab 1. Juli 2026 für GB300-GPUs bis 2029. Zusammen mit den Deals mit Anthropic (Colossus 1+2, ~1,25 Mrd. $/Monat) und Google summieren sich die laufenden Einnahmen auf 2,32 Mrd. Dollar/Monat — annualisiert 28 Mrd. Dollar. Das ist laut Analyst Jamin Ball ungefähr das Doppelte des aktuellen Coreweave-Umsatzes, dessen Bewertung bei 60 Mrd. Dollar gehalten wird.
+    <br><img src="https://pbs.substack.com/media/HLbX8TUaoAA9OTl.jpg" alt="Tweet zu SpaceX GPU-Deals: Reflection AI $150M/Monat" style="max-width:100%;height:auto;margin-top:8px;border:1px solid #e0e0e0;">
+  </li>
+  <li style="margin-bottom: 14px;">
+    <strong>Talent-Exodus bei Google DeepMind:</strong>
+    John Jumper — Nobel-Preisträger in Chemie (AlphaFold, zusammen mit Demis Hassabis) — verlässt Google DeepMind nach neun Jahren und wechselt zu Anthropic. Das kommt nur Tage, nachdem Gemini-Co-Lead Noam Shazeer zu OpenAI gegangen ist. Zwei prominente Abgänge in einer Woche — Synthszr kommentiert, dass Talent die echte Verteidigungslinie im KI-Rennen ist, und Google diese gerade verliert. (Synthszr)
+  </li>
+  <li style="margin-bottom: 14px;">
+    <strong>Baseten: 13 Milliarden Dollar Series F bestätigt</strong> — Baseten hat die zuvor geleakte 13-Mrd.-Dollar-Runde offiziell bekannt gegeben. (AINews)
+  </li>
+  <li style="margin-bottom: 14px;">
+    <strong>China schränkt US-Unternehmen bei Seltenen Erden ein:</strong>
+    China hat 10 US-Industrielieferanten auf eine Exportkontrollliste gesetzt und 46 amerikanische Firmen von Regierungsaufträgen ausgeschlossen — als Reaktion auf das Pentagon-Blacklist-Update (1260H, ab 30. Juni). Betroffen u. a. MP Materials, USA Rare Earth, Oshkosh Defense. Analysten bewerten die Maßnahmen als weitgehend symbolisch, da die meisten Zielfirmen wenig China-Geschäft haben. (Techpresso)
+  </li>
+</ul>
+
+<p style="color: #888; font-size: 13px; margin-top: 32px; border-top: 1px solid #e0e0e0; padding-top: 12px;">
+↳ Originale bleiben in deiner Inbox &nbsp;·&nbsp; Archiv: Maily/AI-Digest
+</p>
+
+</body>
+</html>
