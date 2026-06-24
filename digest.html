@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>🤖 AI-Digest — 24.06.2026</title>
+</head>
+<body style="font-family:Arial,Helvetica,sans-serif;max-width:680px;margin:0 auto;padding:24px 20px;color:#222;background:#fff;line-height:1.55;">
+
+<h1 style="font-size:1.4em;margin:0 0 4px;">🤖 AI-Digest — 24.06.2026</h1>
+<p style="color:#666;font-size:0.9em;margin:0 0 20px;">3 Ausgaben über Nacht · AlphaSignal, Techpresso, Synthszr</p>
+
+<p style="font-size:1em;margin:0 0 24px;border-left:4px solid #6c63ff;padding-left:14px;background:#f9f8ff;padding-top:10px;padding-bottom:10px;border-radius:0 6px 6px 0;">
+Das dominierende Thema heute ist die Konsolidierung des KI-Coding-Layers: SpaceX kauft Cursor für 60 Mrd. Dollar und bringt Rocket-Company-Compute direkt in die IDE — gleichzeitig kündigt Cursor Composer 3 an, ein von Grund auf auf 100.000 GPUs trainiertes 1,5-Billionen-Parameter-Modell. Anthropic wiederum macht Slack zum KI-Teamraum: Claude Tag sitzt persistent im Channel, liest mit und erledigt Aufgaben selbstständig. Im Hintergrund: OpenAI patcht das Internet mit GPT-5.5-Cyber, und China hat mit LineShine (2,198 Exaflops, kein einziges GPU) erstmals seit 2017 den schnellsten Supercomputer der Welt.
+</p>
+
+<hr style="border:none;border-top:1px solid #eee;margin:0 0 24px;">
+
+<!-- ================================================ -->
+<h2 style="font-size:1.1em;margin:0 0 12px;">🚀 Releases &amp; Modelle</h2>
+<ul style="margin:0 0 24px;padding-left:22px;">
+
+  <li style="margin-bottom:16px;">
+    <strong>SpaceX erwirbt Cursor für $60 Mrd. — Composer 3 und Joint-Modell mit xAI angekündigt</strong><br>
+    Am ersten Cursor-User-Conference „Compile" — und genau an dem Tag, an dem SpaceX die Übernahme bekannt gibt — zeigt das Unternehmen drei große Neuheiten: Erstens kauft SpaceX Cursor in einem All-Stock-Deal für 60 Milliarden Dollar, um den weltweit besten Coding-Assistenten zu bauen. Zweitens kommt Composer 3: ein brandneues Modell mit 1,5 Billionen Parametern (Cursor nennt Parameter das „Gehirn einer KI"), von Grund auf auf über 100.000 GPUs trainiert — Leistungsklasse Claude Opus / GPT-5.5, aber spezifisch für Code. Drittens haben Cursor und xAI (SpaceX) bereits ein gemeinsames Modell co-trainiert, das sowohl in Cursor als auch in Grok Build erscheinen wird. Für Nutzer bedeutet das: ein Coding-Assistent mit Supercomputer-Compute, nicht nur einem Startup-GPU-Budget.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=1tlSeipZRC1JT9DT2&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+    <br><br>
+    <img src="https://alphasignal.ai/image/1782187733469-zm9fzv.png" alt="Cursor + SpaceX Ankündigung" style="max-width:100%;height:auto;border-radius:6px;">
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>OpenAI GPT-5.5-Cyber: Spezialisiertes Sicherheitsmodell ab sofort für Defender verfügbar</strong><br>
+    OpenAI hat GPT-5.5-Cyber veröffentlicht, einen auf Cybersicherheit spezialisierten Ableger von GPT-5.5, der auf dem CyberGym-Benchmark 85,6 % erreicht (Standard-GPT-5.5: 81,8 %). Der Zugang ist auf verifizierte Sicherheits-Defender beschränkt, nicht öffentlich zugänglich. Eingebettet in Codex ermöglicht das neue Codex-Security-Plugin vollständige Sicherheits-Workflows direkt aus der IDE: Codebase scannen, echte Angriffspfade nachverfolgen, Bedrohungsmodelle bauen, Findings in isolierter Umgebung validieren und codebase-spezifische Patches erzeugen — Export in SARIF und CodeQL. Seit der Research-Preview wurden 30 Millionen Commits über 30.000+ Codebases gescannt.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=1r4Od78Nm2uuiYodz&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+    <br><br>
+    <img src="https://alphasignal.ai/image/1782187686705-gdbfpj.png" alt="OpenAI GPT-5.5-Cyber" style="max-width:100%;height:auto;border-radius:6px;">
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>GLM 5.2 übernimmt Spitze des Open-Source-Coding-Leaderboards — +17 % vor Kimi K2</strong><br>
+    GLM 5.2 führt jetzt das Open-Source-Coding-Leaderboard an und lässt den bisherigen Spitzenreiter Kimi K2 um 17 % hinter sich. Damit hat ein weiteres chinesisches Open-Source-Modell einen der einflussreichsten Benchmarks für Code-Generierung und -Verständnis übernommen.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=QovTaCkyHRcaWR1L&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+    <br><br>
+    <img src="https://alphasignal.ai/image/1782187766789-c73yfm.png" alt="GLM 5.2 Leaderboard" style="max-width:100%;height:auto;border-radius:6px;">
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>China holt sich mit LineShine den Titel des schnellsten Supercomputers zurück — 2,198 Exaflops, kein GPU</strong><br>
+    Zum ersten Mal seit 2017 steht China wieder an der Spitze der TOP500-Liste: LineShine, gebaut vom National Supercomputer Center, erreicht 2,198 Exaflops und überholt damit El Capitan am Lawrence Livermore National Laboratory. Bemerkenswert: Das System verwendet keinerlei GPUs, sondern einen eigens entwickelten 304-Core-Prozessor mit insgesamt 13,79 Millionen Cores bei 1,55 GHz und einem Energiebedarf von 42,2 Megawatt (52,07 Gigaflops/Watt Effizienz). Wie LineShine US-Technologie-Embargos umging: der Chiphersteller wurde nicht offengelegt.
+    <a href="https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhRSsqn9n9t-JFlNkNu_UfV1bEaMr79RK1W_xNO3mW4t4qkgx4DmfGFHoHDQ-fVrTMu3nfXnwhj1ZuQWkw0qyPWy70ibIGcibHpvvZJZmOzLUEUlw4mllYSwm9qDnSOFAAKCWeU7BErQTysz4oKiaOxcLoqVFE6dTWrZD7T2ZOxiT/4rq/bUSyFJwaQtKHiHu3EXuNKw/h10/h001.DbvOAohdZPwNUmYrGnZj6u7E0pLlTwe2ymluSDHCI2c" style="color:#6c63ff;">(Techpresso)</a>
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #eee;margin:0 0 24px;">
+
+<!-- ================================================ -->
+<h2 style="font-size:1.1em;margin:0 0 12px;">🛠️ Tools &amp; Produkte</h2>
+<ul style="margin:0 0 24px;padding-left:22px;">
+
+  <li style="margin-bottom:16px;">
+    <strong>Anthropic: Claude Tag — KI-Teammitglied direkt im Slack-Channel (Beta)</strong><br>
+    Anthropic hat Claude Tag eingeführt: eine persistente Claude-Instanz, die dauerhaft in einem Slack-Channel lebt und wie ein reguläres Teammitglied agiert. Sie liest den Channel, springt in Threads ein, erinnert sich an Kontext und erledigt Aufgaben eigenständig (Zuweisung via @Claude). Im „Multiplayer-Modus" weiß Claude, was Bob mit Sue besprochen hat — und was nicht. Im „Ambient-Modus" beobachtet Claude den Channel aktiv, lernt im Zeitverlauf und setzt sich selbst Aufgaben, etwa Follow-ups in verstummten Threads. Jeder Channel erhält eine isolierte Claude-Identität mit granularen Zugriffsrechten (das Engineering-Claude sieht nicht, was das Legal-Claude weiß). Admins können Token-Limits pro Channel setzen und alle Aktionen in einem Log einsehen. Anthropic gibt an, dass bereits 65 % ihres eigenen Produkt-Team-Codes intern von genau dieser Version stammt. Ab sofort als Beta für Enterprise- und Team-Kunden verfügbar; später soll die Integration über Slack hinausgehen.
+    <a href="https://www.zdnet.com/article/anthropic-claude-tag-agentic-ai-coworker-slack/" style="color:#6c63ff;">(ZDNet via Synthszr)</a>
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>OpenAI + Trail of Bits: „Patch the Planet" — Open-Source-Sicherheit mit KI skalieren</strong><br>
+    In Zusammenarbeit mit der Sicherheitsfirma Trail of Bits hat OpenAI das Programm „Patch the Planet" gestartet: KI-Modelle (GPT-5.5-Cyber + Codex Security) durchforsten verbreitete Open-Source-Projekte nach Schwachstellen; Trail-of-Bits-Ingenieure reviewen die Findings, filtern False Positives heraus und reichen dann Patches ein. Erste Teilnehmer: Python, Go, cURL und python.org. Maintainer erhalten kostenlosen Codex-Zugang und API-Credits. Bereits Dutzende Patches gemerged, Hunderte Sicherheitsprobleme identifiziert.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=1r4Od78Nm2uuiYodz&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal,</a>
+    <a href="https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhf6gpSZ7LIi2QzgjMLv9opK3EouGdXfYqcTZFrYLNd-kpuLvCu9ah4TJRPZsSzaP0ZP2S3V2nqeRFD9kAL_pTdAv28DN4uCUgnbzjhQ4-c1DDYFSe42KfFJsmLp3kqsr-PArV-p_DwGxndAuGAiG15oJ-jpoC7oCD6EIwlgwXCkco2op-26svp3OgP3l3lwz8a5EZVPK0LpDS96DPo/4rq/bUSyFJwaQtKHiHu3EXuNKw/h9/h001.-qqkm_F5PHgYLseM5JGYwg45v6jk8MEwKeMMos_jmbg" style="color:#6c63ff;">Techpresso)</a>
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>Meta launcht eigene Smart Glasses — Meta Glasses ab $299, Kylie Jenner Edition dabei</strong><br>
+    Meta bricht mit EssilorLuxottica-Kooperationen wie Ray-Ban und Oakley und bringt drei eigene Brillenrahmen unter dem Namen „Meta Glasses" heraus: Adventurer, Fury und die Starfire Kylie Edition. Preise beginnen bei $299 (Ray-Ban Gen 2 kostete $379). Die Hardware bleibt nah am Ray-Ban-Vorgänger: 12-MP-Kamera, 3K-Video, 6 Mikrofone, ~8h Akku. Das Starfire-Modell ($399, mit Kylie Jenner entwickelt) hat ovale Gläser, einen eingesetzten Edelstein, ein Ladecase mit Kosmetikspiegel und einen KI-Sprachassistenten mit einer KI-generierten Jenner-Stimme. Alle Modelle laufen auf Metas eigenem multimodalem Muse-Spark-Modell und sind bei LensCrafters erhältlich — auch mit Sehstärke. Snap dagegen wurde für seine neuen AR-Brillen wegen Größe und Gewicht kritisiert; Meta setzt auf Tragekomfort.
+    <a href="https://www.wired.com/story/meta-new-smart-glasses-are-cheaper-colorful-and-meta-branded/" style="color:#6c63ff;">(Wired via Synthszr,</a>
+    <a href="https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhah6xjENq_JDv8ZAhH2IFOtWsMsFPz2RWtFSI4LAyHzk2O0Xoi7SQNuzlrLn1nILI84nkTuURLHpmRyy034h1okRG2rdg_JueGEOa7jTTck1FsWYm20GXr0-QUzWa48TaNiGUfyKNgDFd9-sc9RPjS0Nf22dLj94BrskOKGFFvuNmnNN66bRh1_WVYB-hNlFNsA/4rq/bUSyFJwaQtKHiHu3EXuNKw/h8/h001.Qz-RDCF0N0gW84HF9Ce0DIs09bAVOPrN5MWNDjpTsAA" style="color:#6c63ff;">Techpresso)</a>
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>Meta Arena: Zuckerberg baut intern eine Prediction-Markets-App</strong><br>
+    Ein kleines internes Team bei Meta entwickelt „Arena", eine Smartphone-App im Stil von Polymarket und Kalshi — läuft unabhängig von Facebook, Instagram, WhatsApp. Zunächst mit Punktesystem statt echtem Geld, reales Wetten nicht ausgeschlossen. Zum Vergleich: Kalshi und Polymarket lockten 2025 gemeinsam $50 Mrd. in Wetten an, 2026 bereits über $130 Mrd. Meta hatte 2020 bereits eine ähnliche App namens „Forecast" gestartet und 2022 eingestellt. Hintergrund: Metas Kernplattformen gelten mit 3,56 Mrd. Tages-Nutzern als gesättigt.
+    <a href="https://www.nytimes.com/2026/06/23/technology/meta-prediction-markets-app.html" style="color:#6c63ff;">(NYT via Synthszr)</a>
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>Instagram TV-App gegen Netflix: Samsung-TVs, Serien, Channels</strong><br>
+    Instagram erweitert seine TV-App (Anfang 2025 gelauncht) mit längeren Videos, episodischen Serien und Live-TV und rollt sie auf Samsung-TVs aus (zusätzlich zu Amazon Fire und Google TV). Neue Features: Creator- und Themen-Channels, Reels-Casting vom Handy, Stories-Ansicht in der App, ein eigener Bereich für horizontale Videos.
+    <a href="https://elink640.dupple.com/ss/c/u001.i8ligEAMODugkGN-qAs51SbZzRJ8tGH9gL0xIzVsPuCLs54uvpWB8SyvlFgOGS15LJD2oxfSzfVWK3CqWVPwkKRKuG40sHk87InlWYulmRkuLbidJFPNci6Y9h9Vvb8hWObHTYj2TehZhNJF-_mcqGQpCGV1_KpOugt2tEVQsDI2eFL2d6vL3tzUw0LpICrspQgO-gGlYgXonTaTroNUp5WKRhwJz8M5DZu-fO4_qSeT0eqMVvXX3KxbAxn2jjwLVYw-pt3zIbAEEpxWHQuhHA/4rq/bUSyFJwaQtKHiHu3EXuNKw/h11/h001.NUMk9NGFdsl26qCrw3BKlO1jbH6s4VtrsiBpSaJKBxc" style="color:#6c63ff;">(Techpresso)</a>
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #eee;margin:0 0 24px;">
+
+<!-- ================================================ -->
+<h2 style="font-size:1.1em;margin:0 0 12px;">📚 Lesestoff &amp; Essays</h2>
+<ul style="margin:0 0 24px;padding-left:22px;">
+
+  <li style="margin-bottom:16px;">
+    <strong>Claude Code Architektur — 13 Design-Prinzipien decoded</strong><br>
+    Forscher haben die Architektur von Claude Code quer durch 13 Design-Prinzipien analysiert. Ein zentrales Ergebnis, das viele überrascht hat: Im Kern ist der agentic Loop ein simpler While-Loop. Die Analyse lohnt sich für alle, die eigene Agenten-Systeme bauen oder verstehen wollen, welche Bauprinzipien hinter einem der bekanntesten Coding-Assistenten stecken.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=1AGcYfL0eRFyzMwUw&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>Simpler geloopter Transformer schlägt komplexe Reasoning-Modelle — 94 % auf hartem Sudoku</strong><br>
+    Ein Paper zeigt, dass ein einfach geloopter Transformer-Ansatz auf schwierigen Sudoku-Puzzles 94 % Genauigkeit erreicht und damit spezialisierte, deutlich komplexere Reasoning-Modelle übertrifft. Die Implikation: für viele logisch-strukturierte Aufgaben braucht es keine hochkomplexe Architektur, sondern die richtige Iteration.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=11a8mzuaqIEfG04an&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+  </li>
+
+  <li style="margin-bottom:16px;">
+    <strong>Open-Source LLM Algorithm Course: Transformers, CUDA und Inference-Tricks</strong><br>
+    Ein neuer kostenloser Open-Source-Kurs behandelt von Grund auf, wie moderne LLMs funktionieren: Transformer-Architektur, CUDA-Programmierung und praktische Inference-Optimierungen. Empfehlenswert für alle, die tiefer ins technische Fundament einsteigen wollen.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=zmkyDXz9zd53hkXI&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #eee;margin:0 0 24px;">
+
+<!-- ================================================ -->
+<h2 style="font-size:1.1em;margin:0 0 12px;">⚡ Kurz notiert</h2>
+<ul style="margin:0 0 24px;padding-left:22px;">
+
+  <li style="margin-bottom:12px;">
+    <strong>SpaceX sichert $6,3-Mrd.-Compute-Deal mit Reflection AI</strong> — Das Open-Source-KI-Startup Reflection AI zahlt SpaceX $150 Mio. pro Monat von Juli 2026 bis 2029 für Zugang zu Colossus-Compute (Nvidia GB300). Reflection kommt damit zu den anderen SpaceX-Compute-Kunden: Anthropic, Google, Cursor.
+    <a href="https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhWtS15OZmF4EHk-SJz9hjXCqgkd6kRTwYdJICp6KPWWCiLrApZmgdTwiKwZNexL1mtVOfRAB_GKEK2kaRgAlwPPgDE0F4y6fn5FdNQZ0mRY0svjejDC2AfY5MRih7kZkJ3uPlYG40A43P8SfEjAsR4W0eFdqNL1_6EpNpg-y8mrM/4rq/bUSyFJwaQtKHiHu3EXuNKw/h12/h001.N8DRCGZ3H6TS5hbQizcMRUjVX5xhyrkEMO4y9VHMNlc" style="color:#6c63ff;">(Techpresso)</a>
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Trump unterzeichnet zwei Quantencomputing-EOs</strong> — Eine Order beauftragt den Aufbau eines wissenschaftlich nutzbaren Quantencomputers und stärkt die heimischen Quantum-Lieferketten. Die zweite fordert Migration auf Post-Quantum-Kryptographie bis 2031 — Schutz gegen den „Harvest now, decrypt later"-Angriff, sobald Quantencomputer stark genug sind.
+    <a href="https://elink640.dupple.com/ss/c/u001.i8ligEAMODugkGN-qAs51ZXN26RqcoIagXca-H6wWXRoaBVdX1R8Fi9VaZ4EVv3Ma5pPBsbwyCeIdyo-B-0eC-52IYc-BBq-SwUOuvdKJq4Te_OnFF_Y-5voRYDrF0ke5QxSiKdR-pLZvd27EmPx7GFlI527dJoT7Uu10y_8w2w99xjhVk0GgZIhBNZtFyPj/4rq/bUSyFJwaQtKHiHu3EXuNKw/h7/h001.ZZvMNJQZK8D6qjH6Fki2nQw47wJgiM7prYqC68C6dyw" style="color:#6c63ff;">(Techpresso)</a>
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>MrBeast baut Creator-Marktplatz: Beast Industries heuert das gesamte Pietra-Team an</strong> — Jimmy Donaldson (MrBeast) hat den kompletten Kern von Pietra — dem A16z-finanzierten Creator-Commerce-Startup — eingestellt, darunter CEO Ronak Trivedi (ex-Uber). Ziel: eine Plattform, die Brands und Creator für Sponsorings direkt verbindet und damit unabhängig vom YouTube-Algorithmus macht.
+    <a href="https://www.businessinsider.com/mrbeast-hiring-pietra-startup-team-build-creator-platform-2026-6" style="color:#6c63ff;">(Business Insider via Synthszr)</a>
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Sakana AI launcht Modell-Orchestrierungssystem als Alternative zu Closed-Frontier-Modellen</strong> — Sakana AI hat ein neues Open-Source-Orchestrierungssystem veröffentlicht, das mehrere kleinere Modelle koordiniert und damit geschlossene Frontier-Modelle in bestimmten Aufgaben rivalisieren soll.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=EpvvfkOB69xNFeuz&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Claude Code macht Home-Sensor-Setup zum selbstwahrnehmenden KI-Pet</strong> — Ein Entwickler hat Claude Code dazu gebracht, ein Heimsensor-System in ein „selbstbeobachtendes KI-Haustier" zu verwandeln — ein weiteres Beispiel dafür, wie weit Claude Code über reine Code-Generierung hinaus genutzt wird.
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&amp;cid=a134a6c52ffc8b81&amp;lid=1EShGZzYMBc4sXMgk&amp;mid=cc73ec86-2ef9-4378-8164-b070258bd1f6" style="color:#6c63ff;">(AlphaSignal)</a>
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #eee;margin:0 0 16px;">
+<p style="color:#888;font-size:0.85em;margin:0;">↳ Originale bleiben in deiner Inbox · Quell-Newsletter wurden nicht verschoben</p>
+
+</body>
+</html>
