@@ -125,6 +125,16 @@ Regeln zum Schema:
 - **Inhalt frisch:** Inhalte **aller** Ausgaben im Zeitfenster querlesen,
   Doppelungen über mehrere Newsletter zusammenführen (ein Thema = ein Bullet).
   Keine festen Floskeln.
+- **Nicht wiederholen, was gestern schon drinstand (Entdopplung über Tage).**
+  Newsletter kauen dieselbe Meldung tagelang durch (z. B. „Meta baut
+  Prediction-Markets-App", „Claude in Slack"). Vor dem Schreiben die **letzten
+  Digests aus dem eigenen Postfach** zurücklesen (`fetch_prev_digests.py`, holt
+  die letzten Ausgaben aus dem `<assistant_name>/AI-Digest`-Label) und jedes
+  Thema, das dort **schon** behandelt wurde, **weglassen** — es sei denn, es gibt
+  **echten neuen Stand** (neue Zahlen, GA-Release nach Beta, Kehrtwende). Dann nur
+  das Neue als kurzes Update bringen und kurz anschreiben, woran es anknüpft
+  („Update zu Claude-in-Slack: jetzt …"), nicht die ganze Meldung neu erzählen.
+  Im Zweifel: lieber weglassen als doppeln.
 - **Quelle pro Punkt** in Klammern am Ende: „(AlphaSignal)", „(Techpresso, swyx)".
 - **Links mitnehmen, damit man folgen kann.** Der `body_excerpt` enthält die
   Original-Links als `[text](url)` und Bilder als `![alt](url)`. Die Digest-Mail
@@ -165,9 +175,13 @@ python3 adapters/gmail-rest/deliver_briefing.py <digest.html> --html \
   --folder "<assistant_name>/AI-Digest" --also-inbox \
   --subject "🤖 AI-Digest — <Datum>"
 ```
-Schlankes, robustes HTML (E-Mail-Clients sind wählerisch): Abschnitte als
-Überschriften, je ein `<ul>`/`<li>` pro Bullet, Quellen als `<a href>`, Bilder als
-`<img … style="max-width:100%;height:auto">`. Inline-`style` statt `<style>`-Block,
+Nur das **innere Inhalts-Fragment** schreiben (Abschnitte als Überschriften, je
+ein `<ul>`/`<li>` pro Bullet, Quellen als `<a href>`, Bilder als
+`<img … style="max-width:100%;height:auto">`). **Keinen** eigenen
+`font-family`/`font-size`-Rahmen, kein `<html>`/`<body>`, kein `<style>`-Block:
+`deliver_briefing.py` legt mit `--html` einen **festen Rahmen** drumherum, der
+Schriftart und -größe jeden Tag identisch nagelt (sonst rendern Clients wie Apple
+Mail mal Times New Roman, mal winzig). Inline-`style` für lokale Akzente ist ok,
 keine externen CSS/JS. Im interaktiven Lauf zusätzlich im Chat zeigen.
 
 **Kein eigener Kosten-Footer:** Haupt-Briefing und AI-Digest gehören zu *einem*

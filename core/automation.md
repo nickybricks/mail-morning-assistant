@@ -228,6 +228,9 @@ Zeitplan und anderer Prompt**.
      (holt nur die ai_digest_senders der letzten 24h, gekürzt; body_excerpt
      enthält Original-Links als [text](url) und Bilder als ![alt](url)).
      Sind 0 Ausgaben enthalten ("count":0) -> KEINE Mail erzeugen, sauber beenden.
+  2b. python3 adapters/gmail-rest/fetch_prev_digests.py > prev_digests.json
+     (liest die letzten zugestellten Digests aus dem AI-Digest-Label zurück —
+     das Gedächtnis, was gestern schon drinstand; der Cloud-Lauf hat sonst keins).
   3. Lies core/briefing.md, Abschnitt "🤖 AI-Digest". Schreibe daraus die
      Digest-Mail als HTML nach digest.html: oben 2-3 Sätze Tages-Zusammenfassung,
      dann die festen Abschnitte (🚀 Releases & Modelle / 🛠️ Tools & Produkte /
@@ -236,9 +239,12 @@ Zeitplan und anderer Prompt**.
      klickbarer Link <a href="url">…</a> (aus den [text](url) im body_excerpt),
      aussagekräftige Bilder als <img src="url" style="max-width:100%;height:auto">
      (keine Logos/Spacer/Tracking). Themen über mehrere Newsletter zusammenführen
-     (nichts doppelt). Leerer Abschnitt -> "— heute nichts". Schlankes HTML mit
-     inline-style, kein externes CSS/JS. Nur was in den Newslettern steht, nichts
-     erfinden.
+     (nichts doppelt). ENTDOPPELN ÜBER TAGE: jedes Thema, das in prev_digests.json
+     schon behandelt wurde, WEGLASSEN — außer es gibt echten neuen Stand, dann nur
+     das Neue als kurzes Update. Leerer Abschnitt -> "— heute nichts". NUR das
+     innere Inhalts-Fragment schreiben (kein <html>/<body>, kein font-family/
+     font-size-Rahmen, kein <style>): deliver_briefing.py --html legt den festen
+     Typografie-Rahmen drumherum. Nur was in den Newslettern steht, nichts erfinden.
   4. python3 adapters/gmail-rest/deliver_briefing.py digest.html --html \
        --folder "<Name>/AI-Digest" --subject "🤖 AI-Digest — $(date +%d.%m.%Y)" \
        --also-inbox

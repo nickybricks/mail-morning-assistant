@@ -30,6 +30,28 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _gmail_common import load_config, access_token, api, resolve_label  # noqa: E402
 
+# Fester Rahmen fuer HTML-Mails (AI-Digest): nagelt Schriftart und -groesse fest,
+# damit jeder Tag identisch aussieht. Ohne font-family rendern manche Clients
+# (Apple Mail) unstyltes HTML als Times New Roman; ohne font-size wird es mal
+# winzig. Der Inhalt vom Modell ist nur das innere Fragment (Abschnitte/Bullets);
+# Typografie kommt hier deterministisch drumherum. Inline-style, weil Gmail
+# <style>-Bloecke entfernt.
+HTML_SHELL = (
+    '<div style="max-width:680px;margin:0 auto;padding:16px 20px;'
+    "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,"
+    'Arial,sans-serif;font-size:16px;line-height:1.55;color:#1a1a1a;'
+    'background:#ffffff;">{body}</div>'
+)
+
+
+def wrap_html(body):
+    """Inhalts-Fragment in den festen Rahmen legen. Liefert das Modell ausnahmsweise
+    schon ein komplettes Dokument (<html>/<body>), bleibt es unangetastet."""
+    low = body.lower()
+    if "<html" in low or "<body" in low:
+        return body
+    return HTML_SHELL.format(body=body)
+
 
 def build_raw(cfg, subject, body, html=False):
     em = EmailMessage()
@@ -44,7 +66,7 @@ def build_raw(cfg, subject, body, html=False):
         # klickbar, Bilder inline). Clients ohne HTML zeigen den Fallback.
         em.set_content("Dieser AI-Digest ist als HTML-Mail formatiert. "
                        "Bitte in einem Client mit HTML-Ansicht oeffnen.")
-        em.add_alternative(body, subtype="html")
+        em.add_alternative(wrap_html(body), subtype="html")
     else:
         em.set_content(body)
     return base64.urlsafe_b64encode(em.as_bytes()).decode()
