@@ -1,0 +1,144 @@
+<h1 style="font-size:1.4em;margin:0 0 4px 0;">🤖 AI-Digest — 26.06.2026</h1>
+<p style="color:#666;margin:0 0 20px 0;font-size:0.9em;">4 Ausgaben über Nacht &nbsp;·&nbsp; Synthszr &nbsp;·&nbsp; AINews &nbsp;·&nbsp; Techpresso &nbsp;·&nbsp; AlphaSignal</p>
+
+<p>Heute treffen zwei Makrotrends aufeinander: Die KI-Infrastrukturkosten landen in der Endkundenwelt — Apple erhöht Mac- und iPad-Preise um bis zu 25 %, weil KI-Rechenzentren die Speicherchip-Lieferkette leerlaufen. Und OpenAI liefert interne Zahlen, die zeigen, dass KI-Adoption am Arbeitsplatz keine sanfte Kurve mehr ist: Codex-Output-Tokens bei OpenAI-Mitarbeitern wuchsen in sieben Monaten um das 56-fache in Research, 32-fache im Customer Support. Dazu: ein frischer Schwarm Open-Source-Modelle, IBMs Sub-1-nm-Chip, Anthropics Klage gegen Alibaba wegen Massendiebstahl von KI-Technologie — und Details zu OpenAIs Jalapeño-Chip, die nach dem gestrigen Digest erschienen.</p>
+
+<h2 style="font-size:1.1em;border-bottom:2px solid #e0e0e0;padding-bottom:6px;margin-top:28px;">🚀 Releases &amp; Modelle</h2>
+<ul style="padding-left:20px;line-height:1.6;">
+
+  <li style="margin-bottom:18px;">
+    <strong>GLM-5.2 — konkrete Benchmark-Zahlen (Update zu 24./25.06.)</strong><br>
+    Neue Daten aus AINews präzisieren die GLM-5.2-Performance: Z.ais Modell erreicht <strong>1595 Punkte auf Code Arena: Frontend</strong> und übertrifft Claude Opus 4.8 — der Rückstand auf Claude Fable 5 schrumpft weiter. Auf PostTrainBench (agentic reliability) erzielt GLM 5.2 Max <strong>34,29 %</strong>, knapp vor Opus 4.8 Max (34,08 %), bei null fehlgeschlagenen Runs über 84 Tests. Die Geschwindigkeit stieg von 201 auf <strong>392 Tok/s</strong> durch Speculative Decoding und optimierte Kernels auf Databricks-Infrastruktur, mit weiteren Gewinnen auf B300-Hardware.
+    (<a href="https://substack.com/redirect/ebdf8625-8422-490f-94a5-9184f983e6f2?j=eyJ1IjoiN295MGZlIn0.SkB_ruL8LmTwq3qKVr2XDNA3a-UCPsjnydLZrCs91i8">Arena-Bericht</a>, AINews)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Ornith-1.0 — MIT-lizenzierte agentic Coding-Modelle (9B bis 397B MoE)</strong><br>
+    <a href="https://substack.com/redirect/77dab9ca-f144-472d-9f2d-9945a4ee013b?j=eyJ1IjoiN295MGZlIn0.SkB_ruL8LmTwq3qKVr2XDNA3a-UCPsjnydLZrCs91i8">Ornith-1.0</a> ist eine neue Familie offener Coding-Modelle (MIT-Lizenz) in vier Größen: 9B dense, 31B dense, 35B MoE und 397B MoE — post-trained auf Gemma 4 und Qwen 3.5. Benchmark-Ergebnisse: Terminal-Bench 2.1: 77,5 %, SWE-Bench Verified: 82,4 %, SWE-Bench Pro: 62,2 %, ClawEval: 77,1 %. Der besonders interessante Trainingsansatz: ein selbstverbesserndes RL-Setup, das nicht nur die Lösungs-Rollouts optimiert, sondern auch die aufgabenspezifischen Scaffolds, die diese Rollouts antreiben. (AINews)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Google Gemini 3.5 Flash: Computer Use als eingebaute Standardfunktion</strong><br>
+    Google hat Computer Use — die Fähigkeit, Browser, Desktop und Mobilgerät direkt zu steuern — als First-Class-Feature direkt in Gemini 3.5 Flash integriert, nicht mehr als separates Plugin. Sicherheitsmechanismen: explizite Nutzerbestätigung bei sensiblen Aktionen, automatisches Task-Stopping. Für Entwickler gibt es einen Quickstart für Android-Telefonsteuerung via ADB, auf iOS erweiterbar. Das ist eine produktseitige Verschiebung: nicht nur Modell-API, sondern ein standardisiertes Action-Interface mit Human-in-the-Loop-Kontrolle. (AINews)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>OpenAI GPT-5.5 Instant: Intentionsverständnis und Empfehlungen verbessert</strong><br>
+    OpenAI hat GPT-5.5 Instant — das Standardmodell für die meisten ChatGPT-Gespräche — aktualisiert. Keine neue Modellversion, sondern ein gezielter Tune-up. Konkrete Änderungen: besseres Verständnis des eigentlichen Nutzerziels (nicht nur des wörtlichen Texts), zuverlässigere Multi-Constraint-Anfragen, Shopping- und Ortsabfragen profitieren von besserer Kombination von Produktdaten, Geschäftsinformationen und Bildern. Das Modell hört außerdem auf, stur zu sein: Wenn Nutzer Korrekturen oder Einschränkungen einbringen, passt es sich an statt die Ursprungsantwort zu wiederholen. Im API zugänglich als <code style="background:#f4f4f4;padding:1px 4px;border-radius:3px;">"chat-latest"</code>.
+    (<a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=19QtEmnBL8cojBBkS&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">AlphaSignal</a>)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Mistral OCR 4 — 72 % Win-Rate auf 600+ realen Dokumenten</strong><br>
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=ZmLcufueTlILEa2o&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">Mistral OCR 4</a> ist ein neues Modell speziell für Dokument-OCR, das laut AlphaSignal in einem Benchmark aus über 600 realen Dokumenten eine Win-Rate von 72 % erreicht. (AlphaSignal)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Liquid AI LFM2.5-230M — ultra-kleines Modell für Robotik und Tool-Use</strong><br>
+    <a href="https://substack.com/redirect/6b5ffc76-bfae-4e40-b427-bbf46a694106?j=eyJ1IjoiN295MGZlIn0.SkB_ruL8LmTwq3qKVr2XDNA3a-UCPsjnydLZrCs91i8">LFM2.5-230M</a> von Liquid AI ist ein extrem kleines Modell (230M Parameter), optimiert auf niedrige Latenz beim Tool-Use für Robotik und E-Commerce. vLLM und SGLang haben Day-0-Support integriert; über WebGPU läuft es mit ~1.400 Tok/s lokal auf Consumer-Hardware. (AINews)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>OpenAI Jalapeño — neue Details nach gestrigem Digest (Update zu 25.06.)</strong><br>
+    Der AlphaSignal-Bericht zu OpenAIs Custom-Chip (erschienen nach dem gestrigen Digest um 13:10 UTC) liefert operative Details, die bisher fehlten: Jalapeño läuft bereits mit GPT-5.5-Codex-Spark <em>im Labor</em>, ist explizit für <em>jedes</em> LLM — nicht nur OpenAI-Modelle — konzipiert und soll Early-Tests zufolge eine bessere Performance-per-Watt-Bilanz als aktuelle Top-Chips liefern. OpenAI hat zur Chip-Entwicklung die eigenen KI-Modelle eingesetzt. Das Fazit: günstigere Inferenz = günstigere API-Calls und stabilere Kapazität bei Lastspitzen.
+    (<a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=WOT9HOw2GJBz4yrf&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">AlphaSignal</a>)
+  </li>
+
+</ul>
+
+<h2 style="font-size:1.1em;border-bottom:2px solid #e0e0e0;padding-bottom:6px;margin-top:28px;">🛠️ Tools &amp; Produkte</h2>
+<ul style="padding-left:20px;line-height:1.6;">
+
+  <li style="margin-bottom:18px;">
+    <strong>Anthropic klagt: Alibaba hat mit 25.000 Fake-Accounts 28,8 Mio. Claude-Interaktionen abgegriffen</strong><br>
+    Anthropic wirft Alibaba vor, den bisher größten bekannten KI-„Distillation"-Angriff durchgeführt zu haben: Rund <strong>25.000 betrügerische Accounts</strong> sollen insgesamt <strong>28,8 Millionen Interaktionen</strong> mit Anthropics KI-Modellen generiert haben — mit dem Ziel, die zugrundeliegende Technologie illegal zu extrahieren und für eigene Modelle zu nutzen. Anthropic hat die US-Regierung und die KI-Branche öffentlich aufgefordert, gemeinsam bessere Schutzmechanismen zu entwickeln. Der Fall eskaliert vor dem Hintergrund wachsender Bedeutung von KI-Sicherheit und US-Exportkontrollen — Anthropic ist bereits mit Beschränkungen beim Zugang zu eigenen Modellen für bestimmte Länder konfrontiert.
+    (<a href="https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhQRQTOnljR6KPPTSbEs7nZmeHJnAk8yeJVU8ePc8xEVHxeHd5E-bZ-XFW1_LtokgZFn61hOcobnorWL7sJBBxcY9YdXPY_BwSf3CWtWDB1KePKPo-yNm_C1zLYpkPz3TbvYmYUTtvhRvoisgQJMHnO3JF3qWS4qThRI0_ZljaJp1esZB_uPKxEupXsDJgbG-uw/4rs/INqHe_WvRSuz3WaBEdhKAw/h9/h001.weuvWmmtW7nxRWqw-zVto9pSH-7JSLw0Z3P8wLHUkhw">Techpresso</a>)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>IBM: Erster Sub-1-nm-Chip der Welt — 0,7 nm, doppelte Transistordichte</strong><br>
+    IBM hat die weltweit erste Sub-1-Nanometer-Chiptechnologie vorgestellt: Die neue <strong>0,7-nm-"Nanostack"-Architektur</strong> verdoppelt die Transistordichte gegenüber IBMs bisherigem 2-nm-Chip. Erwartete Werte: bis zu <strong>50 % höhere Leistung</strong> oder <strong>70 % höhere Energieeffizienz</strong>, besonders geeignet für KI, Cloud und Highend-Elektronik. IBM sieht das Potenzial, Chip-Skalierung mindestens ein weiteres Jahrzehnt zu verlängern; kommerzielle Produktion könnte in fünf Jahren beginnen.
+    (<a href="https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMxwnLnsdI8x_Lx5jYZK1cspEL3ieNZyXVBotUPi60nJNOn1Sic1dsSCcL-FD-AXMhIFgRA3xluJ7vUeXEUUgLYAGT5WVD-T0JeSud_oJq44sRUkoIMRA2p_zN2ctfaHu0DJ5n5kZnflTKPpSpZfS0_-jjt5Fn3LEB_z0E-u57_Kemuyu2epWrCXfPStzwCxazpg/4rs/INqHe_WvRSuz3WaBEdhKAw/h10/h001.y3jACB4_ihGrBTHBhQW9UQ9a6viWzcbkvNd3WcX9zho">Techpresso</a>)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Tesla + Sunrun + Renew Home: 16-GW-Virtualkraftwerk für KI-Rechenzentren</strong><br>
+    Sunrun, Renew Home und Tesla haben eine Partnerschaft angekündigt, die Millionen von Heimspeichern, Smart-Thermostaten und EV-Systemen zu einem virtuellen Kraftwerk kombiniert — Gesamtkapazität: <strong>über 16 Gigawatt flexible Stromleistung</strong>. Das System soll KI-Rechenzentren und andere Großabnehmer innerhalb von Monaten versorgen, ohne neue Infrastruktur zu bauen. Für Haushalte soll es niedrigere Stromkosten bringen; für das Netz: verbesserte Verlässlichkeit und schnelleren Rollout neuer KI-Kapazitäten.
+    (<a href="https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhVanPhXDZVhY4F1C6H9EY-f4qJcRRocU3WoPOJyUlCaxKzfpVFVr_ySB_pA00Cah4tb0hxo0WOH--iUihFCPw6l1PyJn75nJdB7qUQ_SIwC2f_epaLCAwI5f7tGX5f0INDPO40nKsw2qM5-2wJTkR3jHu68AXJaE6MQu7gt5vNuunAIDBnBW33PyJ88zijlM497n1XVFtXkzL8AWt_SDJEE/4rs/INqHe_WvRSuz3WaBEdhKAw/h11/h001.ZrHmCH7fr7WmQGVPJdUoxHznJ7owH4_DbIcrbf0RoCY">Techpresso</a>)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Nous Research Hermes Agent — lernt wiederverwendbare Skills aus beliebiger Docs/Code</strong><br>
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=fbDCUxigfxdpdkPN&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">Hermes Agent</a> von Nous Research extrahiert wiederverwendbare Skills aus beliebiger Dokumentation oder beliebigem Code und stellt sie zusammen. Damit lernt sich der Agent auf jede spezifische Codebase oder Domäne ein, ohne explizites Feintuning. (AlphaSignal)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Krea 2 — von 25 GB auf 12 GB, läuft jetzt auf Consumer-GPUs</strong><br>
+    <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=1jI0On464KrofHRwk&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">Krea 2</a> wurde von 25 GB auf 12 GB halbiert und läuft jetzt auf Standard-Consumer-GPUs ohne Spezialausstattung. (AlphaSignal)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Obsidian-Gründer: MIT-lizenziertes Tool macht Notes-Vault zum KI-Agent</strong><br>
+    Der Gründer von Obsidian hat ein <a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=zmfTDBuvMlhrinSs&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">MIT-lizenziertes Open-Source-Tool</a> veröffentlicht, das ein Obsidian-Vault direkt in einen KI-Agenten verwandelt — das persönliche Notiz-System wird zur interaktiven KI-Wissensdatenbank. (AlphaSignal)
+  </li>
+
+</ul>
+
+<h2 style="font-size:1.1em;border-bottom:2px solid #e0e0e0;padding-bottom:6px;margin-top:28px;">📚 Lesestoff &amp; Essays</h2>
+<ul style="padding-left:20px;line-height:1.6;">
+
+  <li style="margin-bottom:18px;">
+    <strong>OpenAI intern: Codex-Nutzung wächst 56× in Research — es passiert wirklich</strong><br>
+    OpenAIs Economic Research hat interne Nutzungsdaten veröffentlicht: Bei aktiven OpenAI-Mitarbeitern stiegen die kombinierten Codex-Output-Tokens von November 2025 bis Juni 2026 dramatisch — <strong>Research: +56×, Customer Support: +32×, Engineering: +27×, Legal: +13×</strong>. Bis August 2025 hatten OpenAI-Mitarbeiter noch unter 10 % ihrer Tokens für Codex eingesetzt — obwohl sie von Beginn an unbegrenzten Zugang hatten. Swyx' Kommentar: Das ist gerade deswegen aufschlussreich. Die Adoption-Kurve ist keine Kurve mehr, sondern eine Rakete. Das sollte als Baseline gegen "Tokenmaxxing"-Bedenken gelesen werden: Menschen unterschätzen KI-Nutzung bis zu einem Kipp-Punkt und übersättigen sich danach.
+    <br><img src="https://substackcdn.com/image/fetch/$s_!roAd!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3a48b472-a807-4211-b981-983f7a401c3a_2156x1576.png" alt="OpenAI Codex-Nutzungswachstum nach Abteilung, Nov 2025–Jun 2026" style="max-width:100%;height:auto;margin-top:8px;border-radius:4px;">
+    <br>(<a href="https://substack.com/redirect/1f8dfa0d-a405-40b6-ab83-7882ecf1b5a4?j=eyJ1IjoiN295MGZlIn0.SkB_ruL8LmTwq3qKVr2XDNA3a-UCPsjnydLZrCs91i8">OpenAI Economic Research</a>, AINews)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Chinesische KI kommt im Westen an — zwei parallele Hebel</strong><br>
+    Synthszr analysiert, wie chinesische KI-Modelle gerade gleichzeitig an zwei Fronten voranschreiten: Erstens bringt Moonshot sein <a href="https://www.synthszr.com/en/companies/kimi?sid=f351fd30-5cc2-4ce0-8a74-9e04c82e8e94">Kimi</a>-API auf den AWS Marketplace — Beschaffung, Billing und EDP-Drawdown laufen über den bestehenden AWS-Account, was die Sales-Friction für Unternehmen erheblich senkt. Zweitens berichtet @teortaxesTex, dass Huawei ein System in der Größenordnung eines 950 SuperPOD demonstrieren könnte, also ein massives domestisches NPU-Cluster, das die Nvidia-Abhängigkeit weiter reduziert. Synthszrs Fazit: Ein Moat, den der Westen als gegeben angesehen hat, wird an zwei Punkten gleichzeitig angegangen. Für europäische Unternehmen: Der Modell-Layer wird austauschbar; wer eine saubere Adapter-Architektur hat (Modell als austauschbarer Adapter, Orchestrierung als proprietäre Logik), kann morgen früh ein chinesisches Modell testen — ohne strategische Festlegung. Echte Souveränität liegt in den Daten, nicht im Modell. (<a href="https://www.synthszr.com/en/posts/chip-krise-eskaliert-apple-erhoeht-massiv-die-preise-kurs-taucht-ab?sid=f351fd30-5cc2-4ce0-8a74-9e04c82e8e94">Synthszr</a>)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>KI-Talent-Abgang bei Google: Gemini-Miterbauer wechseln zu Anthropic und OpenAI</strong><br>
+    Techpresso berichtet über einen sich beschleunigenden Trend: Jonas Adler und Alexander Pritzel — beide Miterbauer von Google Gemini — verlassen Google für Anthropic. In der Vorwoche hatte Forscher Noam Shazeer Google Richtung OpenAI verlassen; DeepMind-Director John Jumper wechselt ebenfalls zu Anthropic. Als Ursache wird genannt, dass OpenAI und Anthropic sich auf Börsengänge vorbereiten und damit starke Equity-Anreize zur Talentgewinnung bieten. Der Trend könnte sich fortsetzen.
+    (<a href="https://elink640.dupple.com/ss/c/u001.i8ligEAMODugkGN-qAs51SbZzRJ8tGH9gL0xIzVsPuBCxl7LBf0Q45a3zUQ-kueM3CjbT2mA2XVEdxqoSGFHoMbyYlJDZA6Mm3EojhzCGRqoaQzTxnMbyFhpsm-MuA1nwpGuv8O-AZuW1l7Cx-v2Hpj4RWkg0iltkbmMqqdqPxjdDc67hRB86BvC1Z1neWErObnaYQsG-16zX4qV7XWRFA/4rs/INqHe_WvRSuz3WaBEdhKAw/h12/h001.cyUhGvicI-4xRZ5aGAfTWe0JMaTWzn2D74JTvzO5bmM">Techpresso</a>)
+  </li>
+
+</ul>
+
+<h2 style="font-size:1.1em;border-bottom:2px solid #e0e0e0;padding-bottom:6px;margin-top:28px;">⚡ Kurz notiert</h2>
+<ul style="padding-left:20px;line-height:1.6;">
+
+  <li style="margin-bottom:12px;">
+    <strong>Apple hebt Mac- und iPad-Preise um 15–25 % an</strong> — MacBook Pro jetzt 1.999 $ (bisher 1.699 $), iPad Pro +200 $ auf 1.199 $. Grund: KI-Rechenzentren kaufen Speicher auf; Microns Aktie +853 % in 12 Monaten. Apple-Aktie fiel daraufhin ~6 %. Weitere Preiserhöhungen nicht ausgeschlossen.
+    (<a href="https://www.nytimes.com/2026/06/25/technology/apple-prices-macbooks-ipads.html">NYT</a>, Synthszr, Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>KI als Job-Katalysator: Engineers bleiben trotz Tech-Entlassungen gefragt</strong> — Synthszr berichtet, dass Software-Engineers trotz laufender Entlassungswelle stabil beschäftigt sind; KI treibe anhaltenden Bedarf. (Synthszr)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>LLMs auf günstigen Consumer-GPUs über P2P-Routing verteilen</strong> — Neue Methode für verteiltes LLM-Inference ohne teure Rechenzentrum-Hardware.
+    (<a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=1cUBhbZvi7C8f2LTP&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">AlphaSignal</a>)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Pruning Llama schlägt Training kleiner Modelle von Scratch</strong> — Neues Paper: Ein gepruntes Llama-Modell übertrifft von Null trainierte kleinere Modelle in vergleichbarer Größenklasse.
+    (<a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=b8b9b48be1c42017&lid=JmP8wtagGPsQuTcm&mid=69b8d837-84dc-4a7a-9faf-c6dc6107e54d">AlphaSignal</a>)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Qualcomm plant China-spezifische Datacenter-Chips</strong> — Neue Dragonfly-Lineup mit gedrosselten KI-Beschleunigern innerhalb der US-Exportgrenzen. (Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Weißes Haus freundlicher gegenüber Anthropic</strong> — Nach Personalwechsel im Ansprechpartner (Dario Amodei aus direkten Gesprächen heraus) verbessert sich das Verhältnis zwischen Anthropic und der US-Regierung. (Techpresso)
+  </li>
+
+</ul>
+
+<p style="color:#999;font-size:0.82em;margin-top:32px;border-top:1px solid #ebebeb;padding-top:12px;">
+  ↳ Originale bleiben in deiner Inbox &nbsp;·&nbsp; Label: Maily/AI-Digest &nbsp;·&nbsp; Erzeugt von Maily am 26.06.2026
+</p>
