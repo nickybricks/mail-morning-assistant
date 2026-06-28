@@ -221,7 +221,8 @@ Zeitplan und anderer Prompt**.
      {"provider":"gmail-rest","assistant_name":"<Name>","email":"<email>",
       "ai_digest_senders":["alphasignal.ai","swyx+ainews@substack.com",
         "techpresso@dupple.com","lennysnewsletter.com","t3n.de","synthszr.com"],
-      "ai_digest_window_hours":24,"ai_digest_label":"<Name>/AI-Digest"}
+      "ai_digest_window_hours":24,"ai_digest_label":"<Name>/AI-Digest",
+      "stock_analysis_enabled":true,"stock_watchlist":[]}
      OAuth-Secrets stehen in ENV GMAIL_CLIENT_ID/_SECRET/_REFRESH_TOKEN;
      fehlt eine -> abbrechen + im Log melden.
   2. python3 adapters/gmail-rest/fetch_digest.py > digest_in.json
@@ -241,7 +242,17 @@ Zeitplan und anderer Prompt**.
      (keine Logos/Spacer/Tracking). Themen über mehrere Newsletter zusammenführen
      (nichts doppelt). ENTDOPPELN ÜBER TAGE: jedes Thema, das in prev_digests.json
      schon behandelt wurde, WEGLASSEN — außer es gibt echten neuen Stand, dann nur
-     das Neue als kurzes Update. Leerer Abschnitt -> "— heute nichts". NUR das
+     das Neue als kurzes Update. Leerer Abschnitt -> "— heute nichts".
+     AKTIEN (nur wenn config stock_analysis_enabled true): pro Bullet mit konkretem
+     Aktienbezug direkt darunter eine 📈-Impact-Zeile (betroffene börsennotierte
+     Firma + Ticker + ⬆️positiv/➖neutral/⬇️negativ + ein Rollen-Halbsatz:
+     direkt/Zulieferer/Konkurrent/Kunde; nicht-handelbare Firma -> Proxy nennen),
+     und am Ende ein fester Abschnitt 📊 Aktien-Radar (Netto je Ticker, Watchlist
+     aus stock_watchlist mit ⭐ zuerst, Schlusszeile "Einschätzung, keine
+     Anlageberatung"). Methodik in core/stock-analysis.md. KEINE erfundenen Kurse/
+     Zahlen, nur die Richtung; Bullet ohne klaren Bezug -> keine Impact-Zeile.
+     Trend über Tage aus prev_digests.json ableiten (der Cloud-Lauf hat kein
+     dauerhaftes memory/ -> keine Tracker-Datei schreiben). NUR das
      innere Inhalts-Fragment schreiben (kein <html>/<body>, kein font-family/
      font-size-Rahmen, kein <style>): deliver_briefing.py --html legt den festen
      Typografie-Rahmen drumherum. Nur was in den Newslettern steht, nichts erfinden.

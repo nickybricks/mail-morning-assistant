@@ -157,5 +157,15 @@ positiv"), nicht nur Tagesschnappschüsse.
 Im Tagesablauf bei **Schritt 8 (Memory pflegen)** — gemeinsam mit Lernlog und
 Cost Ledger (siehe `SKILL.md` und `core/learning-log.md`). Reihenfolge: erst
 Digest schreiben/zustellen, dann Signale daraus in den Tracker übernehmen.
+
+### Lokal vs. Cloud-Routine (wichtig)
+Der **datei-basierte** Tracker (`memory/stock-tracker.md`) lebt im **lokalen/
+interaktiven** Lauf, wo `memory/` über die Läufe hinweg bestehen bleibt. Die
+**claude.ai-Cloud-Routine** klont das Repo jedes Mal frisch und hat **kein
+dauerhaftes `memory/`** — dort wird **keine** Tracker-Datei geschrieben.
+Tagesanalyse (Impact-Zeilen) und Aktien-Radar funktionieren dort trotzdem
+(zustandslos); den **Trend über Tage** leitet der Cloud-Lauf aus den vorherigen
+Digest-Mails ab (`fetch_prev_digests.py` holt sie zurück, der Aktien-Radar steht
+darin). Siehe `core/automation.md`, Weg A2.
 </content>
 </invoke>
