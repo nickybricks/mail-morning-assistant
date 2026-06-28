@@ -99,15 +99,22 @@ hinweg einordnen.}
 🚀 Releases & Modelle
  • {ausführlicher Bullet: was ist neu, welche Zahlen/Namen, warum relevant —
    so dass man es ohne das Original vollständig versteht} ({Quelle})
+   📈 {Aktien-Impact, falls vorhanden — siehe unten}
 
 🛠️ Tools & Produkte
  • {ausführlicher Bullet} ({Quelle})
+   📈 {Aktien-Impact, falls vorhanden}
 
 📚 Lesestoff & Essays
  • {ausführlicher Bullet: Kernaussage des Essays/Podcasts} ({Quelle})
 
 ⚡ Kurz notiert
  • {ausführlicher Bullet für die kleineren News} ({Quelle})
+   📈 {Aktien-Impact, falls vorhanden}
+
+📊 Aktien-Radar — {Datum}
+ • {Ticker} {⬆️/➖/⬇️} — {Netto-Auslöser des Tages} ({N} Meldung(en))
+ ↳ Einschätzung, keine Anlageberatung.
 
 ↳ Originale bleiben in deiner Inbox
 ```
@@ -147,6 +154,28 @@ Regeln zum Schema:
   `<img src="url" alt="…" style="max-width:100%;height:auto">` direkt im Bullet ein.
 - **Top-Zusammenfassung** oben: 2–3 Sätze, die den Tag einordnen, bevor die
   Abschnitte kommen.
+- **Aktien-Impact pro Bullet (wenn aktiv).** Ist `config.json →
+  stock_analysis_enabled` `true`, bekommt jeder Bullet **mit konkretem
+  Aktienbezug** direkt darunter eine `📈`-Impact-Zeile: betroffene
+  börsennotierte Firma(en) mit Ticker, Richtung (`⬆️ positiv` / `➖ neutral` /
+  `⬇️ negativ`) und **einem** Begründungs-Halbsatz, der die Rolle benennt
+  (direkt / Zulieferer / Konkurrent / Kunde). Die volle Methodik — inkl.
+  Lieferketten-Logik, Proxy für nicht-handelbare Firmen (OpenAI → MSFT),
+  Konfidenz und Watchlist-Hervorhebung (`stock_watchlist`) — steht in
+  `core/stock-analysis.md`. **Keine erfundenen Kurse/Zahlen**, nur die Richtung
+  der Einschätzung; Bullets ohne plausiblen Bezug bekommen **keine** Impact-Zeile.
+- **Aktien-Radar als fester End-Abschnitt (wenn aktiv).** Nach den
+  Inhalts-Abschnitten ein `📊 Aktien-Radar`, der den Tag **pro Ticker**
+  verdichtet (Netto-Signal über alle Bullets), Watchlist-Treffer mit ⭐ zuerst,
+  abgeschlossen mit dem Hinweis „Einschätzung, keine Anlageberatung". Hat der Tag
+  keinen Aktienbezug, kurze Zeile „— heute nichts". Die im Digest genannten
+  Signale werden anschließend in den **Aktien-Tracker** übernommen (Schritt 8,
+  siehe `core/stock-analysis.md`).
+- **HTML-Rendering des Impacts:** Die Impact-Zeile als eigenes, kleineres
+  Element unter dem Bullet (z. B. `<div style="font-size:0.9em">…</div>`),
+  Richtung farblich akzentuieren (positiv grün, negativ rot, neutral grau) per
+  Inline-`style` — kein externes CSS. Ticker dürfen, müssen aber nicht verlinkt
+  sein; **keine** Tracking-/Broker-Affiliate-Links.
 - **Quell-Newsletter bleiben in der Inbox:** Mails von `ai_digest_senders` werden
   **nicht** archiviert oder in einen Ordner verschoben — sie bleiben im
   Posteingang, damit der Nutzer das Original bei Bedarf direkt dort findet. Die

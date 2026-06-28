@@ -68,7 +68,10 @@ Inbox lassen. Den Lernlog (`memory/`) einbeziehen.
 Zeile (mit Ablage-Ort `↳ <Name>/Ordner`), gruppiert nach Bucket, mit kumuliertem
 Kosten-Footer am Ende. Sind `ai_digest_senders` gesetzt und gab es passende
 Ausgaben, **zusätzlich** eine separate AI-Digest-Mail mit festem Schema schreiben
-(diese Sender gehören NICHT ins Haupt-Briefing — siehe `core/briefing.md`).
+(diese Sender gehören NICHT ins Haupt-Briefing — siehe `core/briefing.md`). Ist
+`stock_analysis_enabled` gesetzt, je Digest-Bullet mit Aktienbezug eine
+Impact-Zeile (Ticker + ⬆️/➖/⬇️) und am Ende einen `📊 Aktien-Radar` ergänzen —
+Methodik in `core/stock-analysis.md`. Einschätzung, keine Anlageberatung.
 
 **4. Entwürfe vorbereiten** — nur für Mails, die wirklich eine Antwort brauchen.
 Nach `core/drafts.md`, im Stil aus `voice/samples.md`. Nie senden.
@@ -92,7 +95,9 @@ X Entwürfe bereit, Y Mails als `!Now`, Z einsortiert. Hinweis: der Nutzer prüf
 und sendet Antworten selbst.
 
 **8. Memory pflegen.** Neue Lern-Einträge, Korrekturen und der Kosten-Eintrag in
-die Memory schreiben (siehe `core/learning-log.md`).
+die Memory schreiben (siehe `core/learning-log.md`). Lief eine Aktien-Analyse,
+zusätzlich die Signale des Tages in den Aktien-Tracker übernehmen (siehe
+`core/stock-analysis.md`).
 
 ---
 
@@ -132,6 +137,7 @@ mail-morning-assistant/
 │   ├── classification.md    ← selbstlernende Themen-Sortierung (Haiku)
 │   ├── learning-log.md      ← Lernlog-Schema + Memory-Pflege
 │   ├── briefing.md          ← Briefing-Format + Kosten-Footer
+│   ├── stock-analysis.md    ← Aktien-Impact im AI-Digest + Aktien-Tracker
 │   ├── drafts.md            ← Entwurfs-Regeln + Stil
 │   └── automation.md        ← automatischer/geplanter Lauf (Cloud/Cron)
 ├── adapters/
@@ -154,7 +160,7 @@ mail-morning-assistant/
 ├── voice/samples.md         ← Schreibstil des Nutzers (pro Nutzer, gitignored)
 ├── senders.md               ← Sender-Registry (pro Nutzer, gitignored)
 ├── config.json              ← aktive Einrichtung (pro Nutzer, gitignored)
-├── memory/                  ← laufende Memory/Lernlog (pro Nutzer, gitignored)
+├── memory/                  ← Memory/Lernlog + stock-tracker.md (pro Nutzer, gitignored)
 └── runs/                    ← Briefing-Archiv (pro Nutzer, gitignored)
 ```
 

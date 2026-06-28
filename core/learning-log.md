@@ -61,10 +61,17 @@ auflaufende Summe zeigen kann (siehe `core/briefing.md`), führt der Assistent e
 - Ledger ist **rein additiv** — nie rückwirkend Zeilen ändern. Nur korrigieren,
   wenn ein Lauf nachweislich doppelt eingetragen wurde.
 
+## Aktien-Tracker
+
+Lief im AI-Digest eine Aktien-Analyse, wird **nach jedem Lauf** zusätzlich der
+Aktien-Tracker (`memory/stock-tracker.md`, lokal/gitignored) fortgeschrieben —
+analog zum Cost Ledger, append-only Signal-Log + neu berechneter Stand pro
+Ticker. Format und Regeln stehen in `core/stock-analysis.md`.
+
 ## Pflege-Disziplin
 
 - Am **Ende jedes Laufs** Memory aktualisieren: neue Lern-Einträge **und** eine
-  neue Zeile im Cost Ledger.
+  neue Zeile im Cost Ledger (sowie der Aktien-Tracker, falls Aktien-Analyse lief).
 - Memory **am Anfang jedes Laufs lesen**, bevor klassifiziert wird (Lernlog
   *und* Cost Ledger — letzteres für die kumulierten Werte im Footer).
 - Lernlog ist additiv; veraltete/widersprüchliche Einträge korrigieren statt
