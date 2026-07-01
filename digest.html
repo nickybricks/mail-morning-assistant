@@ -1,0 +1,68 @@
+<h2 style="font-size:1.2em;margin:0 0 4px">🤖 AI-Digest — 01.07.2026</h2>
+<p style="color:#666;margin:0 0 20px;font-size:0.9em">7 Ausgaben über Nacht &nbsp;·&nbsp; Synthszr · AINews (4×) · Techpresso · AlphaSignal</p>
+
+<p>Heute werden alle drei Türen gleichzeitig aufgestoßen: Das US-Handelsministerium hat das 18-tägige Exportverbot auf Anthropics Frontier-Modelle aufgehoben — Fable 5 und Mythos 5 sind wieder frei, und Sonnet 5 geht gleichzeitig als bisher agentischstes Mittelklasse-Modell zu rund $2/Mio. Input-Tokens live. Aus China kommt die Gegenthese: Meituan veröffentlicht mit LongCat-2.0 das erste Billionen-Parameter-Modell, das vollständig auf einem 50.000-Chip-Cluster inländischer Halbleiter trainiert wurde — ein direktes Signal, dass US-Exportkontrollen keine unüberwindbare Schranke sind. Auf der AI Engineer World's Fair in San Francisco dominiert derweil das Bild der „Software Factory": Agenten in Schleifen als neue Produktionseinheit, und die Debatte, ob der „Forward Deployed Engineer" zur zentralen Berufsrolle des KI-Zeitalters wird.</p>
+
+<h3 style="border-bottom:2px solid #eeeeee;padding-bottom:6px;margin-top:28px">🚀 Releases &amp; Modelle</h3>
+<ul style="padding-left:18px">
+  <li style="margin-bottom:16px">
+    <strong>Fable 5 &amp; Mythos 5 — Exportverbot aufgehoben, alle Anthropic-Modelle wieder zugänglich.</strong><br>
+    Das US-Handelsministerium hat am 30. Juni in einem Schreiben an Anthropic alle Exportbeschränkungen auf Claude Mythos 5 und Claude Fable 5 aufgehoben — die Order vom 12. Juni ist damit hinfällig, keine Lizenz mehr nötig für Export oder inländische Transfers. Anthropic hat sich im Gegenzug verpflichtet, Risiken proaktiv zu identifizieren, mit der Regierung Protokolle zu erarbeiten und böswillige Nutzung zu melden. Parallel dazu werden OpenAI (GPT-5.6 Sol) und Meta in dasselbe freiwillige Überprüfungsregime gedrängt. Synthszr bringt den Subtext auf den Punkt: „Reserves the right to re-evaluate" ist Klartext dafür, dass der Zugang zu den besten Modellen ein jederzeit revidierbares Faustpfand geworden ist — für europäische und internationale Nutzer ein Grund, die eigene Abhängigkeit von US-Providern nochmals zu überdenken. (<a href="https://www.nytimes.com/2026/06/30/technology/us-lifts-restrictions-anthropic.html">NYT</a> · <a href="https://www.synthszr.com/en/posts/alle-guten-dinge-sind-drei-mythos-5-fable-5-und-sonnet-5-sind-ab-heute-verfuegba">Synthszr #184</a>)
+    <br><img src="https://lbrzdn804nhy3kox.public.blob.vercel-storage.com/post-images/9a53336f-ec5a-4b18-872f-6d741c3df62e/6a278c84-b2d9-439b-921c-cdd12098f1c9-cover-email.png" alt="Synthszr #184 – Mythos 5, Fable 5 und Sonnet 5 sind verfügbar" style="max-width:100%;height:auto;margin-top:10px;border-radius:4px">
+  </li>
+  <li style="margin-bottom:16px">
+    <strong>Claude Sonnet 5 — agentischstes Mittelklasse-Modell, halb so teuer wie Opus 4.8.</strong><br>
+    Anthropic hat am 30. Juni Claude Sonnet 5 veröffentlicht: nach eigenen Angaben das bislang agentischste Mittelklasse-Modell, das Opus 4.8 auf vielen Tasks nahekommt, aber weniger als halb so viel kostet (Einführungspreis ca. $2/Mio. Input-Tokens). In der AI-Community gab es aber auch einen Dämpfer: Tokenizer-Änderungen und 3–6× mehr Turns in Benchmarks bedeuten, dass Sonnet 5 in langen Agentic-Workflows nicht automatisch günstiger als erwartet ist. Wer Agentic-Pipelines mit vielen Schritten betreibt, sollte eigene Token-Tests machen, bevor er Opus 4.8 durch Sonnet 5 ersetzt. (<a href="https://thenextweb.com/news/anthropic-claude-sonnet-5-agentic-model-pricing">The Next Web</a> · <a href="https://open.substack.com/pub/swyx/p/ainews-sonnet-5-today-and-fable-5">AINews</a> · Synthszr)
+  </li>
+  <li style="margin-bottom:16px">
+    <strong>Meituan LongCat-2.0 — Chinas größtes Modell, vollständig auf Heimchips trainiert.</strong><br>
+    Meituan hat LongCat-2.0 veröffentlicht: 1,6 Billionen Parameter mit 1-Millionen-Token-Kontextfenster. Das Besondere: Das Modell wurde laut Meituan als erstes seiner Größenordnung vollständig auf einem 50.000-Chip-Cluster aus chinesischen Halbleitern trainiert und damit vollständig ohne US-Chip-Exporte — eine direkte Antwort auf Washingtons Exportkontrollen. Die Leistung soll Googles Gemini 3.1 Pro entsprechen (Feb. 2026), die Gewichte wurden open-source veröffentlicht. Die Hardware-Behauptung lässt sich von außen schwer unabhängig verifizieren, da sie auf Meituans eigener Dokumentation beruht — aber das Modell selbst steht für Community-Benchmarks offen. (Techpresso)
+  </li>
+  <li style="margin-bottom:16px">
+    <strong>Claude Opus 4.8 jetzt auf Azure — natives Billing und Prompt Caching.</strong><br>
+    Anthropic hat Claude Opus 4.8 auf Microsoft Azure integriert, inklusive nativer Azure-Abrechnung und Prompt-Caching-Unterstützung. Das öffnet das Flagship-Modell für Enterprise-Kunden, die Daten aus Compliance-Gründen ausschließlich in Azure-Regionen verarbeiten müssen. (AlphaSignal)
+  </li>
+</ul>
+
+<h3 style="border-bottom:2px solid #eeeeee;padding-bottom:6px;margin-top:28px">🛠️ Tools &amp; Produkte</h3>
+<ul style="padding-left:18px">
+  <li style="margin-bottom:16px">
+    <strong>MegaTrain — 120B-Modelle auf einer einzigen GPU trainieren.</strong><br>
+    MegaTrain ist ein neues Framework, das das Training von 120-Milliarden-Parameter-Modellen auf einem einzelnen GPU ermöglicht — indem es Modellgewichte im CPU-Speicher ablegt und nur bei Bedarf auf die GPU lädt. Das adressiert ein reales Bottleneck: Bisher waren für Modelle dieser Größe ganze GPU-Cluster nötig. Konkrete Trainingsgeschwindigkeit-Benchmarks und Overhead-Zahlen stehen noch aus. Für Labs oder Teams mit begrenztem GPU-Budget könnte MegaTrain eine relevante Alternative zu Multi-GPU-Setups sein. (AlphaSignal)
+  </li>
+  <li style="margin-bottom:16px">
+    <strong>Open-source KI-Pentest-Tool — vollständige Sicherheitstests aus Klartext-Befehlen.</strong><br>
+    Ein neues quelloffenes Tool ermöglicht vollständige KI-gestützte Penetrationstests, die aus einfachen Textbefehlen gestartet werden — kein komplexes Setup, kein Scripting. Praktisch relevant für Security-Teams, die Routine-Assessments automatisieren wollen, oder für die schnelle Validierung von Angriffsflächen in eigenen Systemen. (AlphaSignal)
+  </li>
+  <li style="margin-bottom:16px">
+    <strong>Apple — Notfall-Sicherheitspatches gegen KI-gestützte Angriffsmethoden.</strong><br>
+    Apple hat Notfall-Updates für seine Betriebssysteme bereitgestellt, nachdem Sicherheitsberichte bekannt wurden, die zeigen, wie KI-Assistenz bekannte Schwachstellen deutlich schneller ausnutzbar macht als herkömmliche Methoden. Details zu den spezifischen Angriffsszenarien wurden nicht vollständig offengelegt. Update-Installation wird empfohlen. (Techpresso)
+  </li>
+</ul>
+
+<h3 style="border-bottom:2px solid #eeeeee;padding-bottom:6px;margin-top:28px">📚 Lesestoff &amp; Essays</h3>
+<ul style="padding-left:18px">
+  <li style="margin-bottom:16px">
+    <strong>AIEWF Day 2: Loops, Software Factories &amp; der neue Produktionsmodus.</strong><br>
+    Auf dem zweiten Tag der AI Engineer World's Fair in San Francisco dominierte ein Wort die Gespräche: „Loop". Gemeint ist das Prinzip, KI-Agenten nicht als einmalige Anfrage-Antwort-Systeme zu betreiben, sondern in selbstverstärkenden Schleifen — als kontinuierlichen Produktionsprozess. Das Bild der „Software Factory" setzt sich durch: Agenten übernehmen repetitive Engineering-Aufgaben autonom in Schleifen, während Menschen Architektur setzen, Ergebnisse reviewen und Richtung vorgeben. Open-Weight-Modelle waren ebenfalls heißes Thema — sie machen Software Factories auch ohne teure Cloud-API-Budgets zugänglich. (<a href="https://open.substack.com/pub/swyx/p/aiewf-daily-dispatch-loops">AINews/AIEWF Daily Dispatch</a>)
+    <br><img src="https://substackcdn.com/image/fetch/$s_!i4cw!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fee341b9f-8fd3-47e5-87db-9b3d0fc72de5_1280x720.jpeg" alt="Agents in the software factory – AIEWF Day 2" style="max-width:100%;height:auto;margin-top:10px;border-radius:4px">
+  </li>
+  <li style="margin-bottom:16px">
+    <strong>Sierra/Natalie Meurer: Forward Deployed Engineers — die neue Schlüsselrolle im KI-Zeitalter.</strong><br>
+    Natalie Meurer (Head of Agent Engineering, Sierra) erklärte auf der AIEWF, warum „Forward Deployed Engineers" (FDEs) — Ingenieure, die direkt beim Kunden Software einrichten und anpassen — und klassische Produktingenieure gerade konvergieren. Der Treiber: KI-Agenten erlauben es, Kundenlösungen direkt vor Ort zu customizen, ohne Änderungen erst durch ein Produkt-Team schleusen zu müssen. Meurer sieht den FDE als Prototyp einer neuen Engineering-Rolle, die tiefes Domänenwissen mit Agentic-Engineering verbindet — und fragt, ob langfristig jeder Produktingenieur zum FDE wird. (<a href="https://open.substack.com/pub/swyx/p/forward-deployed-engineers-aiewf">AINews</a>)
+  </li>
+  <li style="margin-bottom:16px">
+    <strong>Ahmad Osman: Local AI holt auf — von Consumer-Laptops bis Enterprise.</strong><br>
+    Ahmad Osman hat auf der AIEWF in zwei ausgebuchten Workshops demonstriert, wie schnell lokale Modelle die Lücke zu Cloud-Lösungen schließen. Sein Kern-Argument: Dank quantisierter Open-Weight-Modelle laufen heute praxistaugliche Systeme auf Consumer-Laptops und Smartphones, die vor einem Jahr noch Server-Hardware benötigten. Für Enterprise-Deployments sieht er lokale Infrastruktur inzwischen als ernstzunehmende Alternative — besonders für datenschutzsensible Workloads, Air-Gap-Umgebungen und Setups ohne verlässliche Cloud-Verbindung. Das ist kein theoretisches Argument mehr, sondern spiegelt das wider, was Teams bei Cline und Coinbase bereits productiv machen. (<a href="https://open.substack.com/pub/swyx/p/ahmad-osman-local-ai">AINews</a>)
+  </li>
+</ul>
+
+<h3 style="border-bottom:2px solid #eeeeee;padding-bottom:6px;margin-top:28px">⚡ Kurz notiert</h3>
+<ul style="padding-left:18px">
+  <li style="margin-bottom:8px"><strong>JetSpec — 9,64× Speedboost auf Qwen3:</strong> Neues spekulatives Dekodierverfahren JetSpec erreicht auf Qwen3-Modellen einen 9,64-fachen Geschwindigkeitsgewinn — infrastruktur-relevante Verbesserung für alle, die Qwen3 on-premise betreiben. (AlphaSignal)</li>
+  <li style="margin-bottom:8px"><strong>Amazon evaluiert günstigere Alternativen zu Anthropic:</strong> Laut Synthszr prüft Amazon, welche Modelle auf Bedrock Anthropics Angebote für kostenintensive Volumen-Deployments ersetzen könnten. Details sind noch spärlich. (Synthszr)</li>
+  <li style="margin-bottom:8px"><strong>10 Open-Source-Tools zum Web-Scraping (GitHub-Sammlung):</strong> AlphaSignal verweist auf eine kuratierte GitHub-Liste mit zehn kostenlosen Open-Source-Scraping-Tools — praktische Referenz für alle, die Daten für Trainings- oder Evaluierungs-Pipelines sammeln. (AlphaSignal)</li>
+  <li style="margin-bottom:8px"><strong>US Supreme Court schränkt polizeiliche Handy-Überwachung ein:</strong> Nicht direkt KI, aber regulatory-relevant: Der Supreme Court hat neue Einschränkungen beim Zugriff auf Handystandort- und Kommunikationsdaten gesetzt. (Techpresso)</li>
+</ul>
+
+<p style="margin-top:28px;padding-top:12px;border-top:1px solid #eeeeee;color:#666;font-size:0.85em">↳ Originale bleiben in deiner Inbox &nbsp;·&nbsp; Label: Maily/AI-Digest</p>
