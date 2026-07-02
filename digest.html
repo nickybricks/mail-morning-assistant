@@ -1,0 +1,86 @@
+<h2 style="margin:0 0 4px 0;font-size:1.2em;color:#111;">🤖 AI-Digest — 02.07.2026 &nbsp;·&nbsp; 6 Ausgaben über Nacht</h2>
+
+<p style="margin:12px 0 20px 0;color:#333;">
+Das <strong>AI Engineer World's Fair</strong> (AIEWF) prägte gestern und heute die Debatte: Während Warp, Cursor und Introspection die Ära der <em>Software-Factories</em> und selbst-verbessernder Agent-Loops ausrufen, formiert sich Widerstand — Geoffrey Litt, Addy Osmani und Paul Bakaus verteidigten klar, warum der <em>äußere Loop</em> menschlich bleiben muss. Anthropic gab unterdessen gleich zwei Meldungen ab: das globale Exportverbot für Claude Fable 5 ist nach 18 Tagen aufgehoben, und mit Claude Sonnet 5 kommt ein günstigeres, schnelleres Modell. Google ergänzt den Tag mit dem bisher schnellsten und billigsten Bildgenerator (Nano Banana 2 Lite) und dem ersten echten Echtzeit-Übersetzungssystem über 70 Sprachen.
+</p>
+
+<h3 style="margin:20px 0 6px 0;font-size:1.05em;border-bottom:2px solid #eee;padding-bottom:4px;">🚀 Releases &amp; Modelle</h3>
+<ul style="margin:0 0 16px 0;padding-left:20px;line-height:1.65;">
+
+  <li style="margin-bottom:12px;">
+    <strong>Trump hebt Exportverbot für Claude Fable 5 auf</strong> — Nach einem 18-tägigen Exportverbot des US-Handelsministeriums ist Claude Fable 5 wieder global verfügbar. Das Verbot, das am 12. Juni verhängt worden war, hatte sogar Anthropics nicht-amerikanische Mitarbeiter ausgesperrt. Der Entsperrung liegt ein einziger Safety-Filter zugrunde: Er blockiert die von Amazon-Forschern entdeckte Methode, Fable 5 zur Identifikation von Sicherheitslücken zu bringen, mit einer Trefferquote von über 99 %; Anfragen, die nicht durchkommen, werden zu Opus 4.8 umgeleitet. Fable 5 ist ab sofort wieder auf Claude.ai, der Claude Platform, Claude Code und Claude Cowork verfügbar — AWS, Google Cloud und Microsoft Foundry folgen. (Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Anthropic bringt Claude Sonnet 5</strong> — Anthropic hat Claude Sonnet 5 veröffentlicht und positioniert es als günstigere und schnellere Alternative zu Opus 4.8 für Agent-Workloads. Trotz der "5" im Namen handelt es sich laut Techpresso um eine eher kleinere Weiterentwicklung; die Gemeinschaft wartet gleichzeitig noch auf Claude Fable 5 (nunmehr entsperrt) und GPT-5.6-Sol. Über 100 amerikanische Institutionen erhielten außerdem unter einem neuen Ad-hoc-Lizenzrahmen wieder Zugang zu Mythos. (Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong><a href="https://thenextweb.com/news/google-nano-banana-2-lite-omni-flash-image-video">Google Nano Banana 2 Lite — 4 Sekunden, unter 4 Cent</a></strong> — Google hat Nano Banana 2 Lite veröffentlicht, das schnellste und günstigste Modell der Nano-Banana-Familie: 4 Sekunden pro Bild, unter 0,04 USD pro 1.000 Bilder. Es ist sofort in Google AI Studio, der Gemini API und der Gemini Enterprise Agent Platform verfügbar und löst das ursprüngliche Nano Banana (jetzt "Legacy") ab. Das Modell ist auf Geschwindigkeit optimiert, nicht auf Qualität; für höhere Qualität gibt es weiterhin Nano Banana 2 (Februar 2026) und Nano Banana Pro. Parallel dazu öffnet Google sein Videomodell <strong>Gemini Omni Flash</strong> für Entwickler: 0,10 USD pro Sekunde Output, aktuell auf 10 Sekunden Länge begrenzt. Synthszr kommentiert treffend: "Four cents for a thousand images, that's the real move, not the image quality" — Google industrialisiert Bildgenerierung so konsequent, dass sie zur Standardzutat in jedem Developer-Pipeline wird. Im Paket bietet Google die Demo-App <em>Omni Product Studio</em> für "cinematic e-commerce videos."
+    <br><img src="https://lbrzdn804nhy3kox.public.blob.vercel-storage.com/post-images/32e46a16-56ed-4683-ad61-5fcd3672886c/thumbnail-0-01ce876b-33aa-49c6-9d7e-6e4df261ae8f.png" alt="Nano Banana 2 Lite" style="max-width:100%;height:auto;margin-top:8px;">
+    (Synthszr #185, Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong><a href="https://dev.to/googleai/fluid-natural-voice-translation-with-gemini-35-live-translate-27n9">Gemini 3.5 Live Translate — 70+ Sprachen in Echtzeit</a></strong> — Google hat Gemini 3.5 Live Translate vorgestellt: Ein Audio-Modell, das über 70 Sprachen automatisch erkennt und in natürlich klingende Sprache übersetzt — inklusive Intonation, Tempo und Tonhöhe des Sprechers. Entscheidend ist die Latenz: Das System übersetzt kontinuierlich, nur wenige Sekunden hinter dem Sprecher, ohne Pausen. Der Rollout erfolgt dreistufig: öffentliche Vorschau via Gemini Live API und Google AI Studio für Entwickler; private Vorschau in Google Meet für Unternehmen (von 5 auf 70+ Sprachen, über 2.000 Sprachkombinationen); global über die Google Translate App (Android/iOS). Grab testet das System für Fahrer-Passagier-Kommunikation (10 Mio. Sprachanrufe/Monat). Jede generierte Audiodatei trägt einen unsichtbaren SynthID-Wasserzeichen zur KI-Kennzeichnung.
+    <br><img src="https://lbrzdn804nhy3kox.public.blob.vercel-storage.com/post-images/32e46a16-56ed-4683-ad61-5fcd3672886c/thumbnail-1-77a40a55-70d5-4160-8914-c4637f16b170.png" alt="Gemini 3.5 Live Translate" style="max-width:100%;height:auto;margin-top:8px;">
+    (Synthszr #185)
+  </li>
+
+</ul>
+
+<h3 style="margin:20px 0 6px 0;font-size:1.05em;border-bottom:2px solid #eee;padding-bottom:4px;">🛠️ Tools &amp; Produkte</h3>
+<ul style="margin:0 0 16px 0;padding-left:20px;line-height:1.65;">
+
+  <li style="margin-bottom:12px;">
+    <strong><a href="https://open.substack.com/pub/swyx/p/software-factories">Warp bringt "Oz" — Agent-Orchestrierung für die Software-Factory</a></strong> — Warp CEO Zach Lloyd präsentierte auf dem AIEWF, warum er die Ära interaktiver Entwicklung für abgelöst hält: Statt Entwickler-und-Agent-Pairing geht es jetzt um den vollautomatisierten Loop — Triage → Spezifikation → Implementierung → Review → Verifikation → Deployment → Monitoring. Das neue Produkt <strong>Oz</strong> verbindet mehrere Modelle und Coding-Harnesses über lokale Umgebungen und Cloud-Sandboxes und dockt an bestehende Workflows an (Jira, Linear, Slack, Teams, GitHub). Warp hat seinen CLI-Kern im April open-sourced (als Antwort auf Claude Code, Codex CLI und Gemini CLI) und investiert nun in die Factory-Schicht darüber. Lloyd prognostiziert: "Die meisten bedeutenden Softwareprojekte werden innerhalb des nächsten Jahres irgendeine Form automatisierter Factory betreiben."
+    (AINews/Latent Space)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong><a href="https://open.substack.com/pub/swyx/p/cursor-forward-deployed-engineers">Cursor skaliert Forward Deployed Engineering für die Enterprise-Factory</a></strong> — Pauline Brunet, VP of Forward Deployed Engineering bei Cursor, erläuterte die Strategie: Cursor's FDE-Team geht direkt in Kundensysteme, konfiguriert und deployt Agenten über den gesamten Software-Development-Lifecycle — von Planung und Design bis hin zu Test, Deployment und Wartung. Das Team wächst bis Dezember auf das Zehnfache; alle Stellen werden mit Software-Ingenieuren mit 5+ Jahren Erfahrung besetzt, viele kommen von Spotify, Rippling, Palantir. Zentrales Hemmnis auf dem Weg zur breiten Adoption: 10–20 % Early Adopter sind bereits produktiv, aber der Sprung auf Team- und Organisationsebene erfordert Top-down-Commitment. (<a href="https://open.substack.com/pub/swyx/p/cursor-forward-deployed-engineers">AINews/Latent Space</a>)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Impeccable — "There is no auto, and there will be no auto"</strong> — Paul Bakaus stellte auf dem AIEWF sein neues Design-Tool <em>Impeccable</em> vor. Sein Ansatz ist explizit anti-Loop-maxing: Agenten übernehmen die laboriösen ersten 80 % einer Designaufgabe, aber der Mensch kommt für die letzten 20 % zurück — "to make it a unique thing, to really put in your taste, your point of view." Das Produkt wird nie ein Ergebnis auf Knopfdruck erzeugen ("one-shot"), der Nutzer muss stets steuernd eingreifen. Bakaus' Begründung ist nicht nur technisch, sondern auch um Autorschaft und Verantwortung: "People need purpose, and they want to play a role in whatever they create." (AINews/Latent Space — AIEWF Daily Dispatch)
+  </li>
+
+</ul>
+
+<h3 style="margin:20px 0 6px 0;font-size:1.05em;border-bottom:2px solid #eee;padding-bottom:4px;">📚 Lesestoff &amp; Essays</h3>
+<ul style="margin:0 0 16px 0;padding-left:20px;line-height:1.65;">
+
+  <li style="margin-bottom:12px;">
+    <strong><a href="https://open.substack.com/pub/swyx/p/aiewf-daily-dispatch-agency">AIEWF Day 3: "Der äußere Loop muss menschlich bleiben"</a></strong> — Der AIEWF-Mittwoch stand im Zeichen eines wachsenden Gegengewichts zur Software-Factory-Vision. Addy Osmani (ex-Google Engineering) fasste die Kernthese so zusammen: "Agents can run much more of the inner execution loop. But that outer loop is still engineering." Der innere Loop ist Capability, der äußere Loop ist Agency — und menschliche Kompetenz muss ihn besitzen. Geoffrey Litt (Notion) argumentierte in seinem viel diskutierten Talk über "how and why humans need to understand our code": "The future will be very polarized: those who understand will keep having the next big idea. Those who delegate understanding will be replaced by the agent." Anthropics Thariq Shihipar über Claude Code ergänzte die Gegenperspektive: "The models are grown, not developed — we figure out and learn with the model as we use it."
+    <br><img src="https://substack-post-media.s3.amazonaws.com/public/images/d19ebe6a-9249-4038-a2a1-7ba5ec745724_1280x705.jpeg" alt="Addy Osmani's Agency Ladder at AIEWF" style="max-width:100%;height:auto;margin-top:8px;">
+    (AINews/Latent Space)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong><a href="https://open.substack.com/pub/swyx/p/autoresearch-introspection">Autoresearch: Das Interview mit Roland Gavrilescu (Introspection)</a></strong> — Gavrilescu, CEO von Introspection und ex-xAI, erklärt das Konzept des <em>Autoresearch</em>: Ein "äußerer Loop", in dem Agenten das primäre System (den inneren Loop) selbst studieren, verbessern und warten — über Feedback-Signale, Evals und Human Input. Kernkonzept seiner Firma ist das <strong>Agent Recipe</strong>: ein portables Format, das Evals, Judges, Signal-Processing, erfasste menschliche Expertise und eine vollständige Entwicklungsgeschichte (inkl. Fehlschläge) enthält — ähnlich einem Daten-Rezept beim Modell-Post-Training. Das zugrundeliegende Framework <strong>Pi</strong> bezeichnet Gavrilescu als "das Linux der Agent-Harnesses": erweiterbar, portabel, nie als unverändertes Produkt gedacht. Introspections Mission: Self-improving Systems günstig, schnell und kundespezifisch deploybar machen — mit Fähigkeiten der Frontier-Modelle, aber als eigene, kontrollierbare Systeme. (<a href="https://open.substack.com/pub/swyx/p/autoresearch-introspection">AINews/Latent Space</a>)
+  </li>
+
+</ul>
+
+<h3 style="margin:20px 0 6px 0;font-size:1.05em;border-bottom:2px solid #eee;padding-bottom:4px;">⚡ Kurz notiert</h3>
+<ul style="margin:0 0 16px 0;padding-left:20px;line-height:1.65;">
+
+  <li style="margin-bottom:8px;">
+    <strong>Meta Compute:</strong> Meta erwägt laut Bloomberg ein Cloud-Infrastruktur-Angebot ("Meta Compute"), bei dem externe Unternehmen Kapazitäten auf Metas Infrastruktur mieten könnten — entweder für gehostete KI-Modelle oder als Rohe Rechenkapazität. Hintergrund: Metas eigenes neues Flaggschiff Llama 3.1 gewinnt schwer an Traction; das Projekt soll Santosh Janardhan (Infrastruktur), Daniel Gross (Meta Superintelligence Labs) und Dina Powell McCormick (Präsidentin) leiten. (Synthszr #185, Techpresso)
+  </li>
+
+  <li style="margin-bottom:8px;">
+    <strong>Japan plant souveräne KI und 10 Millionen Roboter bis 2040:</strong> Das Noetra-Konsortium (u.a. SoftBank, Sony) soll mit ~6 Mrd. USD staatlicher Förderung über 5 Jahre Japans eigenes KI-Grundmodell entwickeln und physische KI (Fabriken, autonome Fahrzeuge, Androiden) vorantreiben. Ziel: 10 Millionen KI-ausgestattete Roboter bis 2040 — eingebettet in einen 14-Jahres-Plan mit 370 Billionen Yen Gesamtinvestition über 17 Sektoren. Hintergrund ist auch Japans alternde Bevölkerung und der Wille, Abhängigkeit von US- und chinesischen KI-Modellen zu reduzieren. (Techpresso)
+  </li>
+
+  <li style="margin-bottom:8px;">
+    <strong>Google DeepMind × A24:</strong> Google DeepMind hat einen 75-Millionen-Dollar-Deal mit dem Indie-Filmstudio A24 abgeschlossen — der Einsatz von KI-Generierungswerkzeugen für Filmproduktionen. Laut Synthszr sorgt das für massive Empörung in Kreativkreisen. (Synthszr #185)
+  </li>
+
+  <li style="margin-bottom:8px;">
+    <strong>Claude Science:</strong> Anthropic hat Claude Science veröffentlicht — eine KI-Workbench speziell für Wissenschaftler. (Techpresso)
+  </li>
+
+</ul>
+
+<p style="margin:20px 0 4px 0;font-size:0.88em;color:#666;">↳ Originale bleiben in deiner Inbox</p>
