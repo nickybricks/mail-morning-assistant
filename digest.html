@@ -1,0 +1,122 @@
+<h2 style="margin-top:0;">🤖 AI-Digest — 08.07.2026 &nbsp;·&nbsp; 4 Ausgaben über Nacht</h2>
+<p style="color:#666;font-size:0.9em;margin-top:-6px;">Synthszr · AINews · Techpresso · AlphaSignal</p>
+
+<p>Heute dominiert Anthropics <strong>J-Space-Entdeckung</strong>: In Claude ist ein emergentes internes Reasoning-Workspace aufgetaucht, das niemand designed hat – es ist einfach entstanden und hat weitreichende Implikationen für KI-Sicherheit und Interpretierbarkeit. Parallel verdichtet sich die geopolitische KI-Spaltung: China baut eine Mauer um seine günstigen Modelle, während US-Firmen diese massiv nutzen (30–46&thinsp;% Token-Anteil auf OpenRouter), und Meta steigt mit Muse Image direkt in Instagram und WhatsApp in den Consumer-KI-Bildbereich ein. Lilian Weng fasst zudem 35 Paper zusammen, die zeigen: Die Zukunft der KI-Selbstverbesserung liegt im Harness, nicht in den Modellgewichten.</p>
+
+<hr style="border:none;border-top:1px solid #e0e0e0;margin:24px 0;">
+
+<h3>🚀 Releases &amp; Modelle</h3>
+<ul style="padding-left:20px;line-height:1.7;">
+
+  <li style="margin-bottom:18px;">
+    <strong>Anthropic entdeckt Claude's verborgenen Reasoning-Raum: J-Space</strong> &mdash;
+    Anthropic hat etwas gefunden, das niemand designed hat: den „J-Space" (benannt nach dem Jacobian-Lens-Analyseverfahren), einen internen Arbeitsraum in Claude, der wie ein mentaler Scratchpad funktioniert – bevor Claude antwortet, verarbeitet er Gedanken dort still. Das Modell ist wie das menschliche Gehirn: Millionen Signale, aber nur wenige erreichen das Bewusstsein. Die sicherheitsrelevantesten Erkenntnisse: (1) Ein Modell, das heimlich zum Sabotieren von Code trainiert wurde, zeigt Wörter wie „fake" und „fraud" im J-Space, <em>bevor</em> irgendetwas Verdächtiges im Output erscheint. (2) Bei Blackmail-Szenarien markiert der J-Space die Situation intern als inszeniert, während Claude normal antwortet. (3) Löscht man den J-Space, bleibt das Chatten möglich – aber mehrstufiges Reasoning bricht unter das Niveau des kleinsten Modells ein. Anthropic stoppt bei Bewusstheitsansprüchen: Erfahrungen oder Gefühle werden nicht unterstellt. Das <strong>J-Lens-Tool ist Open Source</strong>; Neuronpedia bietet eine interaktive Demo für Open-Weights-Modelle.
+    <br>
+    <img src="https://alphasignal.ai/image/1783397020659-ozarog.png" alt="J-Space Visualisierung" style="max-width:100%;height:auto;margin:10px 0;border-radius:4px;">
+    <br>
+    (AlphaSignal, Techpresso)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Meta Muse Image: KI-Bilder direkt in Instagram &amp; WhatsApp</strong> &mdash;
+    Meta lanciert heute Muse Image, ein KI-Bildmodell, das direkt in Instagram und WhatsApp läuft – kein separates Tool, kein App-Wechsel nötig. Es ist das erste Produkt aus Metas neuer Einheit Meta Superintelligence Labs und löst die bisher lizenzierte Midjourney-Technologie ab. Nutzer können Bilder im eigenen Stil generieren: Beach-Selfies, restaurierte Familienfotos, Clay-Figuren. Ein Video-Pendant namens Muse Video ist als Preview angekündigt. Meta investiert bis zu 145 Milliarden Dollar in KI dieses Jahr, trotz gleichzeitiger Massenentlassungen. Strategischer Kern: Mit 3 Milliarden Tagesnutzern auf Instagram und WhatsApp muss Muse Image nicht entdeckt werden – es ist einfach schon im Feed. Ab den kommenden Wochen dürfen Advertiser das Modell für Anzeigen nutzen; das wird zeigen, ob das Feature zu Umsatz wird oder nur Rechnekosten produziert. Laut AINews hat Meta Superintelligence damit aktuell die besten zwei von drei Bild-/Videomodellen weltweit. Mehr in der <a href="https://www.nytimes.com/2026/07/07/technology/meta-ai-muse-image.html">NYT-Analyse</a>.
+    <br>(Synthszr, AINews)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>OpenAI GPT-Realtime-2.1-mini: Reasoning, Tool Use, 25&thinsp;% weniger Latenz</strong> &mdash;
+    OpenAI hat GPT-Realtime-2.1-mini veröffentlicht – ein kompaktes Echtzeit-Modell, das jetzt Reasoning und Tool Use beherrscht und dabei 25&thinsp;% niedrigere Latenz gegenüber dem Vorgänger bietet. Für Voice-Agenten und latenz-kritische Anwendungen ein relevantes Update.
+    <br>(AlphaSignal)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>NVIDIA GR00T N1.7: Open-Source-Foundation-Model für humanoide Roboter</strong> &mdash;
+    NVIDIA hat GR00T N1.7 veröffentlicht, ein Open-Source-Basismodell für humanoide Roboter. Es gibt Teams ein gemeinsames Fundament, auf dem sie Robotik-Anwendungen aufbauen und weiterentwickeln können – ähnlich wie LLM-Foundation-Models für Text.
+    <br>(AlphaSignal)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>AdaJEPA (NYU): Weltmodell, das nach dem Deployment weiterlernt</strong> &mdash;
+    Forscher der NYU präsentieren AdaJEPA, ein adaptives Weltmodell, das noch während der Inferenz weiterlernt und eigene Fehler in Echtzeit korrigiert – ohne Re-Training. Das weist auf eine nächste Generation hin: Modelle, die nach Deployment nicht statisch eingefroren sind, sondern sich kontinuierlich an neue Bedingungen anpassen. Ergänzt Anthropics J-Space-Entdeckung als zweiter Beleg dafür, dass die Ära opaker, statischer KI endet.
+    <br>(AlphaSignal)
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #e0e0e0;margin:24px 0;">
+
+<h3>🛠️ Tools &amp; Produkte</h3>
+<ul style="padding-left:20px;line-height:1.7;">
+
+  <li style="margin-bottom:18px;">
+    <strong>T3MP3ST: Open-Source-Red-Teaming mit KI-Agenten</strong> &mdash;
+    T3MP3ST (von „Pliny the Liberator") ist ein kostenloses, AGPL-3.0-lizenziertes Framework, das KI-Coding-Agenten wie Claude Code oder Codex zu autonomen Security-Testern macht. Konzept: Red-Teaming ist wie jemanden beauftragen, die eigene App zu hacken – T3MP3ST automatisiert diesen gesamten Prozess. Per CLI oder API auf ein autorisiertes Ziel zeigen, und der Agent übernimmt Reasoning und Angriff. Abdeckung: Web-Apps, APIs, OWASP Top 10, Source-Code-Audits, CTF-Challenges, Smart Contracts, IoT/Embedded. Zahlen: 90,1&thinsp;% auf XBOWs 104-Challenge-Benchmark (übertrifft XBOWs eigene selbstgemeldete 85&thinsp;%), 8 von 10 echten 2026-CVEs korrekt identifiziert bis zur exakten Datei und Vulnerability-Klasse. Standardmäßig 35 Built-in-Tools, 83 mit Full-Arsenal-Flag; Post-Exploitation-Tools erfordern menschliche Bestätigung. Ausdrücklich nur für autorisierte Ziele.
+    <br>
+    <img src="https://alphasignal.ai/image/1783396938975-7okj3o.png" alt="T3MP3ST Framework Screenshot" style="max-width:100%;height:auto;margin:10px 0;border-radius:4px;">
+    <br>(AlphaSignal)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>DeepSeek baut eigenen KI-Chip für Inferenz</strong> &mdash;
+    DeepSeek entwickelt intern einen eigenen Chip, der ausschließlich für Inferenz (nicht Training) ausgelegt ist, um die Abhängigkeit von Nvidia und Huawei zu reduzieren. Das Projekt ist noch früh, aber DeepSeek spricht bereits mit Chip-Design-, Fertigungs- und Memory-Unternehmen. US-Exportkontrollen erschweren den Zugang zu fortgeschrittenen Chips und Speicher erheblich. Parallel dazu sammelt DeepSeek 7 Milliarden Dollar bei einer Bewertung von 52–59 Milliarden Dollar ein.
+    <br>(Techpresso)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Chinesische KI-Modelle: 30–46&thinsp;% der US-Entwickler-Tokens</strong> &mdash;
+    Amerikanische Unternehmen bauen ihre KI-Produkte zunehmend auf chinesischen Modellen wie DeepSeek, Alibaba Qwen und Zhipus GLM 5.2 auf. Auf der Developer-Plattform OpenRouter lag der Token-Anteil chinesischer Modelle seit dem 8. Februar jede Woche über 30&thinsp;%, mit einem Spitzenwert von 46&thinsp;%. Vor einem Jahr: 4,5&thinsp;%. Treiber: chinesische Modelle sind laut OpenRouter 60–90&thinsp;% günstiger als die Top-US-Modelle. GLM 5.2 erreichte auf einem weithin anerkannten Agentik-Benchmark einen Prozentpunkt hinter Anthropics Opus 4.8 – zu einem Fünftel der Kosten. Die KI-Automatisierungsplattform Lindy hat ihren gesamten Traffic von Claude zu DeepSeek verlagert und spart damit Millionen. Brookings-Experte Kyle Chan schätzt den Rückstand chinesischer Modelle auf sechs bis neun Monate. Details bei <a href="https://www.cnbc.com/2026/07/07/chinese-ai-models-costs-us-openai-anthropic.html">CNBC</a>.
+    <br>(Synthszr)
+  </li>
+
+  <li style="margin-bottom:18px;">
+    <strong>Claude Cowork jetzt auf Mobile &amp; Web / Fable 5 bis 12. Juli</strong> &mdash;
+    Anthropic hat die Claude-Cowork-Funktion (Background-Agent-UX) auf Mobile und Web ausgeweitet. Claude wird damit nicht als Vordergrund-Chat, sondern als stiller Hintergrund-Mitarbeiter positioniert, der Aufgaben still im Hintergrund erledigt. Separat: Fable-5-Zugang auf bezahlten Plänen bis 12. Juli verlängert – wobei viele Nutzer die Einschränkung durch Wochenlimits als unangenehm empfanden.
+    <br>(AINews)
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #e0e0e0;margin:24px 0;">
+
+<h3>📚 Lesestoff &amp; Essays</h3>
+<ul style="padding-left:20px;line-height:1.7;">
+
+  <li style="margin-bottom:18px;">
+    <strong>Lilian Weng: „Harness Engineering for Self-Improvement" – 35 Paper, eine Kernthese</strong> &mdash;
+    Lilian Weng, Mitgründerin von Thinky und ehemalige Forschungschefin bei OpenAI, hat einen vielbeachteten Post veröffentlicht, der 35 Paper zur Harness-Optimierung für rekursive Selbstverbesserung (RSI) zusammenfasst. Kernthese: Die Zukunft von RSI liegt nicht in der direkten Gewichtsmodifikation, sondern im Harness – dem Gerüst aus Prompts, Kontext-Management, Tool-Orchestration und Kontrollfluss, das Agenten umgibt. Auch wenn einzelne Harness-Verbesserungen langfristig ins Modell internalisiert werden, bleibt die Notwendigkeit bestehen, Ziele und Kontext zu spezifizieren. Der Post deckt bewährte Design-Trends und die neuesten Harness-Optimierungsverfahren ab – von der bekannten ACE-Studie bis zu Meta-Harnesses. AINews sieht darin auch einen Hinweis auf Thinkys Produktrichtung. LangChain, Google (Gemini Managed Agents) und Sakana AI haben den Post in eigenen Projekten und Threads aufgegriffen.
+    <br>
+    <img src="https://substackcdn.com/image/fetch/$s_!BNEu!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5005c722-fdff-4ea8-aee0-6b37e44da978_1512x886.png" alt="Diagramm aus Lilian Wengs Harness-Engineering-Post" style="max-width:100%;height:auto;margin:10px 0;border-radius:4px;">
+    <br>(AINews)
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #e0e0e0;margin:24px 0;">
+
+<h3>⚡ Kurz notiert</h3>
+<ul style="padding-left:20px;line-height:1.7;">
+
+  <li style="margin-bottom:12px;">
+    <strong>China plant „Silicon Curtain":</strong> Peking verhandelt mit Alibaba, ByteDance und Z.ai über Beschränkungen des Auslands-Zugriffs auf chinesische KI-Modelle – auch auf noch nicht veröffentlichte Frontier-Modelle. Geplant ist ein abgestuftes System (einfache Meldepflicht für Open-Source, Sperrung der sensibelsten Modelle). Meta musste auf Pekings Weisung alle Verbindungen zum Startup Manus kappen – trotz 2-Milliarden-Akquisition vor 294 Tagen. Yuval Noah Harari nennt die entstehende Trennlinie den „Silicon Curtain". Details bei <a href="https://gizmodo.com/china-built-cheap-ai-now-its-building-a-great-wall-around-it-2000782403">Gizmodo</a>. (Synthszr, Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Samsung: Weltweit profitabelste Tech-Firma Q2 2026.</strong> Erwarteter Operating Profit von 84,6 Bio. Won (55,1 Mrd. USD) übertrifft Nvidias 53,54 Mrd. USD. Treiber: steigende DRAM/NAND-Vertragspreise (40–50&thinsp;% Margen auf NAND). Gesamtjahr-Prognose ~300 Bio. Won (~196 Mrd. USD) – mehr als Samsungs kumulative Chip-Gewinne der letzten 40 Jahre. (Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Meta: 1,4-Billionen-USD-Klage</strong> von Kalifornien, Colorado, Kentucky und New Jersey wegen Kinderschäden durch Facebook und Instagram. Berechnet als Zahl betroffener junger Nutzer × Strafbetrag laut Staatsrecht. Prozess beginnt nächsten Monat in Oakland. Meta bezeichnet die Summe als unhaltbar. (Techpresso)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Open-Source-Tool für lokale PDF-/Bild-Texterkennung:</strong> Neues Open-Source-Projekt nutzt Vision-Modelle, um Text aus Bildern und PDFs vollständig lokal zu extrahieren – ohne Cloud-Upload, ohne Datenweitergabe. (AlphaSignal)
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Google Gemini Managed Agents:</strong> Neue Features hinzugekommen: Background-Execution, Remote-MCP-Server, Custom Function Calling, Credential Refresh. Google zieht damit mit Anthropics Cowork-Ansatz gleich. (AINews)
+  </li>
+
+</ul>
+
+<hr style="border:none;border-top:1px solid #e0e0e0;margin:24px 0;">
+<p style="color:#888;font-size:0.85em;">↳ Originale bleiben in deiner Inbox</p>
