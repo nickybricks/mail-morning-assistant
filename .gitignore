@@ -6,6 +6,9 @@ fetch.json
 actions.json
 drafts.json
 briefing.txt
+digest_in.json
+digest.html
+digest_err.log
 voice/samples.md
 senders.md
 memory/
