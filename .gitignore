@@ -4,6 +4,7 @@ config.json
 # Lauf-Artefakte (enthalten E-Mail-Inhalte) — nie versionieren
 fetch.json
 actions.json
+actions2.json
 drafts.json
 briefing.txt
 voice/samples.md
