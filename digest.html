@@ -1,0 +1,58 @@
+<h1 style="font-size:1.4em;margin:0 0 0.15em;">🤖 AI-Digest — 20.07.2026</h1>
+<p style="color:#888;font-size:0.88em;margin:0 0 1.4em;">2 Ausgaben über Nacht &nbsp;·&nbsp; AlphaSignal · Synthszr</p>
+
+<p style="line-height:1.6;">Der Tag gehört dem Open-Weights-Rennen: AlphaSignal liefert einen umfassenden Deep Dive in <strong>Inkling</strong> von Thinking Machines Lab — mit neuen technischen Details zu Architektur, Benchmarks, Preisen und dem angekündigten Inkling-Small. Alibaba öffnet parallel seinen CUDA-Konkurrenten SAIL für die Developer-Community, was Nvidias Ecosystem-Moat unter Druck setzt. Auf der geopolitischen Seite haben Macron und Merz in einer gemeinsamen Erklärung vereinbart, eine europäische Alternative zu Palantirs Militär-KI aufzubauen — Synthszr analysiert, warum der Ansatz einen Konstruktionsfehler enthält.</p>
+
+<h2 style="font-size:1.15em;border-bottom:2px solid #e0e0e0;padding-bottom:0.3em;margin-top:1.6em;">🚀 Releases &amp; Modelle</h2>
+<ul style="padding-left:1.3em;line-height:1.65;">
+  <li style="margin-bottom:1.2em;">
+    <strong>Inkling — der pragmatische Open-Weights-Champion aus den USA (AlphaSignal Deep Dive)</strong><br>
+    Thinking Machines Lab (gegründet von Mira Murati) hat mit <strong>Inkling</strong> ein 975-Milliarden-Parameter-Modell auf MoE-Basis veröffentlicht, das nur <strong>41 Milliarden Parameter pro Token</strong> aktiviert — die Rechenkraft eines Billion-Parameter-Modells zum Preis eines viel kleineren Systems. Inkling unterstützt einen <strong>1-Million-Token-Kontextfenster</strong> und ist nativ multimodal (Text, Bild, Audio in einem gemeinsamen Token-Stream). Für den langen Kontext setzt das Modell auf eine hybride Attention-Architektur, die lokale Sliding-Window-Attention mit globaler Attention verzahnt und so Speicher- und Compute-Overhead deutlich reduziert.<br><br>
+    <img src="https://alphasignal.ai/image/1784468386261-gxcia6.png" alt="Inkling Thinking-Effort-Parameter" style="max-width:100%;height:auto;display:block;margin:0.6em 0;">
+    Ein praktisches Alleinstellungsmerkmal ist der <strong>„Thinking Effort"-Parameter</strong>: Entwickler können das Reasoning-Budget zur Laufzeit steuern — von Maximalaufwand für komplexe Coding-Probleme bis hin zu minimalem Einsatz für hochvolumige, schnelle Aufgaben.<br><br>
+    Auf dem <strong>Artificial Analysis Intelligence Index</strong> debütierte Inkling auf Platz 41 — das macht es zum führenden US-amerikanischen Open-Weights-Modell, noch vor Nvidias Nemotron 3 Ultra (38) und Metas Gemma 4 31B (29). Chinesische Modelle wie GLM-5.2 und DeepSeek-V4 Pro liegen noch davor. Beim Agentic Benchmark GDPval-AA v2 (simuliert wirtschaftlich wertvolle Wissensarbeit) erreichte Inkling ein Elo-Rating von 1238 — besser als Kimi K2.6 (1190) und DeepSeek V4 Flash (1189).<br><br>
+    <img src="https://alphasignal.ai/image/1784468473389-mdraal.png" alt="Inkling auf dem Artificial Analysis Intelligence Index" style="max-width:100%;height:auto;display:block;margin:0.6em 0;">
+    Preislich liegt Inkling bei ca. <strong>$1.00/1M Input- und $4.05/1M Output-Tokens</strong> — deutlich unter westlichen Closed-Source-Frontier-Modellen ($5–$15). Für selbst gehostete Deployments unterstützt Inkling das NVFP4-Quantisierungsformat, das den VRAM-Bedarf von 2 TB auf rund 600 GB senkt (Unsloth/llama.cpp). Ab Tag 0 war das Modell auf OpenRouter, Together AI und Fireworks AI verfügbar. Die Architektur orientiert sich stark am chinesischen DeepSeek-V3-MoE-Rezept; das Post-Training-Pipeline bezog teilweise synthetische Daten aus Kimi K2.5.
+    <em style="color:#888;font-size:0.9em;">(AlphaSignal)</em>
+  </li>
+  <li style="margin-bottom:1.2em;">
+    <strong>Inkling-Small angekündigt: 276B Parameter, nur 12B aktiv</strong><br>
+    Thinking Machines hat ein kleineres Geschwistermodell namens <strong>Inkling-Small</strong> angeteasert: 276 Milliarden Parameter, davon nur 12 Milliarden aktiv pro Token. Die Gewichte sind noch nicht veröffentlicht, aber frühe Benchmark-Drops zeigen, dass Inkling-Small das volle Modell bei einigen Reasoning-Tests <em>egalisiert oder übertrifft</em> — was die Effizienzthese von Thinking Machines weiter untermauert.
+    <em style="color:#888;font-size:0.9em;">(AlphaSignal)</em>
+  </li>
+</ul>
+
+<h2 style="font-size:1.15em;border-bottom:2px solid #e0e0e0;padding-bottom:0.3em;margin-top:1.6em;">🛠️ Tools &amp; Produkte</h2>
+<ul style="padding-left:1.3em;line-height:1.65;">
+  <li style="margin-bottom:1.2em;">
+    <strong>Alibaba öffnet SAIL als Open-Source-Alternative zu Nvidias CUDA</strong><br>
+    Alibabas Chip-Design-Einheit T-Head hat auf der World AI Conference in Shanghai ihren bisher proprietären Software-Stack <strong>SAIL</strong> — Grundlage der hauseigenen Zhenwu-KI-Chips — als Open Source freigegeben und sofort für internationale Entwickler verfügbar gemacht. SAIL ist der direkte Angriff auf Nvidias CUDA-Ökosystem: Nvidia hat seinen Moat weniger durch Hardware als durch ~20 Jahre Software-Lock-in (Universitäten, Labs, Toolchains) aufgebaut. T-Head schließt sich damit einem breiteren chinesischen Chipmaker-Trend an — laut <em>South China Morning Post</em> machen auch Huawei und Moore Threads ähnliche Schritte. Die strategische Logik: Abundance zerstört Value — wer ein kostenloses Open-Source-Werkzeug neben einen Pay-to-Play-Stack legt, macht die proprietäre Schicht Stück für Stück ersetzbar. Ob SAIL technisch gut genug ist, um Entwickler zur Migration zu bewegen, bleibt abzuwarten.
+    <br>
+    <a href="https://www.scmp.com/tech/tech-war/article/3361048/alibaba-targets-nvidias-dominant-software-ecosystem-open-source-ai-stack" style="color:#1a73e8;">SCMP: Alibaba targets Nvidia's dominant software ecosystem →</a>
+    <em style="color:#888;font-size:0.9em;">(Synthszr)</em>
+  </li>
+</ul>
+
+<h2 style="font-size:1.15em;border-bottom:2px solid #e0e0e0;padding-bottom:0.3em;margin-top:1.6em;">📚 Lesestoff &amp; Essays</h2>
+<ul style="padding-left:1.3em;line-height:1.65;">
+  <li style="margin-bottom:1.2em;">
+    <strong>„Pragmatic Engineering" — warum 90 % deiner Aufgaben kein Frontier-Modell brauchen (AlphaSignal)</strong><br>
+    AlphaSignals Sunday Deep Dive (Autor Ben Dickson) argumentiert, dass die Branche von der Jagd nach dem stärksten Frontier-Modell zu echter ROI-Optimierung wechselt. Das Prinzip: Massive Closed-Source-Modelle bleiben notwendig für Edge-Case-Reasoning und Long-Horizon-Planning — aber hochvolumige, domain-spezifische Aufgaben werden zunehmend an günstige, fine-tunbare Open-Weights-Modelle delegiert. Das ist das Pareto-Prinzip angewandt auf Enterprise-AI: 90 % des Weges für einen Bruchteil der Kosten, mit vollem Kontrolle über die Gewichte. Inkling ist für AlphaSignal das Paradebeispiel: steuerbare Latenz über den Thinking-Effort-Dial, Tool-Use-Kompetenz durch Training in randomisierten Harnesses (verhindert Overfitting auf ein API-Format), und direkte Fine-Tuning-Integration via Tinker. Der Essay legt nahe: Die Frage ist nicht mehr „welches Modell ist das beste?", sondern „welche Aufgaben routen wir wohin?".
+    <em style="color:#888;font-size:0.9em;">(AlphaSignal)</em>
+  </li>
+  <li style="margin-bottom:1.2em;">
+    <strong>Europas Palantir-Alternative — Macron und Merz einigen sich, aber der Ansatz hat einen Konstruktionsfehler (Synthszr)</strong><br>
+    In einer gemeinsamen Erklärung nach Gesprächen zwischen Emmanuel Macron und Friedrich Merz haben Frankreich und Deutschland vereinbart, eine europäische Alternative zu Palantirs Militär-KI-Software zu entwickeln. Das Ziel: ein „European sovereign digital backbone" für Datensicherheit, KI und Cloud. Ausgangspunkt soll Frankreichs KI-gestütztes Kommando- und Kontrollsystem <strong>Arcadia</strong> sein — neben „vergleichbaren deutschen Lösungen". Beide Länder hatten Palantir zuvor bereits aus ihren Geheimdiensten verdrängt (Frankreich: ChapsVision ArgonOS statt Palantir; Deutschland: BfV und Bundeswehr ebenfalls Palantir-frei). Palantir-CEO Alex Karp bezeichnete Deutschlands Ablehnung als „Gespräche über Hexerei".<br><br>
+    Synthszrs Analyse trifft einen wunden Punkt: „Arcadia neben vergleichbaren deutschen Lösungen" bedeutet zwei nationale Ausgangsplattformen, eine gemeinsame Etikette — das exakt gleiche Muster, das FCAS und MGCS seit Jahren lähmt. Ein souveräner Backbone funktioniert nur mit einer einzigen Datenlogik, einem Sicherheitsmodell und einer Schnittstelle. Palantirs echter Vorteil ist, dass Maven eine einzige End-to-End-Plattform ist — Europa plant derzeit eine Arbeitsteilung nach nationalen Fahnen. Der Test kommt mit dem ersten Beschaffungsbudget: fließt es in eine Plattform mit klarer Führung, oder in zwei nationale Prestigeprojekte, die einander als Kompromiss zugestanden werden?
+    <br>
+    <a href="https://thenextweb.com/news/france-germany-palantir-rival-european-sovereign-military-ai" style="color:#1a73e8;">The Next Web: France and Germany plan to build a Palantir rival →</a>
+    <em style="color:#888;font-size:0.9em;">(Synthszr)</em>
+  </li>
+</ul>
+
+<h2 style="font-size:1.15em;border-bottom:2px solid #e0e0e0;padding-bottom:0.3em;margin-top:1.6em;">⚡ Kurz notiert</h2>
+<ul style="padding-left:1.3em;line-height:1.65;">
+  <li style="margin-bottom:0.8em;">— heute nichts</li>
+</ul>
+
+<p style="color:#888;font-size:0.88em;margin-top:1.8em;border-top:1px solid #e8e8e8;padding-top:0.8em;">↳ Originale bleiben in deiner Inbox</p>
