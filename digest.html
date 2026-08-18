@@ -1,0 +1,66 @@
+<h2 style="margin:0 0 4px 0;font-size:20px;">🤖 AI-Digest — 18.08.2026 &nbsp;·&nbsp; 4 Ausgaben über Nacht</h2>
+<p style="font-size:13px;color:#888;margin:0 0 20px 0;">Synthszr · AINews · Techpresso · AlphaSignal</p>
+
+<p>Der Tag wird von zwei großen Ereignissen dominiert: Cursor bringt mit <strong>Origin</strong> eine eigene Git-Plattform auf den Markt — und passenderweise fällt GitHub gleichzeitig für fast sieben Stunden aus, was die strategische Frage nach Alternativen plötzlich sehr konkret macht. Parallel dazu meldet Z.ai mit <strong>GLM-5.3</strong> ein eindrucksvolles Upgrade durch reines Post-Training: 50 % Coding-Gewinn ohne Architekturänderungen. Im Hintergrund verdichten sich die Zeichen einer neuen Infrastruktur-Welt: OpenAI plant ein 8-Gigawatt-Rechenzentrum in Ohio, und die USA fordern ihre Partner auf, sich zwischen US-amerikanischer und chinesischer KI zu entscheiden.</p>
+
+<h3 style="margin:24px 0 8px 0;font-size:17px;">🚀 Releases &amp; Modelle</h3>
+<ul style="margin:0 0 0 0;padding-left:20px;line-height:1.7;">
+  <li style="margin-bottom:16px;">
+    <strong><a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=e84519f2152d9067&lid=1vmgClaPqhmdQ0zF3&mid=8493bf36-abc7-4e12-b6ec-4dcd12920e05">Z.ai GLM-5.3 (743 B) — 50 % Coding-Sprung, emergente Cybersecurity-Fähigkeiten</a></strong><br>
+    Z.ai hat GLM-5.3 veröffentlicht, ein 743-Milliarden-Parameter-Modell, das auf dem exakt gleichen Basismodell wie GLM-5.2 aufbaut — keinerlei Architekturänderungen. Alle Gewinne kommen aus verbessertem Post-Training mit Fokus auf echten Coding-Umgebungen statt nur Code-Fragen. Ergebnis: 50 % bessere Coding-Performance, Platz 1 unter Open-Source-Modellen auf Terminal-Bench und Agents' Last Exam. Dazu 1-Million-Token-Kontext und niedrigere Token-Kosten pro Lauf als der Vorgänger. Besonders überraschend: GLM-5.3 hat CyberGym mit 84,5 % gewonnen (Mythos 5: 83,8 %) und seinen ExploitBench-Score mehr als verdoppelt — von 24,4 % auf 54,4 %. Das Modell hat begonnen, vollständige Exploit-Ketten selbstständig zu denken, nicht nur einzelne Schwachstellen zu identifizieren. Z.ai selbst bezeichnet diesen Cybersecurity-Sprung als unerwartet. Der Zugang läuft aktuell über den GLM Coding Plan, Open Weights folgen nach Safety-Review.
+    <img src="https://alphasignal.ai/image/1786939473569-c6ug24.png" alt="GLM-5.3" style="max-width:100%;height:auto;display:block;margin:10px 0;">
+    (AlphaSignal)
+  </li>
+  <li style="margin-bottom:16px;">
+    <strong>Alibaba Qwen: meistgeladene KI-Modellfamilie weltweit</strong><br>
+    Alibabas Open-Weight-Modellfamilie Qwen hat in den letzten sechs Monaten mehr als 3 Milliarden Downloads erreicht und damit Meta, Google und DeepSeek überholt. Über 460 Open-Source-Modelle wurden veröffentlicht, aus denen die Community mehr als 300.000 Derivate gebaut hat. Zum Vergleich: Google kommt auf 418 Mio. Downloads im Jahr, Meta auf 227 Mio. Für Entwickler ist Qwen damit zur Standardwahl geworden, wenn es ums Fine-Tuning und Deployment geht. (Techpresso)
+  </li>
+</ul>
+
+<h3 style="margin:24px 0 8px 0;font-size:17px;">🛠️ Tools &amp; Produkte</h3>
+<ul style="margin:0 0 0 0;padding-left:20px;line-height:1.7;">
+  <li style="margin-bottom:16px;">
+    <strong><a href="https://venturebeat.com/infrastructure/cursor-launches-origin-code-hosting-platform-as-github-outage-exposes-opening-in-ai-coding-race">Cursor Origin — Git-Plattform für das Agenten-Zeitalter, direkt im Editor</a></strong><br>
+    Cursor hat Origin in Beta für alle zahlenden Nutzer (Pro, Teams, Enterprise) gestartet: eine vollständige Code-Hosting-Plattform, die direkt in den Cursor-Editor eingebettet ist. Teams legen Codebases per CLI an, bekommen Pull Requests mit Timeline, Commits, Diffs, Stacked Reviews und Kommentaren — ohne den Editor zu verlassen. Review-Kommentare können direkt an einen Agenten übergeben werden, der die Änderungen on the spot pusht. Agents laufen in derselben Oberfläche, sowohl lokal als auch als Cloud-Agents im Sandbox-Modus — die weiterarbeiten, wenn der Rechner ausgeschaltet ist. Drei Integrationen stehen bereit: Vercel (Preview-Deployments auf jedem PR, Production-Deploy bei Merge), Depot und Buildkite für CI (beide laufen bestehende GitHub Actions unverändert). Wer GitHub-Repos einbindet, sieht sie neben Origin-Repos; Pushes gehen weiterhin nach GitHub, PR-Gespräche synchronisieren in beide Richtungen innerhalb von Sekunden. Cursor hatte Origin im Juni angekündigt — als Git-Forge für eine Welt, in der Agenten 22,6 Commits pro Sekunde produzieren statt Menschen Monate auf Reviews warten.
+    <img src="https://lbrzdn804nhy3kox.public.blob.vercel-storage.com/post-images/df189984-c46e-42f6-8773-e6cb3dc70fdd/d05a133b-7e40-496b-9b35-51c2e2429db0-1787032781435.png" alt="Cursor Origin" style="max-width:100%;height:auto;display:block;margin:10px 0;">
+    (Synthszr, AINews)
+  </li>
+  <li style="margin-bottom:16px;">
+    <strong>GitHub 6-stündiger Weltausfall — zeitgleich mit dem Origin-Launch</strong><br>
+    Drei Stunden nach Cursor Origin traf GitHub ein globaler Ausfall, der 6 Stunden und 42 Minuten dauerte: ~20 % Fehlerrate bei Pull Requests, Issues und der API, ~50 % bei Archive- und Raw-File-Downloads. Enterprise-SSO (SAML, OIDC, SCIM, Team Sync) und Copilot waren ausgefallen. Vercel-CEO Guillermo Rauch kommentierte öffentlich, dass sein Unternehmen durch GitHub blockiert war. Der Cursor-Mitarbeiter Matt Palmer schrieb, sie hätten früher geliefert, aber GitHub war down — die effektivste Kommunikation des Tages. Sachlich: Product-Launches werden Wochen vorab geplant, es gibt keinen Hinweis auf absichtliches Timing. GitHub hatte seit Januar jeden Monat mindestens einen Vorfall. (Synthszr, Techpresso)
+  </li>
+  <li style="margin-bottom:16px;">
+    <strong>OpenAI plant 8-Gigawatt-Rechenzentrum in Ohio</strong><br>
+    Laut AINews-Quellen hat OpenAI eine Kapazitätszusage für mehr als 4 GW NVIDIA-Kapazität abgegeben. Ein Campus in Ohio soll auf 8 GW ausgebaut werden, SB Energy baut und betreibt die Anlage, NVIDIA finanziert die ersten 4,25 GW, der Ausbau läuft bis 2032. Das Besondere: nicht nur schiere Größe, sondern vertikale Kopplung über Strom, Rechenzentren, Chips und langfristige Zugangssicherung in einem. (AINews)
+  </li>
+</ul>
+
+<h3 style="margin:24px 0 8px 0;font-size:17px;">📚 Lesestoff &amp; Essays</h3>
+<ul style="margin:0 0 0 0;padding-left:20px;line-height:1.7;">
+  <li style="margin-bottom:16px;">
+    <strong>Amazon zerstört Bücher, um KI zu trainieren — und Anthropic tat Ähnliches</strong><br>
+    Eine Untersuchung von 404 Media zeigt: Amazon kauft gedruckte Bücher in großen Mengen auf, scannt sie für das Training seiner Nova-KI-Modelle und vernichtet die Exemplare anschließend, indem Mitarbeiter die Rücken abschneiden, um schneller scannen zu können. Reporter platzierten einen AirTag in einer Sendung seltener Bücher und verfolgten ihn bis in ein Amazon-Lager in Las Vegas. Amazon ist nicht allein: Anthropic hat ein ähnliches Programm namens „Project Panama" betrieben. Ein Richter hat das Scannen als Fair Use gewertet, auch weil die Zerstörung der Druckexemplare sicherstellt, dass keine Kopien weiterverkauft werden. Das wirft grundsätzliche Fragen zur Verwertung urheberrechtlich geschützter Werke auf, auch wenn es juristisch aktuell gedeckt scheint. (Techpresso)
+  </li>
+  <li style="margin-bottom:16px;">
+    <strong><a href="https://app.alphasignal.ai/c?uid=6AbYbMGqLRNRiJc8&cid=e84519f2152d9067&lid=3tT2CgyZ9QFJv235&mid=8493bf36-abc7-4e12-b6ec-4dcd12920e05">KI-Agenten betreiben RuneScape-Server und erfinden Tauschwirtschaft neu</a></strong><br>
+    Jemand hat einen RuneScape-Server gebaut, auf dem ausschließlich KI-Agenten spielen — keine Menschen. Die Ökonomie, die sich entwickelt hat, ist bemerkenswert: Weil Bots alle Basisgüter automatisieren, werden diese so billig, dass die Spielwährung wertlos wird. Die Bots hören auf, Gold zu wollen, und handeln direkt Güter gegen Güter — spontan emergierte Tauschwirtschaft. Bei Ressourcen mit begrenzter Spawn-Rate schwärmen Bots in Massen aus, seltene Items wie Runiterz und Schwarze Drachenhäute werden zur neuen Währung, weil sie echte Mühe kosten. Das SDK ist Open Source, läuft sofort out-of-the-box und bietet ein Leaderboard nach XP pro Spielzeit. Ein reales Sandbox-Labor für Emergenz in Multi-Agenten-Systemen, Konkurrenz und Kooperation.
+    <img src="https://alphasignal.ai/image/1786939363049-l1wz6g.png" alt="AI agents RuneScape economy" style="max-width:100%;height:auto;display:block;margin:10px 0;">
+    (AlphaSignal)
+  </li>
+  <li style="margin-bottom:16px;">
+    <strong><a href="https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/">Amodei: Der KI-Gegenwind ist eine Vertrauenskrise in Institutionen — nicht in KI</a></strong><br>
+    Anthropic-CEO Dario Amodei hat in einer Reihe von X-Posts auf Kritik des Investors Gavin Baker reagiert, der auf dem All-In-Podcast argumentierte, Amodeis Risikowarnungen hätten die wachsende Ablehnung von KI und den Widerstand gegen neue Rechenzentren in den USA befeuert. Amodei widerspricht: Seine Texte seien gleichgewichtig zwischen Risiken und Chancen, er verweist auf seinen Essay „Machines of Loving Grace", den er genau geschrieben habe, weil die Branche kein inspirierendes Bild der Technologie zeichne. Die öffentliche KI-Skepsis führt er auf jahrzehntelanges Misstrauen gegenüber Konzernen, Regierungen und der Tech-Branche zurück. Die schärfste Kritik an KI-Unternehmen — einschließlich Anthropic — sei, dass die großen Versprechen bisher nicht eingelöst wurden. (Synthszr, TechCrunch)
+  </li>
+</ul>
+
+<h3 style="margin:24px 0 8px 0;font-size:17px;">⚡ Kurz notiert</h3>
+<ul style="margin:0 0 0 0;padding-left:20px;line-height:1.7;">
+  <li style="margin-bottom:10px;"><strong>USA: „Pax Silica" — Alliierte müssen zwischen US- und chinesischer KI wählen.</strong> Die USA wollen laut einem Entwurfs-Staatsbrief 35 Partnerländer dazu auffordern, sich entweder für amerikanische oder chinesische KI-Systeme zu entscheiden — beides gleichzeitig ist nicht mehr erlaubt. „Pax Silica" bietet Mitgliedern gemeinsame Investitionszusagen, droht aber Ländern mit Ausschluss, die dem chinesischen Gegenprogramm beitreten. Rund 24 Länder haben bereits unterzeichnet (Japan, Australien, Südkorea), während Kasachstan wegen kritischer Rohstoffe in beiden Lagern sitzt und Europa seine „strategische Autonomie" zu wahren versucht. (Techpresso)</li>
+  <li style="margin-bottom:10px;"><strong>Update Stripe/OpenRouter (Nachtrag zu gestern):</strong> Der Deal ist laut AINews praktisch abgeschlossen — $7 Mrd. für $140 Mio. annualisierten Umsatz bei 70 % Bruttomarge und 250 Billionen Tokens pro Monat (5× mehr als im Februar). Stripe kannte OpenRouter bereits als Kunden und hatte gemeinsam ein Token-Abrechnungssystem gebaut. (AINews)</li>
+  <li style="margin-bottom:10px;"><strong>OpenAI löst Safety-Team auf.</strong> OpenAI hat laut Synthszr das Team für katastrophale KI-Risiken aufgelöst und die Aufgaben verteilt — zeitgleich mit dem Wachstum der Kapazitätsinvestitionen. Einzelheiten zur Umstrukturierung wurden nicht kommuniziert. (Synthszr)</li>
+  <li style="margin-bottom:10px;"><strong>Hermes /loop — Agenten bekommen einen Herzschlag.</strong> Nous Research hat einen /loop-Befehl für Hermes veröffentlicht, der Prompts automatisch auf einem Schedule wiederholt — ohne Cron-Jobs. Agents können damit eigenständig periodische Aufgaben übernehmen. (AlphaSignal)</li>
+  <li style="margin-bottom:10px;"><strong>Inherent Faraday 27B schlägt Claude und GPT-5.5 bei Forschungsreplikation.</strong> Das 27B-Modell von Inherent übertrifft laut AlphaSignal größere Modelle bei der Aufgabe, Forschungspapiere zu replizieren — nicht durch mehr Parameter, sondern durch bessere Orchestrierung als „smarter orchestrator". (AlphaSignal)</li>
+  <li style="margin-bottom:10px;"><strong>Stripe in Verhandlungen für PayPal-Übernahme ($53 Mrd.).</strong> Stripe und Advent International haben nach einem gescheiterten Juli-Angebot den Preis erhöht und könnten in wenigen Wochen eine Einigung bekanntgeben — kein Aufbrechen von PayPal geplant, Venmo, Checkout und Crypto-Tools bleiben zusammen. (Techpresso)</li>
+</ul>
+
+<p style="margin-top:24px;font-size:13px;color:#888;border-top:1px solid #e5e5e5;padding-top:12px;">↳ Originale bleiben in deiner Inbox — dieser Digest fasst zusammen, ersetzt nicht.</p>
