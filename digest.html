@@ -1,0 +1,129 @@
+<h2 style="margin-top:0">🤖 AI-Digest — 21.08.2026 &nbsp;·&nbsp; 4 Ausgaben über Nacht</h2>
+<p style="font-size:1.05em;line-height:1.6">
+Heute dominieren drei große Geschichten: Anthropic bereitet sich auf das was möglicherweise der größte Börsengang der Geschichte werden könnte vor — das Unternehmen will SpaceX' $75-Milliarden-Rekord überbieten und könnte noch im August eine öffentliche S-1-Einreichung vorlegen.
+Im Hardware-Bereich liefert Cerebras die CS-4 — einen Drei-Wafer-Chip mit 30-fach schnellerer Inferenz als GPUs.
+Und Poolside AI schließt einen ungewöhnlichen $12-Milliarden-Deal mit NVIDIA: 109 Forscher wechseln zu NVIDIA, die Gründer bleiben und pivotieren — ein neuartiger „Reverse Execuhire".
+</p>
+
+<h3>🚀 Releases &amp; Modelle</h3>
+<ul style="line-height:1.7;padding-left:1.2em">
+  <li>
+    <strong><a href="https://www.cerebras.net">Cerebras CS-4: 30-fach schnellere Inferenz, drei Wafer-Scale-Chips.</a></strong>
+    Cerebras hat den CS-4 vorgestellt — aufgebaut aus drei WSE-3 Turbo Chips (Wafer-Scale Engine), liefert er 750 PFLOPS KI-Rechenleistung bei einer Speicherbandbreite von 129,6 Petabyte pro Sekunde.
+    Der Kernvorteil: bis zu 30-mal mehr Tokens pro Sekunde und Nutzer gegenüber GPU-Systemen, und 10-fach höherer Durchsatz pro Watt als der CS-3 — damit haben Agenten in derselben Zeit deutlich mehr Spielraum für Reasoning, Werkzeugaufrufe oder Verifikationsschritte.
+    Wafer-zu-Wafer-Latenz liegt bei nur 2 Mikrosekunden.
+    <img src="https://alphasignal.ai/image/1787259535772-hjzedv.png" alt="Cerebras CS-4 chip" style="max-width:100%;height:auto;display:block;margin:8px 0">
+    (AlphaSignal)
+  </li>
+  <li>
+    <strong>Update — Anthropic IPO: öffentliche S-1-Einreichung möglicherweise noch im August, Ziel: SpaceX-Rekord von $75 Mrd. übertreffen.</strong>
+    <em>(Fortsetzung zu den Finanzzahlen aus dem Digest vom 19.08.)</em>
+    Anthropic hat am 1. Juni vertraulich eine SEC-Registrierung eingereicht; nun verdichten sich Berichte, dass die <em>öffentliche</em> Einreichung schon Ende August erfolgen könnte.
+    Ziel: das IPO-Volumen von SpaceX ($75 Mrd., via Overallotment-Option $86,2 Mrd.) zu erreichen oder zu übertreffen.
+    Die zuletzt zirkulierenden Zahlen: >$11,5 Mrd. Umsatz im Q2, annualisierte Run Rate >$65 Mrd. per Ende Juli, kleiner operativer Gewinn im Q2.
+    Citigroup soll nun als viertes Haus (neben Morgan Stanley, Goldman Sachs, JPMorgan) dem Bankenkonsortium beitreten; Bewertungsfragen lässt CFO Krisha Rao in Briefings weiter offen.
+    Synthszr's nüchterner Einwand: Bis heute fehlt eine geprüfte Bilanz — das S-1 wird das erste Dokument sein, das Anthropic nicht selbst dosiert.
+    (Synthszr, <a href="https://siliconangle.com/2026/08/20/report-anthropic-hopes-to-surpass-spacexs-record-ipo-raise-when-it-finally-goes-public/">SiliconANGLE</a>)
+  </li>
+  <li>
+    <strong><a href="https://open.substack.com/pub/swyx/p/ainews-poolside-gets-12b-reverse">Poolside AI / NVIDIA: $12-Milliarden-Deal — „Reverse Execuhire", Infraco skaliert auf 7 GW.</a></strong>
+    NVIDIA lizenziert Poolside's Model Factory für $6 Mrd. und investiert weitere $1 Mrd. bei einer Pre-Money-Bewertung von $12 Mrd.; 109 der ~115 Poolside-Mitarbeiter wechseln zu NVIDIA (oder bekommen $6 Mrd. aus dem Deal).
+    Die Gründer bleiben bei Poolside — was sie als nächstes vorhaben, wollen sie noch nicht sagen; der Begriff „Reverse Execuhire" trifft es gut, weil diesmal die Gründer bleiben und die Mitarbeiter wechseln (statt umgekehrt wie bei Windsurf/Google, Character/Google usw.).
+    Hintergrund laut Gründern: Ende 2025 hatte Poolside ein sechswöchiges Fenster, um $2 Mrd. für einen 40.000-GB300-Cluster zu schließen — und verpasste es; für Frontier-Modelle nächster Generation wäre ein um eine Größenordnung größerer Cluster nötig gewesen.
+    Die separat im Januar 2026 ausgegründete Poolside Infrastructure Company (PIC) baut weiterhin ein 1,2-GW-Rechenzentrum in Texas und hat kürzlich einen neuen CEO und CFO bekommen; Beobachter erwarten einen harten Pivot Richtung Neocloud/Compute-Anbieter mit einem Skalierungsziel von 7 GW.
+    <img src="https://substackcdn.com/image/fetch/$s_!mQfw!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a668ad4-aca6-4c1c-ac78-5132b8f3d7a8_834x844.png" alt="Poolside-Gründer-Statement" style="max-width:100%;height:auto;display:block;margin:8px 0">
+    (AINews)
+  </li>
+</ul>
+
+<h3>🛠️ Tools &amp; Produkte</h3>
+<ul style="line-height:1.7;padding-left:1.2em">
+  <li>
+    <strong>Cursor: Cloud-Agenten jetzt event-getrieben — wachen ohne Nutzer-Input auf, überwachen PRs, erledigen Slack-Aufgaben und spawnen isolierte Sub-Agenten.</strong>
+    Cursor's Cloud-Agenten reagieren jetzt auf externe Ereignisse (PR-Kommentar, GitHub-Merge, Slack-Nachricht) und starten eigenständig, ohne dass man sie aktiv aufruft.
+    Sie können PRs beobachten, Code-Reviews kommentieren, Slack-Aufgaben ausführen und für komplexere Aufgaben isolierte Sub-Agenten spawnen — jeder in einer eigenen Sandbox.
+    AINews/AlphaSignal-Tenor: Die Richtung geht von „KI hilft dir coden" zu „KI deployed, während du schläfst."
+    <img src="https://alphasignal.ai/image/1787259576053-b3agpy.png" alt="Cursor cloud agents" style="max-width:100%;height:auto;display:block;margin:8px 0">
+    (AlphaSignal)
+  </li>
+  <li>
+    <strong>Slack Code: Vibe Coding direkt in Slack-Gruppenchats — Agents on demand, Human-in-the-Loop vor dem Merge.</strong>
+    Slack hat „Slack Code" eingeführt: Man tagged in einem beliebigen Channel einen Coding-Agent (z.&nbsp;B. Claude Code, Devin, GitHub Copilot), und dieser öffnet automatisch einen neuen Channel mit dem richtigen Kontext und den relevanten Leuten.
+    Das Team sieht dem Agenten bei der Arbeit zu, prüft eine HTML-Vorschau und genehmigt — für riskante Schritte (z.&nbsp;B. Merge in Production) ist menschliche Freigabe Pflicht.
+    Ist die Arbeit abgeschlossen und genehmigt, archiviert der Agent den Channel automatisch.
+    Verfügbar jetzt auf allen Slack-Plänen. (Techpresso)
+  </li>
+  <li>
+    <strong><a href="https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/">ChatGPT kann jetzt Apple Messages lesen und versenden — Plugin läuft lokal, aber dauerhafte Freigabe birgt Risiko.</a></strong>
+    OpenAI hat ein Plugin veröffentlicht, das ChatGPT Zugriff auf den Apple-Messages-Posteingang gibt: sortieren, analysieren, Antworten entwerfen und im Namen des Nutzers versenden, inklusive Löschen einzelner Nachrichten und Suche in alten Verläufen.
+    Laut OpenAI läuft das Plugin lokal auf dem Gerät und legt keinen vollständigen Index an — was das konkret bedeutet, ist noch unklar.
+    OpenAI warnt selbst ausdrücklich davor, die <em>dauerhafte</em> Freigabe zu aktivieren, weil damit die letzte menschliche Prüfung vor dem Versand entfällt.
+    Das Plugin greift auch in Codex und ChatGPT Work — im Unternehmenskontext entscheidet also die IT, nicht der einzelne Mitarbeiter.
+    (Synthszr, TechCrunch)
+  </li>
+  <li>
+    <strong>Anthropic: Domain Controls und Cost Tracking für Claude Managed Agents.</strong>
+    Anthropic hat zwei neue Steuerungsebenen für seine Managed Agents nachgezogen: Admins können jetzt Domains einschränken, auf die Agenten zugreifen dürfen, und Kosten pro Agent-Run direkt in der Console einsehen.
+    (AlphaSignal)
+  </li>
+  <li>
+    <strong>H Company: Computer-Use-Agents für Desktop &amp; Browser, integriert in Claude Code, Cursor und Hermes.</strong>
+    H Company hat Agenten vorgestellt, die sowohl im Desktop-Bereich (GUI-Steuerung) als auch im Browser operieren und sich nahtlos in bestehende Coding-Umgebungen einbetten.
+    (AlphaSignal)
+  </li>
+</ul>
+
+<h3>📚 Lesestoff &amp; Essays</h3>
+<ul style="line-height:1.7;padding-left:1.2em">
+  <li>
+    <strong>Stanford-Studie: Wie sich 10.000 LLM-Agenten-Communities auf Konsens oder Polarisierung zubewegen.</strong>
+    Stanford-Forscher haben simuliert, wie sich Communities aus bis zu 10.000 interagierenden LLM-Agenten über Zeit entwickeln: unter welchen Bedingungen sie Konsens finden und wann sie polarisieren.
+    Für alle relevant, die Multi-Agenten-Systeme, kollektive KI-Entscheidungen oder gesellschaftliche Auswirkungen von Agenten-Netzwerken im Blick haben — das Paper liefert empirische Modelle statt Spekulation.
+    (AlphaSignal)
+  </li>
+  <li>
+    <strong>Frontier-KI überzeugt Expert:innen: Modelle sind fast 3-mal besser beim Fundraising als Menschen.</strong>
+    Eine neue Studie zeigt, dass frontier AI-Modelle menschliche Experten beim Überzeugen in Eins-zu-eins-Situationen deutlich übertreffen — konkret fast dreifach bessere Erfolgsrate bei simulierten Fundraising-Gesprächen.
+    Das wirft ernste Fragen über Manipulationspotenzial in kommerziellen und politischen Kontexten auf.
+    (AlphaSignal)
+  </li>
+</ul>
+
+<h3>⚡ Kurz notiert</h3>
+<ul style="line-height:1.7;padding-left:1.2em">
+  <li>
+    <strong>OpenAI: „Private Safety Processing" erkennt Missbrauch ohne Prompts zu lesen.</strong>
+    OpenAI testet einen Dienst, der einen automatisierten Agenten mehrere Conversations gleichzeitig auf Missbrauchsmuster beobachten lässt — ohne Mitarbeiter lesen Prompts.
+    Wird ein Muster erkannt (z.&nbsp;B. jemand verteilt Malware-Anfragen über viele Sitzungen), schickt das System ein „narrowly defined signal" an OpenAI, das dann entscheidet.
+    Enterprise-Kunden können selbst entscheiden, ob sie Daten teilen. (Techpresso)
+  </li>
+  <li>
+    <strong>Marvell baut KI-Chips für Google — $12,2 Mrd. Warrant-Deal, ~$120 Mrd. Umsatz bis 2033.</strong>
+    Google erhält das Recht, Marvell-Aktien im Wert von $12,2 Mrd. zu kaufen, indem es Chip-Bestellungen platziert (alle $500 Mio. schalten neue Warrant-Tranchen frei).
+    Die Chips ergänzen Googles TPUs: Inferenz-Acceleratoren, Speicher- und Netzwerk-Controller — Marvell wird damit zweiter großer Lieferant neben Broadcom (dessen Aktie daraufhin ~5&nbsp;% fiel). (Techpresso)
+  </li>
+  <li>
+    <strong>Roboter stehen kurz vor ihrem „ChatGPT-Moment" — aber 2–10 Jahre Zeitspanne.</strong>
+    Unitree-Chef Wang Xingxing definierte auf der World Robot Conference in Peking den Durchbruch als: Roboter wird in ein unbekanntes Haus gebracht, bekommt Sprach-/Text-Befehle und erledigt 80&nbsp;% der Aufgaben ohne szenenspezifisches Training.
+    Optimistisch: 2–3 Jahre; realistisch worst-case: 5–10 Jahre.
+    Unitree selbst ist kurz nach dem Börsengang in Shanghai (Aktie +6-fach, dann –11&nbsp;% am Folgetag) — chinesische Hersteller haben bereits >40.000 Humanoide in 2026 ausgeliefert, überwiegend an Uni-/Forschungslabs. (Techpresso)
+  </li>
+  <li>
+    <strong>Ex-Meta-Ingenieur Béjar belastet Zuckerberg: Sicherheitstools wurden als optionale Einstellungen geliefert, nicht als Defaults.</strong>
+    Arturo Béjar — der 2009–2015 und 2019–2021 bei Meta an genau diesen Sicherheitsfragen arbeitete — sagte als erster Zeuge in einem Bundesbezirksgericht (Oakland) aus, dass die Unternehmenskultur unter Zuckerberg es praktisch unmöglich machte, wirksame Jugendschutzfunktionen auszuliefern.
+    Vier Bundesstaaten (CA, CO, KY, NJ) klagen, Meta bestreitet Irreführung; mögliche Strafen könnten laut Meta $1,4 Bio. erreichen. (Techpresso, Synthszr)
+  </li>
+  <li>
+    <strong>Uncensored Qwen 3.8B + BrowserCode: KI ohne Guardrails, direkt im Browser.</strong>
+    Qwen 3.8B ohne Safety-Filter wurde mit BrowserCode kombiniert — einem Browser-Agenten, der Chrome per JavaScript steuert.
+    Aufgaben in Plain English geben, Skripte werden live ausgeführt, wiederverwendbare Scripts landen in <code>.bcode/agent-workspace/</code>.
+    Installation: <code>curl -fsSL https://bcode.sh/install | bash</code>. Kein Guardrail bedeutet: volle Verantwortung beim Nutzer. (AlphaSignal)
+  </li>
+  <li>
+    <strong>Trainingsfreier Trick: Gemma3-Perplexität um 23&nbsp;% reduziert, Mathe-Genauigkeit um 21&nbsp;% gesteigert — ohne neues Training.</strong>
+    Eine neue Technik verbessert Gemma3 signifikant ohne jede Anpassung der Gewichte — reines Post-Processing/Inference-Zeit-Verfahren.
+    Lesenswert für alle, die mit kleineren Open-Source-Modellen arbeiten und Performance-Gewinne ohne Trainingskosten suchen. (AlphaSignal)
+  </li>
+</ul>
+
+<p style="color:#666;font-size:0.9em;margin-top:1.5em">↳ Originale bleiben in deiner Inbox</p>
