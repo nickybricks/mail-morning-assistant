@@ -4,6 +4,8 @@ config.json
 # Lauf-Artefakte (enthalten E-Mail-Inhalte) — nie versionieren
 fetch.json
 fetch_err.log
+digest_in.json
+digest.html
 actions.json
 actions2.json
 drafts.json
