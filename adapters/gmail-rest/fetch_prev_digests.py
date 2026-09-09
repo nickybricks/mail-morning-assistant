@@ -9,12 +9,17 @@ weiss, was er gestern schon gebracht hat. Veraendert das Postfach NICHT.
 
 Funktioniert ueber HTTPS -> auch im claude.ai-Cloud-Environment (kein IMAP).
 
-Aufruf:  python3 fetch_prev_digests.py
+Aufruf:  python3 fetch_prev_digests.py [--unread-inbox]
+Flags:
+- --unread-inbox: Nur noch ungelesene Digests zurueckgeben, die sich noch in der
+  INBOX befinden. Liefert ausserdem die message_id jedes Digests (Eingabe fuer
+  archive_old_digests.py). Ohne dieses Flag: wie bisher, alle letzten N Digests.
 ENV/Config:
 - ai_digest_label   (config.json): Label, unter dem die Digests liegen.
                     Default: "<assistant_name>/AI-Digest".
 - MAIL_PREV_DIGESTS (ENV, Default 2): wie viele vergangene Digests zurueckgeben.
 """
+import argparse
 import base64
 import email
 import json
@@ -55,6 +60,12 @@ def extract_text(msg):
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--unread-inbox", action="store_true",
+                    help="Nur noch ungelesene Digests in der INBOX zurueckgeben "
+                         "(mit message_id, Eingabe fuer archive_old_digests.py).")
+    args = ap.parse_args()
+
     cfg = load_config()
     name = cfg.get("assistant_name") or "Maily"
     label = cfg.get("ai_digest_label") or f"{name}/AI-Digest"
@@ -72,14 +83,22 @@ def main():
                          ensure_ascii=False, indent=2))
         return
 
-    # maxResults etwas groesser als count: defekte/leere Mails ueberspringen koennen.
+    # Bei --unread-inbox: nur Mails, die INBOX + UNREAD + Digest-Label haben.
+    # Ohne Flag: alle letzten N Digests (wie bisher).
+    if args.unread_inbox:
+        label_ids_filter = [label_id, "INBOX", "UNREAD"]
+        max_results = 10  # realistisches Maximum ungelesener Digests
+    else:
+        label_ids_filter = [label_id]
+        max_results = count + 3  # etwas groesser: defekte Mails ueberspringen
+
     resp = api("GET", "/messages", token,
-               params={"labelIds": [label_id], "maxResults": count + 3})
+               params={"labelIds": label_ids_filter, "maxResults": max_results})
     ids = [m["id"] for m in resp.get("messages", [])]
 
     digests = []
     for mid in ids:
-        if len(digests) >= count:
+        if not args.unread_inbox and len(digests) >= count:
             break
         try:
             r = api("GET", f"/messages/{mid}", token, params={"format": "raw"})
@@ -94,11 +113,19 @@ def main():
         text = extract_text(msg)
         if not text:
             continue
-        digests.append({
+        entry = {
             "subject": msg.get("Subject"),
             "date": date,
             "text": text,
-        })
+        }
+        if args.unread_inbox:
+            entry["message_id"] = mid
+        digests.append(entry)
+
+    # Bei --unread-inbox: aelteste zuerst (chronologisch aufsteigend), damit der
+    # Inhalt in der richtigen Zeitreihenfolge ins neue Digest eingebaut werden kann.
+    if args.unread_inbox:
+        digests.sort(key=lambda d: d.get("date") or "")
 
     print(json.dumps({"count": len(digests), "label": label, "digests": digests},
                      ensure_ascii=False, indent=2))

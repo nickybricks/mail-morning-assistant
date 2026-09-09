@@ -125,7 +125,23 @@ Regeln zum Schema:
 - **Inhalt frisch:** Inhalte **aller** Ausgaben im Zeitfenster querlesen,
   Doppelungen über mehrere Newsletter zusammenführen (ein Thema = ein Bullet).
   Keine festen Floskeln.
-- **Nicht wiederholen, was gestern schon drinstand (Entdopplung über Tage).**
+- **Ungelesene alte Digests einbauen und archivieren.** Bevor der neue Digest
+  geschrieben wird:
+  1. `python3 adapters/gmail-rest/fetch_prev_digests.py --unread-inbox > unread_digests.json`
+     ausführen. Gibt alle noch ungelesenen Digests zurück, die sich noch in der
+     Inbox befinden.
+  2. Sind `count > 0` Einträge darin: Ihren Inhalt **vollständig** in den neuen
+     Digest einarbeiten (in die passenden Abschnitte einordnen, nicht als eigenen
+     Block anhängen). Der neue Digest soll alles enthalten, was der Nutzer noch
+     nicht gelesen hat — er soll nie durch alte Mails scrollen müssen.
+  3. **Nach dem Zustellen** des neuen Digests: alte Digests archivieren, damit
+     sie nicht weiter in der Inbox angezeigt werden:
+     `python3 adapters/gmail-rest/archive_old_digests.py unread_digests.json`
+     (Entfernt nur das INBOX-Label; Mails bleiben im `<assistant_name>/AI-Digest`-Label.)
+  4. Im Digest-Header „N Ausgaben über Nacht" um „+ Nachhol-Digests vom
+     {Datum}, {Datum}" ergänzen, damit der Nutzer sieht, was alles eingeflossen ist.
+
+- **Nicht wiederholen, was in bereits gelesenen Digests stand (Entdopplung über Tage).**
   Newsletter kauen dieselbe Meldung tagelang durch (z. B. „Meta baut
   Prediction-Markets-App", „Claude in Slack"). Vor dem Schreiben die **letzten
   Digests aus dem eigenen Postfach** zurücklesen (`fetch_prev_digests.py`, holt
@@ -135,6 +151,9 @@ Regeln zum Schema:
   das Neue als kurzes Update bringen und kurz anschreiben, woran es anknüpft
   („Update zu Claude-in-Slack: jetzt …"), nicht die ganze Meldung neu erzählen.
   Im Zweifel: lieber weglassen als doppeln.
+  **Ausnahme:** Inhalte aus ungelesenen alten Digests (Schritt oben) sind noch
+  nicht beim Nutzer angekommen — diese zählen nicht als „schon dringestanden" und
+  müssen vollständig übernommen werden.
 - **Quelle pro Punkt** in Klammern am Ende: „(AlphaSignal)", „(Techpresso, swyx)".
 - **Links mitnehmen, damit man folgen kann.** Der `body_excerpt` enthält die
   Original-Links als `[text](url)` und Bilder als `![alt](url)`. Die Digest-Mail
