@@ -48,6 +48,41 @@ Getestet und bestätigt am 09.09.2026.
 
 ---
 
+## Lernen: Maily schlägt vor, Nick entscheidet
+
+Maily schreibt sich **niemals selbst** Regeln. Ein automatischer Lauf committet
+nicht — er hat keinen Menschen, der gegenliest, und eine falsch gezogene Regel
+würde ab dann bei jedem Lauf gelten.
+
+Stattdessen **schlägt** Maily Regeln vor, im Briefing unter „💡 Vorschläge"
+(Format siehe `core/briefing.md`). Nick sagt im Chat ja oder nein:
+
+- **Ja** → die Regel kommt in diese Datei, wird committet und gilt ab dem
+  nächsten Lauf. Zeile ins Änderungsprotokoll.
+- **Nein** → Zeile unter „Abgelehnte Vorschläge". **Nicht erneut vorschlagen.**
+
+### Wann ein Vorschlag sinnvoll ist
+Nur bei echtem, wiederkehrendem Signal aus **diesem** Lauf — nicht bei
+Einzelfällen, nicht als Pflichtübung:
+
+- Mehrere Mails desselben Absenders landen in `Unklar`.
+- Ein Absender passt erkennbar schlecht in sein Label (z. B. ein Newsletter, den
+  Nick liest, unter `Werbung`).
+- Eine Mehrdeutigkeits-Regel greift wiederholt nicht sauber
+  (z. B. ImmoScout Gewerbe vs. Wohnung).
+- Ein `!Now` ohne Entwurf, bei dem eine Antwort offensichtlich nötig gewesen wäre
+  — oder umgekehrt ein überflüssiger Entwurf.
+
+**Maximal 3 Vorschläge pro Lauf.** Gibt es nichts, entfällt der Abschnitt
+komplett — kein „heute nichts". Ein Block, der jeden Tag erscheint, wird
+überlesen.
+
+### Abgelehnte Vorschläge (nicht erneut vorschlagen)
+
+_(noch keine)_
+
+---
+
 ## Änderungsprotokoll
 
 | Datum | Regel | Anlass |
