@@ -210,6 +210,40 @@ Markierung im Briefing, z. B.:
 ```
 Verdächtige Mails werden **nie** automatisch verschoben oder gelöscht.
 
+## 💡 Vorschläge — optionaler Block vor dem Kosten-Footer
+
+Maily schreibt sich nie selbst Regeln, aber er **schlägt** welche vor. Fällt in
+einem Lauf ein wiederkehrendes Muster auf, kommt **direkt vor dem Kosten-Footer**
+ein kurzer Block. Der Nutzer antwortet im Chat; erst dann wird die Regel in
+`memory/preferences.md` festgeschrieben.
+
+Wann etwas vorgeschlagen wird, wie viele Vorschläge erlaubt sind und welche
+bereits abgelehnt wurden: **`memory/preferences.md`, Abschnitt „Lernen"** —
+dort steht die verbindliche Fassung.
+
+Format — pro Vorschlag **Beobachtung mit Zahl**, dann die konkrete Regel:
+
+```
+────────────────────────────────────────
+💡 VORSCHLÄGE
+────────────────────────────────────────
+
+3 Mails von ImmoScout landeten heute in Unklar — alle betrafen Ladenflächen.
+→ Regel: „ImmoScout mit Gewerbe/Ladenfläche im Betreff → Maily/Arbeit/Fynd"?
+
+Sag mir im Chat Ja oder Nein — dann merke ich es mir dauerhaft.
+```
+
+Regeln für den Block:
+- **Nur bei echtem Signal.** Gibt es nichts, **entfällt der Block komplett** —
+  kein „heute keine Vorschläge". Ein Block, der täglich erscheint, wird überlesen.
+- **Beobachtung zuerst, mit Zahl** („3 Mails von …"), damit der Vorschlag
+  nachvollziehbar ist und nicht wie eine Laune wirkt.
+- **Die Regel konkret formulieren**, so wie sie später in `preferences.md`
+  stünde — nicht vage („soll ich ImmoScout anders behandeln?").
+- **Nie etwas erneut vorschlagen**, das unter „Abgelehnte Vorschläge" steht.
+- Der Block ersetzt **keine** 🔴-Mail. Was eine Aktion braucht, gehört nach oben.
+
 ## Kosten-Footer (Pflicht)
 
 Jedes Briefing endet mit einer Kostenzeile — schafft Budget-Transparenz und macht

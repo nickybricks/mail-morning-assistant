@@ -10,7 +10,8 @@ drafts.json
 briefing.txt
 voice/samples.md
 senders.md
-memory/
+memory/*
+!memory/preferences.md
 runs/*
 !runs/.gitkeep
 

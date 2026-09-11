@@ -3,6 +3,17 @@
 Dieser Ordner **ist** ein persönlicher Morgen-Mail-Assistent. Wird er als
 Arbeitsverzeichnis in Claude Code geöffnet, gilt:
 
+> ## ⚠️ ZUERST: `memory/preferences.md` lesen
+>
+> **Vor jedem Lauf** — interaktiv wie automatisch/geplant — zuerst
+> **`memory/preferences.md`** lesen und **allen Regeln darin folgen**.
+>
+> Das ist Nicks gewachsenes Regelbuch aus seinem Feedback nach früheren Läufen.
+> Die Regeln dort **ergänzen und überschreiben** die Standard-Anleitungen in
+> `SKILL.md` und `core/*.md` sowie die Schrittliste eines geplanten Prompts.
+> Ein Lauf, der diese Datei nicht gelesen hat, wiederholt bereits korrigierte
+> Fehler — das ist der häufigste Weg, Nick zu enttäuschen.
+
 **Beim ersten Hinweis vom Nutzer** — „Start", „los", „mach meine Mails",
 „Morgen-Briefing", „richte mich ein" oder Ähnliches (auch ein bloßes „hi") —:
 
@@ -25,6 +36,10 @@ Passwörter in Dateien.
 
 **Persönliche Daten** (`config.json`, `voice/samples.md`, `senders.md`, `memory/`,
 `runs/`) bleiben lokal in diesem Ordner und werden nie geteilt/versioniert.
+**Eine Ausnahme:** `memory/preferences.md` ist bewusst versioniert — nur so
+überlebt Nicks Regelbuch einen Cloud-Lauf (frischer Clone pro Session). Deshalb
+gehören dort **nur Regeln** hinein, **niemals** Mail-Inhalte, Absenderdaten
+oder Zugangsdaten.
 
 ## Wenn der Nutzer „automatisch / auch wenn der Rechner aus ist" will
 
