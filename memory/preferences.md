@@ -7,6 +7,16 @@
 
 ---
 
+## Bekannte Personen
+
+### Jessica Algner — Nicks Mutter
+Jessica Algner ist Nicks Mutter. In Entwürfen an sie:
+- Anrede **„Liebe Mami,"**
+- Sprache: **Deutsch**, Du-Form
+- Gruß: **„Liebe Grüße"** + „Nick"
+
+---
+
 ## Entwürfe
 
 ### Sie vs. Du — Förmlichkeit spiegeln
@@ -23,6 +33,16 @@ Förmlichkeit der Eingangsmail übernehmen.
 
 Unverändert gültig: nie „LG" abkürzen, immer „Liebe Grüße" ausschreiben.
 Signatur immer ans Ende.
+
+---
+
+## Klassifikation
+
+### FOMO Berlin — kein Spam
+FOMO Berlin (Absender: `fomo-*@mail.beehiiv.com` o. Ä.) ist ein legitimer
+Event-Newsletter, den Nick liest. Wird er vom Spam-Filter erwischt, ist das ein
+**False Positive** — im Briefing als solches vermerken, **nicht** als Phishing
+behandeln. Label: **`Maily/Aktivität/Events`**.
 
 ---
 
@@ -89,3 +109,5 @@ _(noch keine)_
 |-------|-------|--------|
 | 2026-09-09 | Sie/Du spiegeln statt pauschal duzen | Ein Entwurf an einen förmlichen Absender wurde fälschlich geduzt |
 | 2026-09-09 | Alte Briefings archivieren, AI-Digest ausgenommen | Briefings vom 07. und 08.09. stapelten sich im Posteingang |
+| 2026-09-15 | Jessica Algner = Nicks Mutter → Anrede „Liebe Mami," auf Deutsch | Nick hat es im Chat korrigiert |
+| 2026-09-15 | FOMO Berlin ist kein Spam → Maily/Aktivität/Events | Nick hat es im Chat bestätigt |
