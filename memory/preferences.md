@@ -24,6 +24,28 @@ Förmlichkeit der Eingangsmail übernehmen.
 Unverändert gültig: nie „LG" abkürzen, immer „Liebe Grüße" ausschreiben.
 Signatur immer ans Ende.
 
+### Kein Entwurf, wenn Nick schon geantwortet hat
+Liegt im Thread nach der Eingangsmail schon eine von Nick **gesendete** Antwort,
+wird **kein** neuer Entwurf angelegt. `create_drafts.py` prüft das selbst
+(gesendete Mail im Thread → übersprungen). Im Briefing solche Mails nicht als
+offen darstellen.
+
+---
+
+## Sortieren
+
+### Wichtiges bleibt in der Inbox — unangetastet
+Mails, auf die Nick **antworten** muss oder die **wichtig oder interessant**
+sind, bekommen `now: true` und bleiben **ohne Label** im Posteingang. Nicht
+wegsortieren, kein `!Now`-Label — Nick will sie direkt in der Inbox sehen, nicht
+extra unter `!Now` suchen. `apply_actions.py` lässt `now`-Mails deshalb komplett
+unberührt.
+
+### Guillermo Flor bleibt in der Inbox
+Substack-Mails von bzw. über **Guillermo Flor** (z. B. „Guillermo Flor posted
+new notes") liest Nick gern → `now: true`, in der Inbox lassen, **nicht** nach
+`Maily/Aktivität/Social` sortieren.
+
 ---
 
 ## Briefings
@@ -89,3 +111,6 @@ _(noch keine)_
 |-------|-------|--------|
 | 2026-09-09 | Sie/Du spiegeln statt pauschal duzen | Ein Entwurf an einen förmlichen Absender wurde fälschlich geduzt |
 | 2026-09-09 | Alte Briefings archivieren, AI-Digest ausgenommen | Briefings vom 07. und 08.09. stapelten sich im Posteingang |
+| 2026-09-25 | Kein Entwurf, wenn Nick im Thread schon geantwortet hat | Ein, zwei überflüssige Entwürfe zu bereits beantworteten Mails |
+| 2026-09-25 | now-Mails (Antwort nötig / wichtig / interessant) bleiben ohne Label in der Inbox | Nick musste sie unter `!Now` suchen |
+| 2026-09-25 | Guillermo Flor (Substack) bleibt in der Inbox | Wurde nach Social wegsortiert, Nick liest ihn gern |
