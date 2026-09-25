@@ -124,7 +124,12 @@ def main():
             result["skipped"].append({"id": mid, "thread_id": thread_id,
                                       "reason": "Entwurf existiert bereits in diesem Thread"})
             continue
-        if already_replied(token, thread_id, int(meta.get("internalDate", 0))):
+        try:
+            replied = already_replied(token, thread_id, int(meta.get("internalDate", 0)))
+        except SystemExit as e:
+            result["errors"].append({"id": mid, "error": str(e)})
+            continue
+        if replied:
             result["skipped"].append({"id": mid, "thread_id": thread_id,
                                       "reason": "Nick hat im Thread bereits geantwortet"})
             continue

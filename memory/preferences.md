@@ -92,7 +92,7 @@ Einzelfällen, nicht als Pflichtübung:
   Nick liest, unter `Werbung`).
 - Eine Mehrdeutigkeits-Regel greift wiederholt nicht sauber
   (z. B. ImmoScout Gewerbe vs. Wohnung).
-- Ein `!Now` ohne Entwurf, bei dem eine Antwort offensichtlich nötig gewesen wäre
+- Eine `now`-Mail ohne Entwurf, bei dem eine Antwort offensichtlich nötig gewesen wäre
   — oder umgekehrt ein überflüssiger Entwurf.
 
 **Maximal 3 Vorschläge pro Lauf.** Gibt es nichts, entfällt der Abschnitt
