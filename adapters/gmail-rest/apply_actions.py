@@ -13,7 +13,7 @@ nur Heim-Ordner + ob Aktion nötig; die INBOX-/Archiv-Logik steckt HIER (eine St
 
 Regeln (konservativ, weil unbeaufsichtigt):
 - Jede Mail bekommt GENAU EIN Heim-Label (muss mit "<assistant_name>/" beginnen).
-- `now: true`  -> zusätzlich <Name>/!Now, Mail BLEIBT in der INBOX (nicht archiviert).
+- `now: true`  -> Mail wird NICHT angefasst: kein Label, bleibt in der INBOX.
 - Label == <Name>/Unklar -> Mail bleibt in der INBOX (Fallback, Nutzer sieht sie).
 - sonst -> Mail wird archiviert (Label INBOX entfernt).
 
@@ -44,7 +44,6 @@ def main():
     cfg = load_config()
     name = cfg.get("assistant_name") or "Mail"
     prefix = f"{name}/"
-    now_label_name = f"{name}/!Now"
 
     data = json.loads(Path(args.actions).read_text(encoding="utf-8"))
     actions = data.get("actions", data) if isinstance(data, dict) else data
@@ -53,15 +52,12 @@ def main():
 
     token = access_token(cfg["email"])
 
-    # Label-Namen -> IDs einmal auflösen (Cache), inkl. !Now.
     label_cache = {}
 
     def label_id(label_name):
         if label_name not in label_cache:
             label_cache[label_name] = resolve_label(token, label_name, create=False)
         return label_cache[label_name]
-
-    now_id = label_id(now_label_name)
 
     result = {"dry_run": args.dry_run, "applied": 0, "skipped": [], "errors": []}
 
@@ -84,14 +80,17 @@ def main():
                                       "reason": "Label existiert nicht (kein Anlegen im Auto-Lauf)"})
             continue
 
+        # Nicks Regel: now-Mails bleiben unangetastet in der INBOX, ohne Label —
+        # er will sie dort sehen, nicht unter !Now suchen.
+        if needs_now:
+            result["applied"] += 1
+            result.setdefault("left_in_inbox", []).append(mid)
+            continue
+
         is_unklar = label == f"{name}/Unklar"
         add = [lid]
         remove = []
-        if needs_now and not is_unklar:
-            if now_id:
-                add.append(now_id)
-            keep_inbox = True
-        elif is_unklar:
+        if is_unklar:
             keep_inbox = True
         else:
             keep_inbox = False

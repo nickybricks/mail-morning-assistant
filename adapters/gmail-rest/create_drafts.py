@@ -15,6 +15,9 @@ Das Skript kümmert sich um das Threading (Modell liefert nur den Text):
 - In-Reply-To / References = für saubere Thread-Einordnung.
 - threadId = Thread der Originalmail (Draft erscheint im selben Verlauf).
 
+Übersprungen wird, wenn im Thread schon ein Entwurf liegt oder Nick nach der
+Originalmail bereits geantwortet hat (gesendete Mail im Thread).
+
 Antwortet nur an den Absender (kein Reply-All) — CC fügt der Nutzer bei Bedarf hinzu.
 
     python3 create_drafts.py <drafts.json> [--dry-run]
@@ -52,6 +55,15 @@ def existing_draft_threads(token):
         page = resp.get("nextPageToken")
         if not page:
             return threads
+
+
+def already_replied(token, thread_id, orig_internal_date):
+    """True, wenn im Thread nach der Originalmail schon eine gesendete Mail liegt."""
+    thread = api("GET", f"/threads/{thread_id}", token, params={"format": "minimal"})
+    for m in thread.get("messages", []):
+        if "SENT" in m.get("labelIds", []) and int(m.get("internalDate", 0)) > orig_internal_date:
+            return True
+    return False
 
 
 def build_reply_raw(cfg, orig_headers, body):
@@ -111,6 +123,15 @@ def main():
         if thread_id in seen_threads:
             result["skipped"].append({"id": mid, "thread_id": thread_id,
                                       "reason": "Entwurf existiert bereits in diesem Thread"})
+            continue
+        try:
+            replied = already_replied(token, thread_id, int(meta.get("internalDate", 0)))
+        except SystemExit as e:
+            result["errors"].append({"id": mid, "error": str(e)})
+            continue
+        if replied:
+            result["skipped"].append({"id": mid, "thread_id": thread_id,
+                                      "reason": "Nick hat im Thread bereits geantwortet"})
             continue
         raw, to, subj = build_reply_raw(cfg, header_map(meta), body)
 
