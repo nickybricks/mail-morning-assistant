@@ -8,6 +8,10 @@ actions.json
 actions2.json
 drafts.json
 briefing.txt
+digest_in.json
+digest.html
+digest_fetch_err.txt
+deliver_err.txt
 voice/samples.md
 senders.md
 memory/*
