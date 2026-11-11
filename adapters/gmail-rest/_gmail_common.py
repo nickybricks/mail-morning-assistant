@@ -123,6 +123,11 @@ def api(method: str, path: str, token: str, params: dict | None = None,
                 time.sleep(2 ** attempt)
                 continue
             detail = e.read().decode(errors="replace")
+            # 403 rateLimitExceeded is a transient quota error — retry like 429
+            if e.code == 403 and "rateLimitExceeded" in detail:
+                last_err = e
+                time.sleep(2 ** attempt)
+                continue
             raise SystemExit(f"Gmail API {method} {path} → HTTP {e.code}: {detail}")
     raise SystemExit(f"Gmail API {method} {path} → wiederholt fehlgeschlagen: {last_err}")
 
