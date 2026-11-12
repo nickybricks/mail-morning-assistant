@@ -1,0 +1,60 @@
+<h2 style="margin:0 0 4px 0;font-size:1.1em;color:#555;">🤖 AI-Digest &mdash; 12.11.2026 &nbsp;&middot;&nbsp; 3 Ausgaben über Nacht</h2>
+<p style="font-size:0.85em;color:#888;margin:0 0 20px 0;">Techpresso &nbsp;&middot;&nbsp; AlphaSignal &nbsp;&middot;&nbsp; Synthszr</p>
+
+<p style="margin:0 0 20px 0;">Drei Themen dominieren heute: Anthropic bringt <strong>Claude Meetings</strong> live und ergänzt damit die gestrige Workspace-Ankündigung um ein vollständiges Meeting-Tool, das als sichtbarer KI-Teilnehmer in Google Meet agiert. Google macht <strong>Gemini 4 Carbon</strong> allgemein verfügbar &mdash; ein Security-Flagship mit formalem Beweis für das Signal-Protokoll bei Argon-Preis. Dazu meldet OpenAI seinen ersten 10-Milliarden-Dollar-Quartalsumsatz bei gleichzeitig rekordhohem Verlust, und ein Sicherheitsforscher deckt ein massives Datenleck bei Grok Build auf.</p>
+
+<h3 style="border-bottom:2px solid #e0e0e0;padding-bottom:4px;margin:24px 0 10px 0;">🚀 Releases &amp; Modelle</h3>
+<ul style="margin:0;padding-left:20px;line-height:1.6;">
+  <li style="margin-bottom:14px;">
+    <strong>Google Gemini 4 Carbon ist allgemein verfügbar</strong> &mdash; Google hat sein Security-Flagship Gemini 4 Carbon veröffentlicht. Carbon <em>ergänzt</em> Gemini 4 Argon (ersetzt es nicht) und ist auf Multi-Package-Migrationen, Cross-Subsystem-Debugging und lange agentische Workflows ausgelegt, wo es mehr Tokens verbraucht, aber gründlicher reasoning betreibt. Preis: <strong>$2 / 1M Eingabe-Token, $10 / 1M Ausgabe-Token</strong> &mdash; auf Augenhöhe mit Argon. Im internen Project-Fortify-Testsystem erreicht Carbon 100 % Recall beim Scannen und 95 % Precision beim Triagen von Sicherheitslücken. Googles Cloud Vulnerability Research Team hat mit Carbon zwei kritische, exploitierbare Lücken in einem populären Open-Source-Projekt bestätigt (noch kein Disclosure). Neu: <strong>/swarm-Preview in Antigravity</strong> (Googles Claude-Code-Pendant) lässt Carbon als Architekt ein Schwarm leichterer Agenten koordinieren &mdash; Google äußert sich allerdings nicht dazu, wie Kontext und Konflikte zwischen den Agenten behandelt werden. Carbon war zuvor nur für ausgewählte Defender im Fairwind-Programm verfügbar.
+    (<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/">Google Blog</a>, <a href="https://venturebeat.com/technology/google-gemini-4-carbon-is-now-publicly-available-and-it-undercuts-claude-fable-5-2-and-opus-5-5-on-api-price">VentureBeat</a>, Synthszr)
+  </li>
+  <li style="margin-bottom:14px;">
+    <strong>Alibaba Qwen4-Max Preview &mdash; stärkeres Coding und agentische Fähigkeiten</strong> &mdash; Alibaba hat eine Vorschau auf Qwen4-Max gezeigt. Das Modell soll Vorgänger bei Coding-Benchmarks und agentenbasierten Aufgaben deutlich übertreffen. Details zu Preisen, Parameterzahl und Release-Datum wurden noch nicht genannt.
+    (AlphaSignal)
+  </li>
+  <li style="margin-bottom:14px;">
+    <strong>Weight-edited Qwen 27B: 27–54 % weniger Denken, trotzdem bessere Benchmarks</strong> &mdash; Ein neues Forschungsprojekt zeigt, dass ein durch Weight-Editing modifiziertes Qwen-27B-Modell auf anspruchsvollen Benchmarks <em>besser</em> abschneidet als das Originalmodell, obwohl es 27–54 % weniger Reasoning-Tokens produziert. Das deutet auf erhebliche Redundanz im aktuellen Chain-of-Thought-Prozess größerer Modelle hin.
+    (AlphaSignal)
+  </li>
+</ul>
+
+<h3 style="border-bottom:2px solid #e0e0e0;padding-bottom:4px;margin:24px 0 10px 0;">🛠️ Tools &amp; Produkte</h3>
+<ul style="margin:0;padding-left:20px;line-height:1.6;">
+  <li style="margin-bottom:14px;">
+    <strong>Claude Meetings: KI-Teilnehmer direkt im Google-Meet-Call</strong> &mdash; Das ist die Ergänzung zur gestrigen Workspace-Ankündigung, die noch fehlte: Claude Meetings startet heute in Beta für Team- und Enterprise-Kunden. Claude tritt als <em>sichtbarer</em> Teilnehmer dem Call bei, identifiziert sich im Chat und verfolgt aktiv das Gespräch. Live im Meeting baut Claude Timelines auf einem gemeinsamen Whiteboard, zieht Jahreszahlen und andere Infos aus verbundenen Workspace-Apps und beantwortet Fragen im Meeting-Chat. Nach dem Call gibt es Notizen und Action Items in claude.ai. Für Calls mit externen Gästen braucht es Admin-Genehmigung; sobald ein externer Gast beitritt, verlässt Claude automatisch den Call. Anthropic testet das Feature intern seit ca. zwei Monaten &mdash; laut Head of Product Nicholas Lin sitzt Claude inzwischen in fast allen internen Meetings. Aktuell nur Google Meet; weitere Plattformen folgen.
+    <br><a href="https://www.theinformation.com/briefings/anthropic-launches-new-workplace-software-sending-microsoft-shares-tanking">The Information</a> &middot; <a href="https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/">TechCrunch</a> &middot; <a href="https://www.theverge.com/ai-artificial-intelligence/1030709/anthropic-has-its-own-ai-powered-office-suite-now">The Verge</a> &middot; <a href="https://www.axios.com/2026/11/10/anthropic-claude-meetings-knowledge-work">Axios</a> (Synthszr, Techpresso)
+    <br><img src="https://lbrzdn804nhy3kox.public.blob.vercel-storage.com/post-images/d0b6a171-b36f-453e-a6bd-9cf06955eedd/83585591-259a-48d0-85b5-bdd0e0853b70-cover-email.png" alt="Claude Office Suite Launch" style="max-width:100%;height:auto;margin-top:8px;border-radius:4px;">
+  </li>
+  <li style="margin-bottom:14px;">
+    <strong>OpenAI Business Hub: Unternehmen übernehmen ihre ChatGPT-Profile</strong> &mdash; OpenAI startet eine Beta-Funktion namens Business Hub: Firmen können ihr ChatGPT-Profil beanspruchen, Produktkataloge mit Preisen und Verfügbarkeit hinterlegen und aggregierte Daten zu Erwähnungen, Views und Website-Klicks einsehen. Ein separates Tool <em>Business Agents</em> erlaubt es, in ChatGPT direkt mit einem firmenspezifischen Agent zu chatten; Firmen können diesen durch ChatGPT-Ads sponsern. Rollout startet bei US-amerikanischen E-Commerce- und Online-Service-Unternehmen. OpenAI teilt keine Konversationsinhalte mit den Firmen.
+    (Techpresso, AlphaSignal)
+  </li>
+  <li style="margin-bottom:14px;">
+    <strong>Google Fi super network: Pixel 9 wechselt Carrier automatisch per eSIM</strong> &mdash; Google Fi hat ein "Super Network"-Feature gestartet, das Pixel-9-Geräte (und neuer) bei langsamer Verbindung selbständig zwischen zwei Netzanbietern umschaltet &mdash; ohne Nutzereingriff. Kostenlos für Unlimited-Premium- und Flexible-Plan-Kunden, verfügbar in über 200 Ländern. Neu dabei: Wi-Fi Auto-Connect+ und ein KI-gestützter "Ask Fi"-Support-Agent. Die beteiligten Carrier nennt Google nicht.
+    (Techpresso)
+  </li>
+</ul>
+
+<h3 style="border-bottom:2px solid #e0e0e0;padding-bottom:4px;margin:24px 0 10px 0;">📚 Lesestoff &amp; Essays</h3>
+<ul style="margin:0;padding-left:20px;line-height:1.6;">
+  <li style="margin-bottom:14px;">
+    <strong>Kinference: Open-Source-Inference-Serving für Platform-Teams</strong> &mdash; Buoyant.io (bekannt von Linkerd) hat Kinference als Open-Source-Framework für Inference-Serving veröffentlicht, das Platform-Teams ermöglichen soll, LLM-Inferenz zu betreiben, zu skalieren und zu optimieren, ohne sich an proprietäre Cloud-APIs zu binden. Konkrete Benchmarks sind noch ausstehend. Besonders relevant für Teams, die mehrere Modelle hinter einer gemeinsamen Infrastruktur konsolidieren wollen.
+    (AlphaSignal)
+  </li>
+  <li style="margin-bottom:14px;">
+    <strong>Open-Source-Rust-Browser: 85 ms Ladezeit, kein Node.js, schlägt Puppeteer</strong> &mdash; Ein neues Open-Source-Projekt hat einen browserbasierten Web-Client in Rust gebaut, der Seiten in 85 Millisekunden lädt &mdash; laut eigenen Benchmarks schneller als Puppeteer und ohne Node.js-Abhängigkeit. Besonders interessant für AI-Agenten und automatisierte Datenerfassung, die Live-Webinhalte brauchen.
+    (AlphaSignal)
+  </li>
+</ul>
+
+<h3 style="border-bottom:2px solid #e0e0e0;padding-bottom:4px;margin:24px 0 10px 0;">⚡ Kurz notiert</h3>
+<ul style="margin:0;padding-left:20px;line-height:1.6;">
+  <li style="margin-bottom:10px;"><strong>Apple schließt Support Community am 20. November</strong> &mdash; Apples 1998 gestartetes Nutzerforum ("Apple Discussions") geht am 20. November dauerhaft offline. Apple verweist auf die offizielle Support-Seite. Die Community-Threads erschienen bisher oft unter den Top-Treffern bei Reparatur- und How-to-Suchen. (Techpresso)</li>
+  <li style="margin-bottom:10px;"><strong>OpenAI: erstmals $10 Mrd. Quartalsumsatz &mdash; operativer Verlust $10,9 Mrd.</strong> &mdash; OpenAI erzielte im Quartal bis September zum ersten Mal 10 Milliarden Dollar Umsatz (+50 % ggü. Q2, 3× Vorjahr). Der operative Verlust weitete sich auf 10,9 Mrd. Dollar aus. Annualisierter Umsatz laut Eigenangabe ~50 Mrd. $ (die oft zitierte 68-Mrd.-Zahl schloss Partnerumsätze ein). Aktuelle Finanzierungsrunde bei Bewertung von 1,25 Billionen Dollar. (Techpresso)</li>
+  <li style="margin-bottom:10px;"><strong>Grok Build: Datenleck &mdash; tausende private App-Projekte öffentlich einsehbar</strong> &mdash; Sicherheitsfirma Claroc hat entdeckt, dass Grok Build (Vibe-Coding-Agent von SpaceXSI) private App-Daten über Teilen-Links preisgibt. Ein Design-Fehler erlaubt das Auflisten tausender laufender Projekte &mdash; darunter Businesspläne, Krankenakten und interne Firmenunterlagen. Betroffen waren auch 24 Apps von SpaceXSI selbst (Onboarding-Pläne, Kundenkarten mit 594 Accounts, interne Tool-Adressen). xAI hat noch nicht reagiert. (Techpresso)</li>
+  <li style="margin-bottom:10px;"><strong>Open-Source-MCP-Server zur Smart-Home-Steuerung durch Claude und ChatGPT</strong> &mdash; Ein neues Open-Source-Projekt veröffentlicht einen MCP-Server, der KI-Assistenten wie Claude und ChatGPT die direkte Steuerung von Smart-Home-Geräten ermöglicht. (AlphaSignal)</li>
+  <li style="margin-bottom:10px;"><strong>Neuer Clustering-Algorithmus: 45× GPU-Speedup gegenüber k-Means</strong> &mdash; Ein neu veröffentlichter Clustering-Algorithmus übertrifft k-Means und ist dabei laut Benchmarks bis zu 45-mal schneller auf GPU-Hardware. Relevant für unüberwachtes Lernen und Segmentierungsaufgaben in KI-Pipelines. (AlphaSignal)</li>
+</ul>
+
+<p style="margin:24px 0 0 0;font-size:0.9em;color:#888;">&darr; Originale bleiben in deiner Inbox</p>
