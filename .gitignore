@@ -6,6 +6,7 @@ fetch.json
 fetch_err.log
 actions.json
 actions2.json
+archive_old_briefing.json
 drafts.json
 briefing.txt
 voice/samples.md

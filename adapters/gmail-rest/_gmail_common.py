@@ -122,6 +122,13 @@ def api(method: str, path: str, token: str, params: dict | None = None,
                 last_err = e
                 time.sleep(2 ** attempt)
                 continue
+            if e.code == 403:
+                detail = e.read().decode(errors="replace")
+                if "rateLimitExceeded" in detail or "RATE_LIMIT_EXCEEDED" in detail:
+                    last_err = e
+                    time.sleep(2 ** attempt + 10)
+                    continue
+                raise SystemExit(f"Gmail API {method} {path} → HTTP {e.code}: {detail}")
             detail = e.read().decode(errors="replace")
             raise SystemExit(f"Gmail API {method} {path} → HTTP {e.code}: {detail}")
     raise SystemExit(f"Gmail API {method} {path} → wiederholt fehlgeschlagen: {last_err}")
